@@ -1,0 +1,4 @@
+This package contains the proprietary NVIDIA drivers, without the kernel
+modules, packaged correctly to be used with bumblebee. Please note, the
+drivers in this package are packaged for bumblebee. Unless this package
+is being used with bumblebee it will not be of much use.

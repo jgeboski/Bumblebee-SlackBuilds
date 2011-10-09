@@ -1,0 +1,11 @@
+Bumblebee aims to provide support for nVidia Optimus laptops for
+GNU/Linux distributions. Using Bumblebee, you can use your nVidia card
+for rendering graphics which will be displayed using the Intel card.
+
+You will need a usergroup called "bumblebee" for the bumblebee daemon:
+  # groupadd bumblebee
+
+Then add any users that should have optimus access to the group:
+  # usermod -G bumblebee -a USERNAME
+
+This package requires: nvidia-bumblebee, VirtalGL

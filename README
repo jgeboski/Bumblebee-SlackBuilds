@@ -1,0 +1,42 @@
+This set of SlackBuilds should get Bumblebee up and running to aid in
+running OpenGL application on an NVIDIA Optimus setup.
+
+TODO:
+- acpi_call
+  - Add acpi_call SlackBuild
+- bumblebee
+  - Hardware detection in doninst.sh for xorg.conf.nvidia
+- nvidia-bumblebee
+  - Build nvidia-settings from source
+  - Build nvidia-xconfig from source
+- VirtualGL
+  - Multilib for x86_64 systems
+
+HowTo:
+
+If you have never used a SlackBuild before, please refer to the HowTo
+on SlackBuilds.org: http://slackbuilds.org/howto/
+
+1. Create a bumblebee group:
+     # groupadd bumblebee
+   
+   Add users to the group:
+     # usermod -G bumblebee -a USERNAME
+   
+   Note: you will need to re-login as the user for this to take effect
+
+2. Build and install VirtualGL
+
+3. Build and install nvidia-bumblebee
+
+4. Build and install nvidia-kernel
+   http://slackbuilds.org/repository/13.37/system/nvidia-kernel/
+
+4. Build and install bumblebee
+
+5. Run the rc.bumblebee script:
+     # chmod +x /etc/rc.d/rc.bumblebee
+     # /etc/rc.d/rc.bumblebee start
+   
+   Now an application can run with optirun:
+     $ optinrun glxgears

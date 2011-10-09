@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+bumblebee: Bumblebee (nVidia optimus support)
+bumblebee:
+bumblebee: Bumblebee aims to provide support for nVidia Optimus laptops for
+bumblebee: GNU/Linux distributions. Using Bumblebee, you can use your nVidia
+bumblebee: card for rendering graphics which will be displayed using the Intel
+bumblebee: card.
+bumblebee:
+bumblebee:
+bumblebee:
+bumblebee: Homepage: https://github.com/Bumblebee-Project/Bumblebee
+bumblebee:
