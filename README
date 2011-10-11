@@ -5,6 +5,7 @@ TODO:
 - acpi_call
   - Add acpi_call SlackBuild
 - bumblebee
+  - Use the distribution-agnostic installer
   - Hardware detection in doninst.sh for xorg.conf.nvidia
 - nvidia-bumblebee
   - Build nvidia-settings from source
