@@ -86,12 +86,6 @@ make SYSSRC=$KERNELPATH module || exit 1
 mkdir -p $PKG/lib/modules/$KERNEL/kernel/drivers/video
 install -m 0664 nvidia.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
 
-# Make sure the X is specified to automagically load the 
-# correct driver, since I always forget. 
-
-mkdir -p $PKG/usr/share/X11/xorg.conf.d/
-cat $CWD/10-nvidia.conf > $PKG/usr/share/X11/xorg.conf.d/10-nvidia.conf
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$PKGVER
 cp -a README.template $PKG/usr/doc/$PRGNAM-$PKGVER
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$PKGVER/$PRGNAM.SlackBuild
