@@ -2,8 +2,6 @@ This set of SlackBuilds should get Bumblebee up and running to aid in
 running OpenGL application on an NVIDIA Optimus setup.
 
 TODO:
-- acpi_call
-  - Add acpi_call SlackBuild
 - bumblebee
   - Use the distribution-agnostic installer
   - Hardware detection in doninst.sh for xorg.conf.nvidia
@@ -33,6 +31,12 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
 4. Build and install nvidia-kernel
 
 4. Build and install bumblebee
+
+6. Build and install acpi_call
+   
+   This might be an optional step for you.  If optimus is enabled by
+   default for you, and you don't want to have power control in
+   Bumblebee, you "should not" need this.
 
 5. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebee

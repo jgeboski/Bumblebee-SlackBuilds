@@ -1,0 +1,8 @@
+A kernel module that enables you to call ACPI methods by writing the
+method name followed by arguments to /proc/acpi/call.
+
+You can build the acpi_call module for a different kernel:
+  KERNEL=3.0.0 ./acpi_call.SlackBuild
+
+You can build the acpi_call module with a different build path:
+  KERNELPATH=/lib/modules/3.0.0/build ./acpi_call.SlackBuild
