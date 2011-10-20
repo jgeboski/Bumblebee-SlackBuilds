@@ -31,7 +31,6 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
 3. Build and install nvidia-bumblebee
 
 4. Build and install nvidia-kernel
-   http://slackbuilds.org/repository/13.37/system/nvidia-kernel/
 
 4. Build and install bumblebee
 
