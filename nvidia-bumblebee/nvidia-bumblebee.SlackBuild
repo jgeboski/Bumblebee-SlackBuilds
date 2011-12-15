@@ -23,9 +23,11 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=nvidia-bumblebee
-VERSION=${VERSION:-285.05.09}
+VERSION=${VERSION:-290.10}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
+COMPAT32=${COMPAT32:-no}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -143,7 +145,7 @@ cd -
 sed -i "s,__LIBGL_PATH__,/usr/lib${LIBDIRSUFFIX}/$PRGNAM," \
   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/libGL.la
 
-if [ "$NTARGET" = "x86_64" ]; then
+if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
   mkdir -p $PKG/usr/lib/$PRGNAM/{tls,vdpau}
   
   install -m 755 \
