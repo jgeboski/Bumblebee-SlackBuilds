@@ -40,6 +40,8 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
+COMPAT32=${COMPAT32:-no}
+
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
   LIBDIRSUFFIX=""
@@ -76,12 +78,57 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DVGL_LIBDIR=/usr/lib${LIBDIRSUFFIX} \
-    -DVGL_FAKELIBDIR=/opt/$PRGNAM/lib${LIBDIRSUFFIX} \
+    -DVGL_FAKELIBDIR=/usr/lib${LIBDIRSUFFIX}/$PRGNAM \
     -DVGL_DOCDIR=/usr/doc/$PRGNAM-$VERSION \
     -DCMAKE_BUILD_TYPE=Release ..
-  make 
+  make
   make install DESTDIR=$PKG
 cd ..
+
+if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
+  CPKG=$PKG-compat32
+  
+  rm -rf $CPKG
+  mkdir -p build-compat32 $CPKG
+  
+  cd build-compat32
+    cmake \
+      -DCMAKE_C_FLAGS:STRING="-m32 $SLKCFLAGS" \
+      -DCMAKE_CXX_FLAGS:STRING="-m32 $SLKCFLAGS" \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DVGL_LIBDIR=/usr/lib/ \
+      -DVGL_FAKELIBDIR=/usr/lib/$PRGNAM \
+      -DVGL_DOCDIR=/usr/doc/$PRGNAM-$VERSION \
+      -DCMAKE_BUILD_TYPE=Release ..
+    make
+    
+    make install DESTDIR=$CPKG
+    
+    mkdir -p \
+      $PKG/usr/bin/32 \
+      $PKG/usr/lib/$PRGNAM
+    
+    install -m 755 \
+      $CPKG/usr/bin/cpustat \
+      $CPKG/usr/bin/glxinfo \
+      $CPKG/usr/bin/glxspheres \
+      $CPKG/usr/bin/nettest \
+      $CPKG/usr/bin/tcbench \
+      $CPKG/usr/bin/vglclient \
+      $CPKG/usr/bin/vglconfig \
+    $PKG/usr/bin/32
+    
+    install -m 755 \
+      $CPKG/usr/lib/libdlfaker.so \
+      $CPKG/usr/lib/libgefaker.so \
+      $CPKG/usr/lib/librrfaker.so \
+    $PKG/usr/lib
+    
+    cd $PKG/usr/lib/$PRGNAM
+       ln -sf /usr/lib/$PRGNAM/libdlfaker.so libGL.so
+    cd -
+  cd ..
+fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
