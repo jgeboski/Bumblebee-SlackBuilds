@@ -1,0 +1,15 @@
+Bumblebee daemon is a rewrite of the original Bumblebee service,
+providing an elegant and stable means of managing Optimus hybrid
+graphics chipsets.  A primary goal of this project is to not only
+enable use of the discrete GPU for rendering, but also to enable
+smart power management of the dGPU when it's not in use.
+
+You will need a usergroup called "bumblebee" for the bumblebee daemon:
+  # groupadd bumblebee
+
+Then add any users that should have optimus access to the group:
+  # usermod -G bumblebee -a USERNAME
+
+This package requires: libbsd, nvidia-bumblebee, VirtalGL
+
+NOTE: This currently builds code from the git repositories and can be unstable.
