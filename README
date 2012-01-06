@@ -20,7 +20,11 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
 
 4. Build and install nvidia-bumblebee
 
+   Optional if you're using nouveau
+
 5. Build and install nvidia-kernel
+
+   Optional if you're using nouveau
 
 6. Build and install bbswitch
    
