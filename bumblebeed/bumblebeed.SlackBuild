@@ -91,10 +91,16 @@ CXXFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+cd $PKG/etc/bumblebee
+  mv bumblebee.conf    bumblebee.conf.new
+  mv xorg.conf.nouveau xorg.conf.nouveau.new
+  mv xorg.conf.nvidia  xorg.conf.nvidia.new
+cd -
+
 # Currently the rc script isn't getting installed
 mkdir -p $PKG/etc/rc.d/
-install -m 644 scripts/sysvinit/bumblebeed.in $PKG/etc/rc.d/rc.bumblebeed
-sed -i "s,@BINDIR@,/usr/bin/," $PKG/etc/rc.d/rc.bumblebeed
+install -m 644 scripts/sysvinit/bumblebeed.in $PKG/etc/rc.d/rc.bumblebeed.new
+sed -i "s,@BINDIR@,/usr/bin/," $PKG/etc/rc.d/rc.bumblebeed.new
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -107,6 +113,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
