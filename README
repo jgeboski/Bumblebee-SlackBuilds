@@ -11,6 +11,12 @@ TODO:
 - VirtualGL
   - Multilib for x86_64 systems
 
+If you're looking for SlackBuilds for bbswitch and bumblebeed, the latest
+bumblebee setup, please checkout the development branch:
+
+  https://github.com/jgeboski/Bumblebee-SlackBuilds/tree/development
+
+
 HowTo:
 
 If you have never used a SlackBuild before, please refer to the HowTo
@@ -27,18 +33,22 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
 2. Build and install VirtualGL
 
 3. Build and install nvidia-bumblebee
-
+   
+   Optional if you're using nouveau
+   
 4. Build and install nvidia-kernel
-
-4. Build and install bumblebee
-
-6. Build and install acpi_call
+   
+   Optional if you're using nouveau
+   
+5. Build and install acpi_call
    
    This might be an optional step for you.  If optimus is enabled by
    default for you, and you don't want to have power control in
    Bumblebee, you "should not" need this.
 
-5. Run the rc.bumblebee script:
+6. Build and install bumblebee
+
+7. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebee
      # /etc/rc.d/rc.bumblebee start
    
