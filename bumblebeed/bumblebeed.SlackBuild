@@ -100,7 +100,24 @@ cd -
 # Currently the rc script isn't getting installed
 mkdir -p $PKG/etc/rc.d/
 install -m 644 scripts/sysvinit/bumblebeed.in $PKG/etc/rc.d/rc.bumblebeed.new
-sed -i "s,@BINDIR@,/usr/bin/," $PKG/etc/rc.d/rc.bumblebeed.new
+sed -i "s,@BINDIR@,/usr/bin," $PKG/etc/rc.d/rc.bumblebeed.new
+
+setvar ()
+{
+  sed -i "s#$1=.*#$1=$2#" $3
+}
+
+nvp="/usr/lib/nvidia-bumblebee"
+
+if [ "$ARCH" = "x86_64" ]; then
+  nvp="/usr/lib64/nvidia-bumblebee:$nvp"
+fi
+
+setvar NV_LIBRARY_PATH $nvp $PKG/etc/bumblebee/bumblebee.conf.new
+
+mp="/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/xorg"
+mp="$mp,/usr/lib${LIBDIRSUFFIX}/xorg/modules"
+setvar MODULE_PATH $mp $PKG/etc/bumblebee/bumblebee.conf.new
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
