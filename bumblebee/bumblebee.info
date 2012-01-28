@@ -1,6 +1,6 @@
-PRGNAM="bumblebeed"
+PRGNAM="bumblebee"
 VERSION="git"
-HOMEPAGE="https://github.com/Bumblebee-Project/bumblebeed/"
+HOMEPAGE="https://github.com/Bumblebee-Project/bumblebee/"
 DOWNLOAD=""
 MD5SUM=""
 DOWNLOAD_x86_64=""
