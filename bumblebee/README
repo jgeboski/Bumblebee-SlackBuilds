@@ -10,6 +10,4 @@ You will need a usergroup called "bumblebee" for the bumblebee daemon:
 Then add any users that should have optimus access to the group:
   # usermod -G bumblebee -a USERNAME
 
-This package requires: libbsd, nvidia-bumblebee, VirtalGL
-
-NOTE: This currently builds code from the git repositories and can be unstable.
+This package requires: bbswitch, libbsd, nvidia-bumblebee, VirtalGL
