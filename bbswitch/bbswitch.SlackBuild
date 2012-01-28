@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for acpi_call
+# Slackware build script for bumblebeed
 
-# Copyright 2011 James Geboski <jgeboski@gmail.com>
+# Copyright 2010 James Geboski <jgeboski@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,8 +22,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-PRGNAM=acpi_call
-VERSION=${VERSION:-1.1.1}
+PRGNAM=bbswitch
+VERSION=${VERSION:-0.4.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -43,6 +43,20 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+fi
+
 set -e
 
 rm -rf $PKG
@@ -58,23 +72,20 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+make KVERSION=$KERNEL KDIR=$KERNELPATH
+
 mkdir -p $PKG/lib/modules/$KERNEL/kernel/drivers/acpi
-
-sed -i "s,KVERSION :=.*,KVERSION := $KERNEL," Makefile
-sed -i "s,KDIR :=.*,KDIR := $KERNELPATH," Makefile
-
-make
-install -m 644 acpi_call.ko $PKG/lib/modules/$KERNEL/kernel/drivers/acpi
+install -m 644 $PRGNAM.ko $PKG/lib/modules/$KERNEL/kernel/drivers/acpi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  README \
- $PKG/usr/doc/$PRGNAM-$VERSION
+  README.md \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-sed "s,@KERNEL@,$KERNEL," $CWD/doinst.sh > $PKG/install/doinst.sh
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

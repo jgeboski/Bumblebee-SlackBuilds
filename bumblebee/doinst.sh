@@ -19,7 +19,8 @@ preserve_perms() {
   config $NEW
 }
 
-preserve_perms etc/rc.d/rc.bumblebee.new
-config etc/__PRGNAM__/bumblebee.conf.new
-config etc/__PRGNAM__/xorg.conf.nouveau.new
-config etc/__PRGNAM__/xorg.conf.nvidia.new
+preserve_perms etc/rc.d/rc.bumblebeed.new
+
+config etc/bumblebee/bumblebee.conf.new
+config etc/bumblebee/xorg.conf.nouveau.new
+config etc/bumblebee/xorg.conf.nvidia.new

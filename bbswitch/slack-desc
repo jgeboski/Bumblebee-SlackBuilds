@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+bbswitch: bbswitch (ACPI kernel module for Optimus)
+bbswitch:
+bbswitch: bbswitch is a kernel module which automatically detects the required
+bbswitch: ACPI calls for two kinds of Optimus laptops. It has been verified to
+bbswitch: work with "real" Optimus and "legacy" Optimus laptops (at least, 
+bbswitch: that is how I call them). It's preferred over manually hacking with
+bbswitch: the acpi_call module because it can detect the correct handle
+bbswitch: preceding _DSM and has some built-in safeguards.
+bbswitch:
+bbswitch: Homepage: https://github.com/Bumblebee-Project/bbswitch/
+bbswitch:

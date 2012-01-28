@@ -1,22 +1,6 @@
 This set of SlackBuilds should get Bumblebee up and running to aid in
 running OpenGL application on an NVIDIA Optimus setup.
 
-TODO:
-- bumblebee
-  - Use the distribution-agnostic installer
-  - Hardware detection in doninst.sh for xorg.conf.nvidia
-- nvidia-bumblebee
-  - Build nvidia-settings from source
-  - Build nvidia-xconfig from source
-- VirtualGL
-  - Multilib for x86_64 systems
-
-If you're looking for SlackBuilds for bbswitch and bumblebeed, the latest
-bumblebee setup, please checkout the development branch:
-
-  https://github.com/jgeboski/Bumblebee-SlackBuilds/tree/development
-
-
 HowTo:
 
 If you have never used a SlackBuild before, please refer to the HowTo
@@ -30,27 +14,28 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
    
    Note: you will need to re-login as the user for this to take effect
 
-2. Build and install VirtualGL
+2. Build and install libbsd
 
-3. Build and install nvidia-bumblebee
-   
+3. Build and install VirtualGL
+
+4. Build and install nvidia-bumblebee
+
    Optional if you're using nouveau
-   
-4. Build and install nvidia-kernel
-   
+
+5. Build and install nvidia-kernel
+
    Optional if you're using nouveau
-   
-5. Build and install acpi_call
-   
-   This might be an optional step for you.  If optimus is enabled by
-   default for you, and you don't want to have power control in
-   Bumblebee, you "should not" need this.
 
-6. Build and install bumblebee
+6. Build and install bbswitch
+   
+   This in an optional requirement.  If you do not need power management or
+   the ability to turn off the nVidia chip, you can skip this.
+   
+7. Build and install bumblebeed
 
-7. Run the rc.bumblebee script:
-     # chmod +x /etc/rc.d/rc.bumblebee
-     # /etc/rc.d/rc.bumblebee start
+8. Run the rc.bumblebee script:
+     # chmod +x /etc/rc.d/rc.bumblebeed
+     # /etc/rc.d/rc.bumblebeed start
    
    Now an application can run with optirun:
      $ optinrun glxgears

@@ -1,0 +1,12 @@
+bbswitch is a kernel module which automatically detects the required
+ACPI calls for two kinds of Optimus laptops. It has been verified to
+work with "real" Optimus and "legacy" Optimus laptops (at least, 
+that is how I call them). It's preferred over manually hacking with
+the acpi_call module because it can detect the correct handle
+preceding _DSM and has some built-in safeguards.
+
+You can build the bbswitch module for a different kernel:
+  KERNEL=3.0.0 ./bbswitch.SlackBuild
+
+You can build the bbswitch module with a different build path:
+  KERNELPATH=/lib/modules/3.0.0/build ./bbswitch.SlackBuild

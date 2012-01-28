@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for bumblebee
+# Slackware build script for bumblebeed
 
-# Copyright 2011 James Geboski <jgeboski@gmail.com>
+# Copyright 2010 James Geboski <jgeboski@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=bumblebee
-VERSION=${VERSION:-2.4.1}
+VERSION=${VERSION:-3.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -59,6 +59,7 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
+
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
@@ -69,54 +70,50 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-function setvar() {
-  sed -i "s,$1=.*,$1=$2," "$3"
-}
+NMP="/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/xorg"
+NMP="$NMP,/usr/lib${LIBDIRSUFFIX}/xorg/modules"
+NVP="/usr/lib/nvidia-bumblebee"
 
-setvar BIN /usr/sbin/bumblebee install-files/bumblebee
-setvar BUMBLEBEE_CONFDIR /etc/$PRGNAM install-files/common-paths
-setvar BUMBLEBEE_LIBDIR /usr/lib${LIBDIRSUFFIX}/$PRGNAM install-files/bumblebee
-setvar BUMBLEBEE_LIBDIR /usr/lib${LIBDIRSUFFIX}/$PRGNAM install-files/optirun
+if [ "$ARCH" = "x86_64" ]; then
+  NVP="/usr/lib64/nvidia-bumblebee:$NVP"
+fi
 
-mpath="/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/xorg"
-mpath="$mpath\,/usr/lib${LIBDIRSUFFIX}/xorg"
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+CONF_DRIVER_MODULE_NVIDIA="nvidia" \
+CONF_LDPATH_NVIDIA="$NVP" \
+CONF_MODPATH_NVIDIA="$NMP" \
+./configure \
+  --prefix=/usr \
+  --sysconfdir=/etc \
+  --mandir=/usr/man \
+  --build=$ARCH-slackware-linux
 
-sed -i "s,ModulePath \"\",ModulePath \"$mpath\"," \
-  install-files/xorg.conf.nvidia
+make
+make install DESTDIR=$PKG
 
-mkdir -p \
-  $PKG/etc/{$PRGNAM,bash_completion.d,rc.d} \
-  $PKG/usr/{bin,sbin} \
-  $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/drivers
+cd $PKG/etc/$PRGNAM
+  mv bumblebee.conf    bumblebee.conf.new
+  mv xorg.conf.nouveau xorg.conf.nouveau.new
+  mv xorg.conf.nvidia  xorg.conf.nvidia.new
+cd -
 
-install -m 755 install-files/bumblebee $PKG/usr/sbin
-install -m 755 install-files/bumblebee-bugreport $PKG/usr/bin
-install -m 755 install-files/optirun $PKG/usr/bin
-install -m 755 install-files/bumblebee.handler $PKG/etc/rc.d/rc.bumblebee.new
-install -m 644 install-files/bumblebee.conf $PKG/etc/$PRGNAM/bumblebee.conf.new
-install -m 644 install-files/optirun.bash_completion $PKG/etc/bash_completion.d/optirun
-install -m 644 $CWD/nvidia.options $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/drivers
-install -m 644 \
-  install-files/common-functions \
-  install-files/common-paths \
- $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
+mkdir -p $PKG/etc/rc.d/
+install -m 644 scripts/sysvinit/bumblebeed.in $PKG/etc/rc.d/rc.bumblebeed.new
+sed -i "s,@SBINDIR@,/usr/sbin," $PKG/etc/rc.d/rc.bumblebeed.new
 
-install -m 644 install-files/xorg.conf.nouveau \
-  $PKG/etc/$PRGNAM/xorg.conf.nouveau.new
-install -m 644 install-files/xorg.conf.nvidia \
-  $PKG/etc/$PRGNAM/xorg.conf.nvidia.new
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  Changelog COPYING README \
+  COPYING README.markdown doc/RELEASE_NOTES_3_0 \
  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
-
-sed -i "s,__PRGNAM__,$PRGNAM," $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
