@@ -34,7 +34,7 @@
 #
 
 PRGNAM=nvidia-kernel
-VERSION=290.10
+VERSION=295.20
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
