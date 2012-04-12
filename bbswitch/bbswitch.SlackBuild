@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for bumblebeed
+# Slackware build script for bbswitch
 
-# Copyright 2010 James Geboski <jgeboski@gmail.com>
+# Copyright 2011-2012 James Geboski <jgeboski@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
