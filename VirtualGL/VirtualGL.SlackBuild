@@ -71,6 +71,8 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+sed -i "s/Usage: glxinfo/Usage: vglinfo/" mesademos/glxinfo.c
+
 mkdir build
 cd build
   cmake \
@@ -110,13 +112,13 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     
     install -m 755 \
       bin/cpustat \
-      bin/glxinfo \
-      bin/glxspheres \
       bin/nettest \
       bin/tcbench \
       bin/vglclient \
       bin/vglconfig \
      $PKG/usr/bin/32
+    
+    install -m 755 bin/glxinfo $PKG/usr/bin/32/vglinfo
     
     install -m 755 \
       lib/libdlfaker.so \
@@ -129,6 +131,9 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     cd -
   cd ..
 fi
+
+mv $PKG/usr/bin/glxinfo $PKG/usr/bin/vglinfo
+rm -f $PKG/usr/bin/glx*
 
 sed -i "s,/opt/VirtualGL,/usr,g" $PKG/usr/bin/vglconnect
 sed -i "s,/etc/opt,/etc,g"       $PKG/usr/bin/vglgenkey
