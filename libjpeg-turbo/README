@@ -5,3 +5,8 @@ on libjpeg/SIMD but has numerous enhancements.
 
 The package installs to /opt/libjpeg-turbo by default.
 Pass PREFIX=/usr to the SlackBuild to build it system-wide.
+
+This SlackBuild can build and package 32-bit compatible binaries and
+libraries for x86_64 systems. To enable this, pass the variable COMPAT32:
+
+  # COMPAT32=yes ./libjpeg-turbo.SlackBuild

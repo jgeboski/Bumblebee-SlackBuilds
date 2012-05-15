@@ -16,18 +16,29 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
    Note: you will need to re-login as the user for this to take effect
 
 2. Build and install: libjpeg-turbo
+   
+   If the system is x86_64 based, 32-bit compatible binaries and
+   libraries can be installed via:
+   
+     # COMPAT32=yes ./libjpeg-turbo.SlackBuild
 
 3. Build and install: VirtualGL
+   
+   If the system is x86_64 based, 32-bit compatible binaries and
+   libraries can be installed via:
+   
+     # COMPAT32=yes ./VirtualGL.SlackBuild
 
-4. Build and install: nvidia-bumblebee
+4. Build and install: nvidia-bumblebee (Optional, if using nouveau)
+   
+   If the system is x86_64 based, 32-bit compatible binaries and
+   libraries can be installed via:
+   
+     # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
-   Optional if you're using nouveau
+5. Build and install: nvidia-kernel (Optional, if using nouveau)
 
-5. Build and install: nvidia-kernel
-
-   Optional if you're using nouveau
-
-6. Build and install: bbswitch
+6. Build and install: bbswitch (Optional)
    
    This in an optional requirement.  If you do not need power management or
    the ability to turn off the nVidia chip, you can skip this.

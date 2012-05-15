@@ -2,3 +2,8 @@ This package contains the proprietary NVIDIA drivers, without the kernel
 modules, packaged correctly to be used with bumblebee. Please note, the
 drivers in this package are packaged for bumblebee. Unless this package
 is being used with bumblebee it will not be of much use.
+
+This SlackBuild can build and package 32-bit compatible binaries and
+libraries for x86_64 systems. To enable this, pass the variable COMPAT32:
+
+  # COMPAT32=yes ./nvidia-bumblebee.SlackBuild

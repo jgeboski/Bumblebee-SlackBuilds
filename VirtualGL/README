@@ -2,4 +2,9 @@ VirtualGL is an open source package which gives any Unix or Linux
 remote display software the ability to run OpenGL applications with
 full 3D hardware acceleration.
 
+This SlackBuild can build and package 32-bit compatible binaries and
+libraries for x86_64 systems. To enable this, pass the variable COMPAT32:
+
+  # COMPAT32=yes ./VirtualGL.SlackBuild
+
 This package requires: libjpeg-turbo
