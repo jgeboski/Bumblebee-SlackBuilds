@@ -27,6 +27,8 @@ VERSION=${VERSION:-2.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
+COMPAT32=${COMPAT32:-no}
+
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
@@ -39,8 +41,6 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-
-COMPAT32=${COMPAT32:-no}
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -71,7 +71,7 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-mkdir -p build
+mkdir build
 cd build
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
@@ -80,61 +80,65 @@ cd build
     -DVGL_LIBDIR=/usr/lib${LIBDIRSUFFIX} \
     -DVGL_FAKELIBDIR=/usr/lib${LIBDIRSUFFIX}/$PRGNAM \
     -DVGL_DOCDIR=/usr/doc/$PRGNAM-$VERSION \
+    -DTJPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include \
+    -DTJPEG_LIBRARY=/opt/libjpeg-turbo/lib${LIBDIRSUFFIX}/libturbojpeg.a \
     -DCMAKE_BUILD_TYPE=Release ..
+  
   make
   make install DESTDIR=$PKG
 cd ..
 
 if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
-  CPKG=$PKG-compat32
-  
-  rm -rf $CPKG
-  mkdir -p build-compat32 $CPKG
-  
+  mkdir build-compat32
   cd build-compat32
     cmake \
-      -DCMAKE_C_FLAGS:STRING="-m32 $SLKCFLAGS" \
-      -DCMAKE_CXX_FLAGS:STRING="-m32 $SLKCFLAGS" \
+      -DCMAKE_C_FLAGS:STRING="-m32 -O2 -march=i486 -mtune=i686" \
+      -DCMAKE_CXX_FLAGS:STRING="-m32 -O2 -march=i486 -mtune=i686" \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DVGL_LIBDIR=/usr/lib/ \
       -DVGL_FAKELIBDIR=/usr/lib/$PRGNAM \
       -DVGL_DOCDIR=/usr/doc/$PRGNAM-$VERSION \
+      -DTJPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include \
+      -DTJPEG_LIBRARY=/opt/libjpeg-turbo/lib/libturbojpeg.a \
       -DCMAKE_BUILD_TYPE=Release ..
-    make
     
-    make install DESTDIR=$CPKG
+    make
     
     mkdir -p \
       $PKG/usr/bin/32 \
       $PKG/usr/lib/$PRGNAM
     
     install -m 755 \
-      $CPKG/usr/bin/cpustat \
-      $CPKG/usr/bin/glxinfo \
-      $CPKG/usr/bin/glxspheres \
-      $CPKG/usr/bin/nettest \
-      $CPKG/usr/bin/tcbench \
-      $CPKG/usr/bin/vglclient \
-      $CPKG/usr/bin/vglconfig \
-    $PKG/usr/bin/32
+      bin/cpustat \
+      bin/glxinfo \
+      bin/glxspheres \
+      bin/nettest \
+      bin/tcbench \
+      bin/vglclient \
+      bin/vglconfig \
+     $PKG/usr/bin/32
     
     install -m 755 \
-      $CPKG/usr/lib/libdlfaker.so \
-      $CPKG/usr/lib/libgefaker.so \
-      $CPKG/usr/lib/librrfaker.so \
-    $PKG/usr/lib
+      lib/libdlfaker.so \
+      lib/libgefaker.so \
+      lib/librrfaker.so \
+     $PKG/usr/lib
     
     cd $PKG/usr/lib/$PRGNAM
-       ln -sf /usr/lib/$PRGNAM/libdlfaker.so libGL.so
+       ln -sf /usr/lib/librrfaker.so libGL.so
     cd -
   cd ..
 fi
+
+sed -i "s,/opt/VirtualGL,/usr,g" $PKG/usr/bin/vglconnect
+sed -i "s,/etc/opt,/etc,g"       $PKG/usr/bin/vglgenkey
+sed -i "s,/etc/opt,/etc,g"       $PKG/usr/bin/vglrun
+sed -i "s,/etc/opt,/etc,g"       $PKG/usr/bin/vglserver_config
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
