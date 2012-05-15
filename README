@@ -6,7 +6,8 @@ HowTo:
 If you have never used a SlackBuild before, please refer to the HowTo
 on SlackBuilds.org: http://slackbuilds.org/howto/
 
-1. Create a bumblebee group:
+
+1. Create group: bumblebee:
      # groupadd bumblebee
    
    Add users to the group:
@@ -14,26 +15,28 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
    
    Note: you will need to re-login as the user for this to take effect
 
-2. Build and install libbsd
+2. Build and install: libjpeg-turbo
 
-3. Build and install VirtualGL
+3. Build and install: VirtualGL
 
-4. Build and install nvidia-bumblebee
-
-   Optional if you're using nouveau
-
-5. Build and install nvidia-kernel
+4. Build and install: nvidia-bumblebee
 
    Optional if you're using nouveau
 
-6. Build and install bbswitch
+5. Build and install: nvidia-kernel
+
+   Optional if you're using nouveau
+
+6. Build and install: bbswitch
    
    This in an optional requirement.  If you do not need power management or
    the ability to turn off the nVidia chip, you can skip this.
-   
-7. Build and install bumblebeed
 
-8. Run the rc.bumblebee script:
+7. Build and install: libbsd
+
+8. Build and install: bumblebeed
+
+9. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebeed
      # /etc/rc.d/rc.bumblebeed start
    
