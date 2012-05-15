@@ -27,6 +27,8 @@ VERSION=${VERSION:-1.2.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
+COMPAT32=${COMPAT32:-no}
+
 # The default is to install the package to /opt/$PRGNAM, but you can override
 # it here. Set PREFIX to /usr to overwrite the conventional libjpeg.
 PREFIX=${PREFIX:-/opt/$PRGNAM}
@@ -87,7 +89,25 @@ CXXFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux
 
 make
-make install-strip DESTDIR=$PKG
+make install DESTDIR=$PKG
+
+if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
+  CFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
+  CXXFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
+  LDFLAGS="-m32" \
+  ./configure \
+    --prefix=$PREFIX \
+    --bindir=$PREFIX/bin/32 \
+    --libdir=$PREFIX/lib \
+    --build=i486-slackware-linux
+  
+  make clean
+  make
+  make install-libLTLIBRARIES install-binPROGRAMS DESTDIR=$PKG
+fi
+
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 find $PKG$PREFIX/man -type f -exec gzip -9 {} \;
 
