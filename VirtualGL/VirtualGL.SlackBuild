@@ -113,6 +113,7 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     install -m 755 \
       bin/cpustat \
       bin/nettest \
+      bin/glxspheres \
       bin/tcbench \
       bin/vglclient \
       bin/vglconfig \
@@ -133,7 +134,6 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
 fi
 
 mv $PKG/usr/bin/glxinfo $PKG/usr/bin/vglinfo
-rm -f $PKG/usr/bin/glx*
 
 sed -i "s,/opt/VirtualGL,/usr,g" $PKG/usr/bin/vglconnect
 sed -i "s,/etc/opt,/etc,g"       $PKG/usr/bin/vglgenkey
