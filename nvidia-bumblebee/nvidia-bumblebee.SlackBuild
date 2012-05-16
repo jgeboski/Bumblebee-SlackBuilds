@@ -126,8 +126,11 @@ cd $TMP/${PKGNAM[0]}
   
   install -m 755 \
     libglx.so.$VERSION \
+   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
+  
+  install -m 755 \
     nvidia_drv.so \
-   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg
+   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/drivers
   
   install -m 644 nvidia.icd      $PKG/etc/OpenCL/vendors
   install -m 644 nvidia-smi.1.gz $PKG/usr/man/man1/
@@ -157,7 +160,7 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libvdpau_trace.so.1         libvdpau_trace.so
   cd -
   
-  cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg
+  cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
     ln -sf libglx.so.$VERSION libglx.so
   cd -
   
