@@ -104,46 +104,50 @@ install -m 755 \
   libvdpau_trace.so.$VERSION \
  $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
 
-install -m 755 tls/libnvidia-tls.so.$VERSION \
-  $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/tls
+install -m 755 \
+  tls/libnvidia-tls.so.$VERSION \
+ $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/tls
 
 install -m 755 \
   libglx.so.$VERSION \
   nvidia_drv.so \
  $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg
+
 install -m 644 nvidia.icd $PKG/etc/OpenCL/vendors
 
 cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
-  ln -sf libGL.so.$VERSION libGL.so.1
-  ln -sf libGL.so.1 libGL.so
-  ln -sf libOpenCL.so.1.0.0 libOpenCL.so.1.0
-  ln -sf libOpenCL.so.1.0 libOpenCL.so.1
-  ln -sf libOpenCL.so.1 libOpenCL.so
-  ln -sf libcuda.so.$VERSION libcuda.so.1
-  ln -sf libcuda.so.1 libcuda.so
-  ln -sf libnvcuvid.so.$VERSION libnvcuvid.so.1
-  ln -sf libnvcuvid.so.1 libnvcuvid.so
+  ln -sf libGL.so.$VERSION         libGL.so.1
+  ln -sf libGL.so.1                libGL.so
+  ln -sf libOpenCL.so.1.0.0        libOpenCL.so.1.0
+  ln -sf libOpenCL.so.1.0          libOpenCL.so.1
+  ln -sf libOpenCL.so.1            libOpenCL.so
+  ln -sf libcuda.so.$VERSION       libcuda.so.1
+  ln -sf libcuda.so.1              libcuda.so
+  ln -sf libnvcuvid.so.$VERSION    libnvcuvid.so.1
+  ln -sf libnvcuvid.so.1           libnvcuvid.so
   ln -sf libnvidia-cfg.so.$VERSION libnvidia-cfg.so.1
-  ln -sf libnvidia-cfg.so.1 libnvidia-cfg.so
-  ln -sf libnvidia-ml.so.$VERSION libnvidia-ml.so.1
-  ln -sf libnvidia-ml.so.1 libnvidia-ml.so
-  ln -sf libvdpau.so.$VERSION libvdpau.so.1
-  ln -sf libvdpau.so.1 libvdpau.so
+  ln -sf libnvidia-cfg.so.1        libnvidia-cfg.so
+  ln -sf libnvidia-ml.so.$VERSION  libnvidia-ml.so.1
+  ln -sf libnvidia-ml.so.1         libnvidia-ml.so
+  ln -sf libvdpau.so.$VERSION      libvdpau.so.1
+  ln -sf libvdpau.so.1             libvdpau.so
 cd -
 
 cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
   ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
-  ln -sf libvdpau_nvidia.so.1 libvdpau_nvidia.so
-  ln -sf libvdpau_trace.so.$VERSION libvdpau_trace.so.1
-  ln -sf libvdpau_trace.so.1 libvdpau_trace.so
+  ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
+  ln -sf libvdpau_trace.so.$VERSION  libvdpau_trace.so.1
+  ln -sf libvdpau_trace.so.1         libvdpau_trace.so
 cd -
 
 cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg
   ln -sf libglx.so.$VERSION libglx.so
 cd -
 
-sed -i "s,__LIBGL_PATH__,/usr/lib${LIBDIRSUFFIX}/$PRGNAM," \
-  $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/libGL.la
+sed -i \
+  -e "s,/usr/X11R6/lib,/usr/X11R6/lib${LIBDIRSUFFIX}," \
+  -e "s,__LIBGL_PATH__,/usr/lib${LIBDIRSUFFIX}/$PRGNAM," \
+ $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/libGL.la
 
 if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
   mkdir -p $PKG/usr/lib/$PRGNAM/{tls,vdpau}
@@ -165,31 +169,32 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     libvdpau_trace.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
   
-  install -m 755 tls/libnvidia-tls.so.$VERSION $PKG/usr/lib/$PRGNAM/tls
+  install -m 755 \
+    tls/libnvidia-tls.so.$VERSION \
+   $PKG/usr/lib/$PRGNAM/tls
   
   cd $PKG/usr/lib/$PRGNAM
-    ln -sf libGL.so.$VERSION libGL.so.1
-    ln -sf libGL.so.1 libGL.so
-    ln -sf libOpenCL.so.1.0.0 libOpenCL.so.1.0
-    ln -sf libOpenCL.so.1.0 libOpenCL.so.1
-    ln -sf libOpenCL.so.1 libOpenCL.so
-    ln -sf libcuda.so.$VERSION libcuda.so.1
-    ln -sf libcuda.so.1 libcuda.so
+    ln -sf libGL.so.$VERSION        libGL.so.1
+    ln -sf libGL.so.1               libGL.so
+    ln -sf libOpenCL.so.1.0.0       libOpenCL.so.1.0
+    ln -sf libOpenCL.so.1.0         libOpenCL.so.1
+    ln -sf libOpenCL.so.1           libOpenCL.so
+    ln -sf libcuda.so.$VERSION      libcuda.so.1
+    ln -sf libcuda.so.1             libcuda.so
     ln -sf libnvidia-ml.so.$VERSION libnvidia-ml.so.1
-    ln -sf libnvidia-ml.so.1 libnvidia-ml.so
-    ln -sf libvdpau.so.$VERSION libvdpau.so.1
-    ln -sf libvdpau.so.1 libvdpau.so
+    ln -sf libnvidia-ml.so.1        libnvidia-ml.so
+    ln -sf libvdpau.so.$VERSION     libvdpau.so.1
+    ln -sf libvdpau.so.1            libvdpau.so
   cd -
   
   cd $PKG/usr/lib/$PRGNAM/vdpau
     ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
-    ln -sf libvdpau_nvidia.so.1 libvdpau_nvidia.so
-    ln -sf libvdpau_trace.so.$VERSION libvdpau_trace.so.1
-    ln -sf libvdpau_trace.so.1 libvdpau_trace.so
+    ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
+    ln -sf libvdpau_trace.so.$VERSION  libvdpau_trace.so.1
+    ln -sf libvdpau_trace.so.1         libvdpau_trace.so
   cd -
   
   sed -i "s,__LIBGL_PATH__,/usr/lib/$PRGNAM," $PKG/usr/lib/$PRGNAM/libGL.la
-  sed -i "s,/usr/X11R6/lib,/usr/X11R6/lib${LIBDIRSUFFIX}," $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/libGL.la
 fi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
