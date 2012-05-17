@@ -87,7 +87,6 @@ mkdir -p $PKG/lib/modules/$KERNEL/kernel/drivers/video
 install -m 0664 nvidia.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$PKGVER
-cp -a README.template $PKG/usr/doc/$PRGNAM-$PKGVER
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$PKGVER/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
