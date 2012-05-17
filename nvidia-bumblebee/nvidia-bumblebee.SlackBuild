@@ -184,12 +184,12 @@ cd $TMP/${PKGNAM[0]}
      $PKG/usr/lib/$PRGNAM
     
     install -m 755 \
-      libvdpau_nvidia.so.$VERSION \
-      libvdpau_trace.so.$VERSION \
+      32/libvdpau_nvidia.so.$VERSION \
+      32/libvdpau_trace.so.$VERSION \
      $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
     
     install -m 755 \
-      tls/libnvidia-tls.so.$VERSION \
+      32/tls/libnvidia-tls.so.$VERSION \
      $PKG/usr/lib/$PRGNAM/tls
     
     cd $PKG/usr/lib/$PRGNAM
