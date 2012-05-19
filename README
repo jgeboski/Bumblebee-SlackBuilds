@@ -52,4 +52,4 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
      # /etc/rc.d/rc.bumblebeed start
    
    Now an application can run with optirun:
-     $ optinrun glxgears
+     $ optirun glxgears
