@@ -1,16 +1,16 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="295.49"
+VERSION="295.53"
 HOMEPAGE="http://www.nvidia.com/"
 DOWNLOAD=" \
-  ftp://download.nvidia.com/XFree86/Linux-x86/295.49/NVIDIA-Linux-x86-295.49.run \
-  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-295.49.tar.bz2 \
-  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-295.49.tar.bz2"
+  ftp://download.nvidia.com/XFree86/Linux-x86/295.53/NVIDIA-Linux-x86-295.53.run \
+  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-295.53.tar.bz2 \
+  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-295.53.tar.bz2"
 MD5SUM=" \
-  fd998f870d20b30b8d636ffce79d9e6c \
-  9d6193a14ead0e9b4dc88559f8a1889e \
-  147b04c9a870659db52566fb548d60bd"
-DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/295.49/NVIDIA-Linux-x86_64-295.49.run"
-MD5SUM_x86_64="1be34c5efb161014d85527dd5c2544fb"
+  af353274ab078cb90aba428ca1f00f0e \
+  799ff355f2d9863171a6e43e34961536 \
+  a0a83d5471bd97884fe2d8eb88d5006d"
+DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/295.53/NVIDIA-Linux-x86_64-295.53.run"
+MD5SUM_x86_64="e349da7e84360521917689237611564f"
 MAINTAINER="James Geboski"
 EMAIL="jgeboski@gmail.com"
 APPROVED=""
