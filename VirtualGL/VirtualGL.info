@@ -1,7 +1,7 @@
 PRGNAM="VirtualGL"
 VERSION="2.3"
 HOMEPAGE="http://www.virtualgl.org/"
-DOWNLOAD="http://sourceforge.net/projects/virtualgl/files/VirtualGL/2.3/VirtualGL-2.3.tar.gz/download"
+DOWNLOAD="http://downloads.sourceforge.net/virtualgl/VirtualGL-2.3.tar.gz"
 MD5SUM="e4c5f3b4e887bfc0abe761735fa0bbda"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
