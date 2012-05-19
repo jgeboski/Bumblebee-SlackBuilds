@@ -51,5 +51,19 @@ on SlackBuilds.org: http://slackbuilds.org/howto/
      # chmod +x /etc/rc.d/rc.bumblebeed
      # /etc/rc.d/rc.bumblebeed start
    
+   If you'd like to have bumblebee autostart with the system, you'll need
+   to add the following lines to: /etc/rc.d/rc.local:
+   
+   if [ -x /etc/rc.d/rc.bumblebeed ]; then
+     /etc/rc.d/rc.bumblebeed start
+   fi
+   
+   You can also go a step further by having bumblebeed start with your
+   system by adding the following lines to: /etc/rc.d/rc.local_shutdown:
+   
+   if [ -x /etc/rc.d/rc.bumblebeed ]; then
+     /etc/rc.d/rc.bumblebeed stop
+   fi
+   
    Now an application can run with optirun:
      $ optirun glxgears
