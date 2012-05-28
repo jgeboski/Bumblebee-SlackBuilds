@@ -5,8 +5,8 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-       |-----handy-ruler------------------------------------------------------|
-bbswitch: bbswitch (ACPI kernel module for Optimus)
+        |-----handy-ruler------------------------------------------------------|
+bbswitch: bbswitch (ACPI kernel module for NVIDIA Optimus)
 bbswitch:
 bbswitch: bbswitch is a kernel module which automatically detects the required
 bbswitch: ACPI calls for two kinds of Optimus laptops. It has been verified to

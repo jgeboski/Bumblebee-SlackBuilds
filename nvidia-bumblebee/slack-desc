@@ -6,7 +6,7 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                 |-----handy-ruler------------------------------------------------------|
-nvidia-bumblebee: NVIDIA Bumblebee (NVIDIA drivers for Bumblebee)
+nvidia-bumblebee: nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 nvidia-bumblebee:
 nvidia-bumblebee: This package contains the proprietary NVIDIA drivers, without the
 nvidia-bumblebee: kernel modules, packaged correctly to be used with bumblebee. Please
@@ -14,6 +14,6 @@ nvidia-bumblebee: note, the drivers in this package are packaged for bumblebee. 
 nvidia-bumblebee: this package is being used with bumblebee it will not be of much use.
 nvidia-bumblebee:
 nvidia-bumblebee:
-nvidia-bumblebee:
 nvidia-bumblebee: Homepage: http://www.nvidia.com/
+nvidia-bumblebee:
 nvidia-bumblebee:
