@@ -1,0 +1,69 @@
+SLACKBUILD NAME: bbswitch
+SLACKBUILD LOCATION: ./bbswitch
+SLACKBUILD FILES: bbswitch.SlackBuild bbswitch.info doinst.sh README slack-desc
+SLACKBUILD VERSION: 0.4.2
+SLACKBUILD DOWNLOAD: https://github.com/downloads/Bumblebee-Project/bbswitch/bbswitch-0.4.2.tar.gz
+SLACKBUILD DOWNLOAD_x86_64: 
+SLACKBUILD MD5SUM: 0db72765c6accb49426a40c4cb1556d3
+SLACKBUILD MD5SUM_x86_64: 
+SLACKBUILD SHORT DESCRIPTION:  bbswitch (ACPI kernel module for NVIDIA Optimus)
+
+SLACKBUILD NAME: bumblebee
+SLACKBUILD LOCATION: ./bumblebee
+SLACKBUILD FILES: bumblebee.SlackBuild bumblebee.info doinst.sh README slack-desc
+SLACKBUILD VERSION: 3.0
+SLACKBUILD DOWNLOAD: https://github.com/downloads/Bumblebee-Project/Bumblebee/bumblebee-3.0.tar.gz
+SLACKBUILD DOWNLOAD_x86_64: 
+SLACKBUILD MD5SUM: 2ddd4d47bc52aceb3b295e68f9f32ffe
+SLACKBUILD MD5SUM_x86_64: 
+SLACKBUILD SHORT DESCRIPTION:  bumblebee (NVIDIA Optimus support)
+
+SLACKBUILD NAME: libbsd
+SLACKBUILD LOCATION: ./libbsd
+SLACKBUILD FILES: libbsd.SlackBuild libbsd.info README slack-desc
+SLACKBUILD VERSION: 0.3.0
+SLACKBUILD DOWNLOAD: http://libbsd.freedesktop.org/releases/libbsd-0.3.0.tar.gz
+SLACKBUILD DOWNLOAD_x86_64: 
+SLACKBUILD MD5SUM: 833e58531b4bd84b119b53d834d8e0d8
+SLACKBUILD MD5SUM_x86_64: 
+SLACKBUILD SHORT DESCRIPTION:  libbsd (library of BSD functions)
+
+SLACKBUILD NAME: libjpeg-turbo
+SLACKBUILD LOCATION: ./libjpeg-turbo
+SLACKBUILD FILES: libjpeg-turbo.SlackBuild libjpeg-turbo.info README slack-desc
+SLACKBUILD VERSION: 1.2.0
+SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.2.0.tar.gz
+SLACKBUILD DOWNLOAD_x86_64: 
+SLACKBUILD MD5SUM: 5329fa80953938cb4f097afae55059e2
+SLACKBUILD MD5SUM_x86_64: 
+SLACKBUILD SHORT DESCRIPTION:  libjpeg-turbo (accelerated libjpeg)
+
+SLACKBUILD NAME: nvidia-bumblebee
+SLACKBUILD LOCATION: ./nvidia-bumblebee
+SLACKBUILD FILES: nvidia-bumblebee.SlackBuild nvidia-bumblebee.info README slack-desc
+SLACKBUILD VERSION: 295.53
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/295.53/NVIDIA-Linux-x86-295.53.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-295.53.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-295.53.tar.bz2
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/295.53/NVIDIA-Linux-x86_64-295.53.run
+SLACKBUILD MD5SUM: af353274ab078cb90aba428ca1f00f0e 799ff355f2d9863171a6e43e34961536 a0a83d5471bd97884fe2d8eb88d5006d
+SLACKBUILD MD5SUM_x86_64: e349da7e84360521917689237611564f
+SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
+
+SLACKBUILD NAME: nvidia-kernel
+SLACKBUILD LOCATION: ./nvidia-kernel
+SLACKBUILD FILES: nvidia-kernel.SlackBuild nvidia-kernel.info doinst.sh README slack-desc
+SLACKBUILD VERSION: 295.53
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/295.53/NVIDIA-Linux-x86-295.53.run
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/295.53/NVIDIA-Linux-x86_64-295.53.run
+SLACKBUILD MD5SUM: af353274ab078cb90aba428ca1f00f0e
+SLACKBUILD MD5SUM_x86_64: e349da7e84360521917689237611564f
+SLACKBUILD SHORT DESCRIPTION:  nvidia-kernel (kernel interface for the NVIDIA driver)
+
+SLACKBUILD NAME: VirtualGL
+SLACKBUILD LOCATION: ./VirtualGL
+SLACKBUILD FILES: VirtualGL.SlackBuild VirtualGL.info README slack-desc
+SLACKBUILD VERSION: 2.3
+SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/virtualgl/VirtualGL-2.3.tar.gz
+SLACKBUILD DOWNLOAD_x86_64: 
+SLACKBUILD MD5SUM: e4c5f3b4e887bfc0abe761735fa0bbda
+SLACKBUILD MD5SUM_x86_64: 
+SLACKBUILD SHORT DESCRIPTION:  VirtualGL (remote OpenGL rendering)
