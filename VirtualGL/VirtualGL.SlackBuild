@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=VirtualGL
-VERSION=${VERSION:-2.3}
+VERSION=${VERSION:-2.3.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -71,7 +71,7 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-sed -i "s/Usage: glxinfo/Usage: vglinfo/" mesademos/glxinfo.c
+sed -i "s/Usage: glxinfo/Usage: vglinfo/" glxdemos/glxinfo.c
 
 mkdir build
 cd build

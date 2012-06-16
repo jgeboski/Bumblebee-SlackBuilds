@@ -61,9 +61,9 @@ SLACKBUILD SHORT DESCRIPTION:  nvidia-kernel (kernel interface for the NVIDIA dr
 SLACKBUILD NAME: VirtualGL
 SLACKBUILD LOCATION: ./VirtualGL
 SLACKBUILD FILES: VirtualGL.SlackBuild VirtualGL.info README slack-desc
-SLACKBUILD VERSION: 2.3
-SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/virtualgl/VirtualGL-2.3.tar.gz
+SLACKBUILD VERSION: 2.3.1
+SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/virtualgl/VirtualGL-2.3.1.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: e4c5f3b4e887bfc0abe761735fa0bbda
+SLACKBUILD MD5SUM: 6c7dcfce0541df7f5bd8a07d4c480fb1
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  VirtualGL (remote OpenGL rendering)
