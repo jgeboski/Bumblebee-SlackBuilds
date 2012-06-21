@@ -41,11 +41,11 @@ SLACKBUILD SHORT DESCRIPTION:  libjpeg-turbo (accelerated libjpeg)
 SLACKBUILD NAME: nvidia-bumblebee
 SLACKBUILD LOCATION: ./nvidia-bumblebee
 SLACKBUILD FILES: nvidia-bumblebee.SlackBuild nvidia-bumblebee.info README slack-desc
-SLACKBUILD VERSION: 295.53
-SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/295.53/NVIDIA-Linux-x86-295.53.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-295.53.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-295.53.tar.bz2
-SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/295.53/NVIDIA-Linux-x86_64-295.53.run
-SLACKBUILD MD5SUM: af353274ab078cb90aba428ca1f00f0e 799ff355f2d9863171a6e43e34961536 a0a83d5471bd97884fe2d8eb88d5006d
-SLACKBUILD MD5SUM_x86_64: e349da7e84360521917689237611564f
+SLACKBUILD VERSION: 302.17
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/302.17/NVIDIA-Linux-x86-302.17.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-302.17.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-302.17.tar.bz2
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/302.17/NVIDIA-Linux-x86_64-302.17.run
+SLACKBUILD MD5SUM: b7f908ea08218df08db06026215ec419 8df901011c967cef1f69a83be639e203 34fbb55cf22bbad6eebd7065bfc0eede
+SLACKBUILD MD5SUM_x86_64: 5b09f013644b93bc6b1a290a2d514142
 SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 
 SLACKBUILD NAME: nvidia-kernel
