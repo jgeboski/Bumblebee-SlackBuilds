@@ -31,10 +31,10 @@ SLACKBUILD SHORT DESCRIPTION:  libbsd (library of BSD functions)
 SLACKBUILD NAME: libjpeg-turbo
 SLACKBUILD LOCATION: ./libjpeg-turbo
 SLACKBUILD FILES: libjpeg-turbo.SlackBuild libjpeg-turbo.info README slack-desc
-SLACKBUILD VERSION: 1.2.0
-SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.2.0.tar.gz
+SLACKBUILD VERSION: 1.2.1
+SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.2.1.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: 5329fa80953938cb4f097afae55059e2
+SLACKBUILD MD5SUM: f61e60ff01381ece4d2fe65eeb52669e
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  libjpeg-turbo (accelerated libjpeg)
 
