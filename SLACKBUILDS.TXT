@@ -21,10 +21,10 @@ SLACKBUILD SHORT DESCRIPTION:  bumblebee (NVIDIA Optimus support)
 SLACKBUILD NAME: libbsd
 SLACKBUILD LOCATION: ./libbsd
 SLACKBUILD FILES: libbsd.SlackBuild libbsd.info README slack-desc
-SLACKBUILD VERSION: 0.4.1
-SLACKBUILD DOWNLOAD: http://libbsd.freedesktop.org/releases/libbsd-0.4.1.tar.gz
+SLACKBUILD VERSION: 0.4.2
+SLACKBUILD DOWNLOAD: http://libbsd.freedesktop.org/releases/libbsd-0.4.2.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: 8632bd9c56887f7f83cec2864937303d
+SLACKBUILD MD5SUM: 591fc9de4ca22f78cf87a94e648a92f4
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  libbsd (library of BSD functions)
 
