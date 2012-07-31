@@ -1,10 +1,19 @@
-This set of SlackBuilds should get Bumblebee up and running to aid in
-running OpenGL application on an NVIDIA Optimus setup.
+This set of SlackBuilds should get Bumblebee up and running on a
+Slackware based NVIDIA Optimus setup.
 
 HowTo:
 
 If you have never used a SlackBuild before, please refer to the HowTo
 on SlackBuilds.org: http://slackbuilds.org/howto/
+
+
+Note: Several of these SlackBuilds support a COMPAT32 option which
+      allows 32-bit binaries to be build and packaged.  This does
+      require that the system is multilibbed, otherwise the
+      SlackBuilds will fail.
+      
+      For more information on multilibbing visit AlienBOB's wiki:
+        http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
 
 
 1. Create group: bumblebee:
