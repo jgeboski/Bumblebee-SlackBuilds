@@ -13,7 +13,7 @@ libbsd: and lacking on others like GNU systems, thus making it easier to port
 libbsd: projects with strong BSD origins, without needing to embed the same
 libbsd: code over and over again on each project.
 libbsd:
-libbsd:
 libbsd: Homepage: http://libbsd.freedesktop.org/wiki/
+libbsd:
 libbsd:
 libbsd:

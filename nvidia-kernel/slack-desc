@@ -10,10 +10,10 @@ nvidia-kernel: nvidia-kernel (kernel interface for the NVIDIA driver)
 nvidia-kernel:
 nvidia-kernel: This is the kernel module needed by the binary NVIDIA driver.
 nvidia-kernel:
-nvidia-kernel:
-nvidia-kernel:
-nvidia-kernel:
-nvidia-kernel:
 nvidia-kernel: Homepage: http://www.nvidia.com/
+nvidia-kernel:
+nvidia-kernel:
+nvidia-kernel:
+nvidia-kernel:
 nvidia-kernel:
 nvidia-kernel:
