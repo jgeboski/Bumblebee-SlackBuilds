@@ -7,4 +7,3 @@ DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/304.37/NVIDIA-Li
 MD5SUM_x86_64="1a85451b1d2b1d86616560cd91feffb5"
 MAINTAINER="James Geboski"
 EMAIL="jgeboski@gmail.com"
-APPROVED=""
