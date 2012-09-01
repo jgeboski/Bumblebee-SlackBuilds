@@ -1,15 +1,15 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="304.37"
+VERSION="304.43"
 HOMEPAGE="http://www.nvidia.com/"
 DOWNLOAD=" \
-  ftp://download.nvidia.com/XFree86/Linux-x86/304.37/NVIDIA-Linux-x86-304.37.run \
-  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-304.37.tar.bz2 \
-  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-304.37.tar.bz2"
+  ftp://download.nvidia.com/XFree86/Linux-x86/304.43/NVIDIA-Linux-x86-304.43.run \
+  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-304.43.tar.bz2 \
+  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-304.43.tar.bz2"
 MD5SUM=" \
-  ee3e97109201ab954c96860e28ada611 \
-  8a3c800687a6ce437a61694392de8708 \
-  504d847fbf4b546dba2ce2eaf202dba5"
-DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/304.37/NVIDIA-Linux-x86_64-304.37.run"
-MD5SUM_x86_64="1a85451b1d2b1d86616560cd91feffb5"
+  393260b7e8d8195e982eb718f5014c3d \
+  5f3b63a621897e5b32e13de114aa58db \
+  12a8370ef2f0a59391e2fa35a10bcec0"
+DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/304.43/NVIDIA-Linux-x86_64-304.43.run"
+MD5SUM_x86_64="7a974d7827da8271982d3f2629465b8c"
 MAINTAINER="James Geboski"
 EMAIL="jgeboski@gmail.com"
