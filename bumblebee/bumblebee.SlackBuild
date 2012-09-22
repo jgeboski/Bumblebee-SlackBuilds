@@ -25,7 +25,7 @@
 PRGNAM=bumblebee
 VERSION=${VERSION:-3.0.1}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_bbsb}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -36,7 +36,7 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/bbsb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 

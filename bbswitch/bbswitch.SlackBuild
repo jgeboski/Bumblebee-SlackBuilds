@@ -25,7 +25,7 @@
 PRGNAM=bbswitch
 VERSION=${VERSION:-0.4.2}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_bbsb}
 
 KERNEL=${KERNEL:-$(uname -r)}
 KERNELPATH=${KERNELPATH:-/lib/modules/$KERNEL/build}
@@ -39,7 +39,7 @@ if [ -z "$ARCH" ]; then
 fi
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/bbsb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
