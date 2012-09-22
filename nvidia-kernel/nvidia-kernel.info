@@ -5,5 +5,6 @@ DOWNLOAD="ftp://download.nvidia.com/XFree86/Linux-x86/304.48/NVIDIA-Linux-x86-30
 MD5SUM="e6e702984c4db4e6aa2eda595f629708"
 DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/304.48/NVIDIA-Linux-x86_64-304.48.run"
 MD5SUM_x86_64="9b3cdccf4aa13c537bd5e556d553f829"
+REQUIRES="nvidia-bumblebee"
 MAINTAINER="James Geboski"
 EMAIL="jgeboski@gmail.com"
