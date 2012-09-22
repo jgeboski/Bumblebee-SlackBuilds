@@ -6,5 +6,3 @@ This SlackBuild can build and package 32-bit compatible binaries and
 libraries for x86_64 systems. To enable this, pass the variable COMPAT32:
 
   # COMPAT32=yes ./VirtualGL.SlackBuild
-
-This package requires: libjpeg-turbo
