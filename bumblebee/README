@@ -9,5 +9,3 @@ You will need a usergroup called "bumblebee" for the bumblebee daemon:
 
 Then add any users that should have optimus access to the group:
   # usermod -G bumblebee -a USERNAME
-
-This package requires: bbswitch, libbsd, nvidia-bumblebee, VirtalGL
