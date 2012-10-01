@@ -1,54 +1,63 @@
 This set of SlackBuilds should get Bumblebee up and running on a
 Slackware based NVIDIA Optimus setup.
 
+
+Slackware Docs:
+  A wiki page on the Slackware docs has been put to gether by another
+  slacker, TommyC. I recommend you follow the wiki page for a more
+  in-depth guide.
+
+  http://docs.slackware.com/howtos:hardware:nvidia_optimus
+
+
 HowTo:
+  If you have never used a SlackBuild before, please refer to the HowTo
+  on SlackBuilds.org: http://slackbuilds.org/howto/
 
-If you have never used a SlackBuild before, please refer to the HowTo
-on SlackBuilds.org: http://slackbuilds.org/howto/
 
+Note:
+  Several of these SlackBuilds support a COMPAT32 option which
+  allows 32-bit binaries to be build and packaged.  This does
+  require that the system is multilibbed, otherwise the
+  SlackBuilds will fail.
 
-Note: Several of these SlackBuilds support a COMPAT32 option which
-      allows 32-bit binaries to be build and packaged.  This does
-      require that the system is multilibbed, otherwise the
-      SlackBuilds will fail.
-      
-      For more information on multilibbing visit AlienBOB's wiki:
-        http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
+  For more information on multilibbing visit AlienBOB's wiki:
+  http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
 
 
 1. Create group: bumblebee:
      # groupadd bumblebee
-   
+
    Add users to the group:
      # usermod -G bumblebee -a USERNAME
-   
+
    Note: you will need to re-login as the user for this to take effect
 
 2. Build and install: libjpeg-turbo
-   
+
    If the system is x86_64 based, 32-bit compatible binaries and
    libraries can be installed via:
-   
+
      # COMPAT32=yes ./libjpeg-turbo.SlackBuild
 
 3. Build and install: VirtualGL
-   
+
    If the system is x86_64 based, 32-bit compatible binaries and
    libraries can be installed via:
-   
+
      # COMPAT32=yes ./VirtualGL.SlackBuild
 
 4. Build and install: nvidia-bumblebee (Optional, if using nouveau)
-   
+
    If the system is x86_64 based, 32-bit compatible binaries and
    libraries can be installed via:
-   
+
      # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
 5. Build and install: nvidia-kernel (Optional, if using nouveau)
 
 6. Build and install: bbswitch (Optional)
-   
+
    This in an optional requirement.  If you do not need power management or
    the ability to turn off the nVidia chip, you can skip this.
 
@@ -59,20 +68,20 @@ Note: Several of these SlackBuilds support a COMPAT32 option which
 9. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebeed
      # /etc/rc.d/rc.bumblebeed start
-   
+
    If you'd like to have bumblebee autostart with the system, you'll need
    to add the following lines to: /etc/rc.d/rc.local:
-   
+
    if [ -x /etc/rc.d/rc.bumblebeed ]; then
      /etc/rc.d/rc.bumblebeed start
    fi
-   
+
    You can also go a step further by having bumblebeed start with your
    system by adding the following lines to: /etc/rc.d/rc.local_shutdown:
-   
+
    if [ -x /etc/rc.d/rc.bumblebeed ]; then
      /etc/rc.d/rc.bumblebeed stop
    fi
-   
+
    Now an application can run with optirun:
      $ optirun glxgears
