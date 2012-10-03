@@ -51,11 +51,11 @@ SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 SLACKBUILD NAME: nvidia-kernel
 SLACKBUILD LOCATION: ./nvidia-kernel
 SLACKBUILD FILES: nvidia-kernel.SlackBuild nvidia-kernel.info doinst.sh README slack-desc
-SLACKBUILD VERSION: 304.48
-SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/304.48/NVIDIA-Linux-x86-304.48.run
-SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/304.48/NVIDIA-Linux-x86_64-304.48.run
-SLACKBUILD MD5SUM: e6e702984c4db4e6aa2eda595f629708
-SLACKBUILD MD5SUM_x86_64: 9b3cdccf4aa13c537bd5e556d553f829
+SLACKBUILD VERSION: 304.51
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/304.51/NVIDIA-Linux-x86-304.51.run
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/304.51/NVIDIA-Linux-x86_64-304.51.run
+SLACKBUILD MD5SUM: 4fde294e139a31528ea7f6efd8885a09
+SLACKBUILD MD5SUM_x86_64: 3144f4a49a13e2ca938255fd42494f0d
 SLACKBUILD SHORT DESCRIPTION:  nvidia-kernel (kernel interface for the NVIDIA driver)
 
 SLACKBUILD NAME: VirtualGL
