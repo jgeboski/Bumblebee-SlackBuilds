@@ -25,63 +25,66 @@ Note:
   http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
 
 
-1. Create group: bumblebee:
+1.  Download the sources:
+     $ ./download.sh
+
+2.  Create group: bumblebee:
      # groupadd bumblebee
 
-   Add users to the group:
+    Add users to the group:
      # usermod -G bumblebee -a USERNAME
 
-   Note: you will need to re-login as the user for this to take effect
+    Note: you will need to re-login as the user for this to take effect
 
-2. Build and install: libjpeg-turbo
+3.  Build and install: libjpeg-turbo
 
-   If the system is x86_64 based, 32-bit compatible binaries and
-   libraries can be installed via:
+    If the system is x86_64 based, 32-bit compatible binaries and
+    libraries can be installed via:
 
      # COMPAT32=yes ./libjpeg-turbo.SlackBuild
 
-3. Build and install: VirtualGL
+4.  Build and install: VirtualGL
 
-   If the system is x86_64 based, 32-bit compatible binaries and
-   libraries can be installed via:
+    If the system is x86_64 based, 32-bit compatible binaries and
+    libraries can be installed via:
 
      # COMPAT32=yes ./VirtualGL.SlackBuild
 
-4. Build and install: nvidia-bumblebee (Optional, if using nouveau)
+5.  Build and install: nvidia-bumblebee (Optional, if using nouveau)
 
-   If the system is x86_64 based, 32-bit compatible binaries and
-   libraries can be installed via:
+    If the system is x86_64 based, 32-bit compatible binaries and
+    libraries can be installed via:
 
      # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
-5. Build and install: nvidia-kernel (Optional, if using nouveau)
+6.  Build and install: nvidia-kernel (Optional, if using nouveau)
 
-6. Build and install: bbswitch (Optional)
+7.  Build and install: bbswitch (Optional)
 
-   This in an optional requirement.  If you do not need power management or
-   the ability to turn off the nVidia chip, you can skip this.
+    This in an optional requirement.  If you do not need power management or
+    the ability to turn off the nVidia chip, you can skip this.
 
-7. Build and install: libbsd
+8.  Build and install: libbsd
 
-8. Build and install: bumblebeed
+9.  Build and install: bumblebeed
 
-9. Run the rc.bumblebee script:
+10. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebeed
      # /etc/rc.d/rc.bumblebeed start
 
-   If you'd like to have bumblebee autostart with the system, you'll need
-   to add the following lines to: /etc/rc.d/rc.local:
+    If you'd like to have bumblebee autostart with the system, you'll need
+    to add the following lines to: /etc/rc.d/rc.local:
 
-   if [ -x /etc/rc.d/rc.bumblebeed ]; then
-     /etc/rc.d/rc.bumblebeed start
-   fi
+    if [ -x /etc/rc.d/rc.bumblebeed ]; then
+      /etc/rc.d/rc.bumblebeed start
+    fi
 
-   You can also go a step further by having bumblebeed start with your
-   system by adding the following lines to: /etc/rc.d/rc.local_shutdown:
+    You can also go a step further by having bumblebeed start with your
+    system by adding the following lines to: /etc/rc.d/rc.local_shutdown:
 
-   if [ -x /etc/rc.d/rc.bumblebeed ]; then
-     /etc/rc.d/rc.bumblebeed stop
-   fi
+    if [ -x /etc/rc.d/rc.bumblebeed ]; then
+      /etc/rc.d/rc.bumblebeed stop
+    fi
 
-   Now an application can run with optirun:
+    Now an application can run with optirun:
      $ optirun glxgears
