@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=nvidia-bumblebee
-VERSION=${VERSION:-304.51}
+VERSION=${VERSION:-310.14}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 
@@ -102,8 +102,6 @@ cd $TMP/${PKGNAM[0]}
     libGL.la \
     libGL.so.$VERSION \
     libOpenCL.so.1.0.0 \
-    libXvMCNVIDIA.a \
-    libXvMCNVIDIA.so.$VERSION \
     libcuda.so.$VERSION \
     libnvcuvid.so.$VERSION \
     libnvidia-cfg.so.$VERSION \
