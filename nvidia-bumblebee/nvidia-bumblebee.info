@@ -1,16 +1,16 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="310.14"
+VERSION="310.19"
 HOMEPAGE="http://www.nvidia.com/"
 DOWNLOAD=" \
-  ftp://download.nvidia.com/XFree86/Linux-x86/310.14/NVIDIA-Linux-x86-310.14.run \
-  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-310.14.tar.bz2 \
-  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-310.14.tar.bz2"
+  ftp://download.nvidia.com/XFree86/Linux-x86/310.19/NVIDIA-Linux-x86-310.19.run \
+  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-310.19.tar.bz2 \
+  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-310.19.tar.bz2"
 MD5SUM=" \
-  93b6fcf100a94e4e5fafc4ccd740a590 \
-  82ac2e8a0c975b90b11d7ae47a8f7fae \
-  3c32b25ecc81aedd3a91c6d14c043d1c"
-DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/310.14/NVIDIA-Linux-x86_64-310.14.run"
-MD5SUM_x86_64="347ffd1c88e57476d26dfd0e36584acc"
+  2adbdd38540b3a8955714760e05f575d \
+  bcd79ca8d4f806616e206f54a6cc3ab3 \
+  279d6e0f1649e0f6f65b78c8c820a845"
+DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/310.19/NVIDIA-Linux-x86_64-310.19.run"
+MD5SUM_x86_64="0b498d3b2dfd123032cb93196e0f475c"
 REQUIRES="bumblebee nvidia-kernel"
 MAINTAINER="James Geboski"
 EMAIL="jgeboski@gmail.com"
