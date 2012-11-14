@@ -1,10 +1,10 @@
 SLACKBUILD NAME: bbswitch
 SLACKBUILD LOCATION: ./bbswitch
 SLACKBUILD FILES: bbswitch.SlackBuild bbswitch.info doinst.sh README slack-desc
-SLACKBUILD VERSION: 0.4.2
-SLACKBUILD DOWNLOAD: https://github.com/downloads/Bumblebee-Project/bbswitch/bbswitch-0.4.2.tar.gz
+SLACKBUILD VERSION: 0.5
+SLACKBUILD DOWNLOAD: https://github.com/downloads/Bumblebee-Project/bbswitch/bbswitch-0.5.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: 0db72765c6accb49426a40c4cb1556d3
+SLACKBUILD MD5SUM: 5e0e6eb9c5e8c10db56e5b349b43bba7
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  bbswitch (ACPI kernel module for NVIDIA Optimus)
 

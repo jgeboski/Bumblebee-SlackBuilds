@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=bbswitch
-VERSION=${VERSION:-0.4.2}
+VERSION=${VERSION:-0.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 
@@ -80,7 +80,7 @@ install -m 644 $PRGNAM.ko $PKG/lib/modules/$KERNEL/kernel/drivers/acpi
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   README.md NEWS \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+ $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
