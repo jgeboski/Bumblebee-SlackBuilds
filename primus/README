@@ -1,0 +1,10 @@
+Primus is a shared library that provides OpenGL and GLX APIs and
+implements low-overhead local-only client-side OpenGL offloading via
+GLX forking, similar to VirtualGL. It intercepts GLX calls and
+redirects GL rendering to a secondary X display, presumably driven
+by a faster GPU.
+
+This SlackBuild can build and package 32-bit compatible binaries and
+libraries for x86_64 systems. To enable this, pass the variable COMPAT32:
+
+  # COMPAT32=yes ./primus.SlackBuild

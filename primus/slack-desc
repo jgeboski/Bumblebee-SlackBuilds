@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+      |-----handy-ruler------------------------------------------------------|
+primus: primus (OpenGL offloading)
+primus:
+primus: Primus is a shared library that provides OpenGL and GLX APIs and
+primus: implements low-overhead local-only client-side OpenGL offloading via
+primus: GLX forking, similar to VirtualGL. It intercepts GLX calls and
+primus: redirects GL rendering to a secondary X display, presumably driven
+primus: by a faster GPU.
+primus:
+primus: Homepage: https://github.com/amonakov/primus/
+primus:
+primus:

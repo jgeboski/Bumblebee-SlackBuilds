@@ -50,25 +50,30 @@ Note:
 
      # COMPAT32=yes ./VirtualGL.SlackBuild
 
-5.  Build and install: nvidia-bumblebee (Optional, if using nouveau)
+5.  Build and install: primus (Optional)
+
+    This can be used in place of VirtualGL to achieve "better"
+    performance. Both can be installed at the same time.
+
+6.  Build and install: nvidia-bumblebee (Optional, if using nouveau)
 
     If the system is x86_64 based, 32-bit compatible binaries and
     libraries can be installed via:
 
      # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
-6.  Build and install: nvidia-kernel (Optional, if using nouveau)
+7.  Build and install: nvidia-kernel (Optional, if using nouveau)
 
-7.  Build and install: bbswitch (Optional)
+8.  Build and install: bbswitch (Optional)
 
     This in an optional requirement.  If you do not need power management or
     the ability to turn off the nVidia chip, you can skip this.
 
-8.  Build and install: libbsd
+9.  Build and install: libbsd
 
-9.  Build and install: bumblebeed
+10. Build and install: bumblebeed
 
-10. Run the rc.bumblebee script:
+11. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebeed
      # /etc/rc.d/rc.bumblebeed start
 
@@ -88,3 +93,5 @@ Note:
 
     Now an application can run with optirun:
      $ optirun glxgears
+    OR:
+     $ primusrun glxgears
