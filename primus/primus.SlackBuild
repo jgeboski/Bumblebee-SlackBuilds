@@ -24,7 +24,7 @@
 
 PRGNAM=primus
 VERSION=${VERSION:-git}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_bbsb}
 
 if [ -z "$ARCH" ]; then
@@ -71,30 +71,39 @@ find . \
  -exec chmod 644 {} \;
 
 VERSION=$(git rev-parse --short=7 HEAD)
+PRIMUS_PATH="/usr/lib${LIBDIRSUFFIX}/$PRGNAM"
+NVIDIA_PATH="/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee"
 
 mkdir -p \
   $PKG/usr/bin \
   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
+CXXFLAGS="$SLKCFLAGS" \
 make \
-  CXXFLAGS="-Wall -g $SLKCFLAGS" \
-  LIB=lib${LIBDIRSUFFIX}
+  LIBDIR=lib \
+  PRIMUS_libGLa=/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/libGL.so.1 \
+  PRIMUS_libGLd=/usr/lib${LIBDIRSUFFIX}/libGL.so.1
 
 install -m 755 primusrun      $PKG/usr/bin
 install -m 755 lib/libGL.so.1 $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
 if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
+  CXXFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
   make \
-    CXXFLAGS="-Wall -g -m32 -O2 -march=i486 -mtune=i686" \
     LIBDIR=lib32 \
-    LIB=lib
+    PRIMUS_libGLa=/usr/lib/nvidia-bumblebee/libGL.so.1 \
+    PRIMUS_libGLd=/usr/lib/libGL.so.1
 
   mkdir -p $PKG/usr/lib/$PRGNAM
   install -m 755 lib32/libGL.so.1 $PKG/usr/lib/$PRGNAM
+
+  PRIMUS_PATH="$PRIMUS_PATH:/usr/lib/$PRGNAM"
+  NVIDIA_PATH="$NVIDIA_PATH:/usr/lib/nvidia-bumblebee"
 fi
 
 sed -i \
-  "s;^\(PRIMUS_libGL=\).*;export \1\${PRIMUS_libGL:-'/usr/\$LIB/$PRGNAM/libGL.so.1'};" \
+  -e "s;^\(PRIMUS_libGL=\${PRIMUS_libGL:-\).*;\1$PRIMUS_PATH};" \
+  -e "s;# \(PRIMUS_libGL=\${PRIMUS_libGL}:\).*;\1$NVIDIA_PATH;" \
  $PKG/usr/bin/primusrun
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
