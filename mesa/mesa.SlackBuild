@@ -1,0 +1,141 @@
+#!/bin/sh
+
+# Slackware build script for mesa
+# Based on Slackware's mesa.SlackBuild by Patrick J. Volkerding
+
+# Copyright 2012 James Geboski <jgeboski@gmail.com>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+PRGNAM=mesa
+VERSION=8.0.4
+DEMOVER=8.0.1
+BUILD=${BUILD:-2}
+TAG=${TAG:-_bbsb}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) export ARCH=i486 ;;
+    arm*) export ARCH=arm ;;
+       *) export ARCH=$( uname -m ) ;;
+  esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/bbsb}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+fi
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG
+cd $TMP
+
+rm -rf Mesa-$VERSION mesa-demos-$DEMOVER
+tar xvf $CWD/MesaLib-$VERSION.tar.bz2
+tar xvf $CWD/mesa-demos-$DEMOVER.tar.bz2
+
+chown -R root:root Mesa-$VERSION mesa-demos-$DEMOVER
+find Mesa-$VERSION mesa-demos-$DEMOVER \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
+
+cd Mesa-$VERSION
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --sysconfdir=/etc \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --mandir=/usr/man \
+  --docdir=/usr/doc/mesa-$VERSION \
+  --build=$ARCH-slackware-linux \
+  --with-dri-driverdir=/usr/lib${LIBDIRSUFFIX}/xorg/modules/dri \
+  --with-dri-drivers=i915,i965,nouveau,r200,radeon,swrast \
+  --with-gallium-drivers=nouveau,swrast,r300,r600 \
+  --enable-gallium-llvm \
+  --enable-shared-glapi
+
+make
+make install DESTDIR=$PKG
+
+cd $TMP/mesa-demos-$DEMOVER
+  # Build and install the demos defined Slackware's mesa.SlackBuild
+  DEMOS="gears glinfo"
+  XDEMOS="glxcontexts glxdemo glxgears glxgears_fbconfig glxheads glxinfo
+          glxpbdemo glxpixmap glthreads"
+
+  # Fix library issues on multilibbed systems
+  if [ "$ARCH" = "x86_64" ]; then
+    SLKCFLAGS="$SLKCFLAGS -L/usr/X11R6/lib${LIBDIRSUFFIX}"
+  fi
+
+  CFLAGS="$SLKCFLAGS" \
+  ./configure \
+    --prefix=/usr \
+    --build=$ARCH-slackware-linux
+
+  make -C src/demos  $DEMOS
+  make -C src/xdemos $XDEMOS
+
+  mkdir -p $PKG/usr/bin
+
+  for d in $DEMOS; do
+    install -m 755 src/demos/$d $PKG/usr/bin
+  done
+
+  for d in $XDEMOS; do
+    install -m 755 src/xdemos/$d $PKG/usr/bin
+  done
+cd -
+
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+# Install the documentation defended Slackware's mesa.SlackBuild
+mkdir -p $PKG/usr/doc/Mesa-$VERSION/html
+cp -a \
+  docs/COPYING* docs/GL* docs/README* docs/relnotes-$VERSION*.html \
+ $PKG/usr/doc/Mesa-$VERSION
+cp -a docs/*.html $PKG/usr/doc/Mesa-$VERSION/html
+rm -f $PKG/usr/doc/Mesa-$VERSION/html/relnotes*.html
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
