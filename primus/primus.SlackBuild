@@ -81,6 +81,7 @@ mkdir -p \
 CXXFLAGS="$SLKCFLAGS" \
 make \
   LIBDIR=lib \
+  PRIMUS_LOAD_GLOBAL=/usr/lib${LIBDIRSUFFIX}/libglapi.so.0 \
   PRIMUS_libGLa=/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/libGL.so.1 \
   PRIMUS_libGLd=/usr/lib${LIBDIRSUFFIX}/libGL.so.1
 
@@ -91,6 +92,7 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
   CXXFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
   make \
     LIBDIR=lib32 \
+    PRIMUS_LOAD_GLOBAL=/usr/lib/libglapi.so.0 \
     PRIMUS_libGLa=/usr/lib/nvidia-bumblebee/libGL.so.1 \
     PRIMUS_libGLd=/usr/lib/libGL.so.1
 
