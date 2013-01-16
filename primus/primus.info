@@ -1,7 +1,7 @@
 PRGNAM="primus"
 VERSION="git"
 HOMEPAGE="https://github.com/amonakov/primus/"
-DOWNLOAD="https://github.com/amonakov/primus.git"
+DOWNLOAD=""
 MD5SUM=""
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
