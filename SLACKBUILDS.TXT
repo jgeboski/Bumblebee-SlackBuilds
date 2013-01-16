@@ -12,9 +12,9 @@ SLACKBUILD NAME: bumblebee
 SLACKBUILD LOCATION: ./bumblebee
 SLACKBUILD FILES: bumblebee.SlackBuild bumblebee.info doinst.sh README slack-desc
 SLACKBUILD VERSION: 3.0.1
-SLACKBUILD DOWNLOAD: https://github.com/downloads/Bumblebee-Project/Bumblebee/bumblebee-3.0.1.tar.gz
+SLACKBUILD DOWNLOAD: https://github.com/Bumblebee-Project/Bumblebee/archive/v3.0.1.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: 7b3fd4bfa0d59e877abdb75cbdba30f8
+SLACKBUILD MD5SUM: bcb4c268522bb5687267c1e1a675ab75
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  bumblebee (NVIDIA Optimus support)
 

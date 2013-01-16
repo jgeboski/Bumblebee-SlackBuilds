@@ -61,8 +61,8 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+tar xvf $CWD/v$VERSION.tar.gz
+cd Bumblebee-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -77,6 +77,8 @@ NVP="/usr/lib/nvidia-bumblebee"
 if [ "$ARCH" = "x86_64" ]; then
   NVP="/usr/lib64/nvidia-bumblebee:$NVP"
 fi
+
+autoreconf -fi
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
