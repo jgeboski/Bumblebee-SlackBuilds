@@ -50,7 +50,7 @@ SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 
 SLACKBUILD NAME: nvidia-kernel
 SLACKBUILD LOCATION: ./nvidia-kernel
-SLACKBUILD FILES: nvidia-kernel.SlackBuild nvidia-kernel.info doinst.sh README slack-desc
+SLACKBUILD FILES: nvidia-kernel.SlackBuild nvidia-kernel.info doinst.sh README slack-desc patches/linux-3.7.patch patches/linux-3.8.patch
 SLACKBUILD VERSION: 313.18
 SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/313.18/NVIDIA-Linux-x86-313.18.run
 SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/313.18/NVIDIA-Linux-x86_64-313.18.run
