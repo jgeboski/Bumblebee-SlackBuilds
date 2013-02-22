@@ -1,4 +1,3 @@
-*.tar.gz
-*.tar.bz2
 *.run
-*.tgz
+*.t?z
+*.tar.?z*
