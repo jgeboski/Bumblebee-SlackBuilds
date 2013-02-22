@@ -20,7 +20,3 @@ preserve_perms() {
 }
 
 preserve_perms etc/rc.d/rc.bumblebeed.new
-
-config etc/bumblebee/bumblebee.conf.new
-config etc/bumblebee/xorg.conf.nouveau.new
-config etc/bumblebee/xorg.conf.nvidia.new
