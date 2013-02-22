@@ -42,26 +42,59 @@ Note:
 
 5. Build and install: bbswitch (Optional)
 
-   This in an optional requirement.  If you do not need power management or
-   the ability to turn off the nVidia chip, you can skip this.
+   This in an optional requirement.  If you do not need power management
+   or the ability to turn off the nVidia chip, you can skip this.
 
 6. Build and install: nvidia-bumblebee (Optional, if using nouveau)
 
    If the system is x86_64 based, 32-bit compatible binaries and
-   libraries can be installed via:
+   libraries can be built via:
 
-    # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
+   # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
 7. Build and install: nvidia-kernel (Optional, if using nouveau)
 
 8. Build and install: primus, VirtualGL, or both
 
+   Primus:
+     1. Rebuild and reinstall: mesa
+
+        Slackware's mesa does not come with libglapi which is needed by
+        primus during runtime.
+
+        If the system is x86_64 based, a 32-bit compatible package can
+        be built via:
+
+        # ./mesa-compat32.SlackBuild
+
+     2. Build and install: primus
+
+        If the system is x86_64 based, 32-bit compatible binaries and
+        libraries can be built via:
+
+        # COMPAT32=yes ./primus.SlackBuild
+
+   VirtualGL:
+     1. Build and install: libjpeg-turbo
+
+        If the system is x86_64 based, 32-bit compatible binaries and
+        libraries can be built via:
+
+        # COMPAT32=yes ./libjpeg-turbo.SlackBuild
+
+     2. Build and install: VirtualGL
+
+        If the system is x86_64 based, 32-bit compatible binaries and
+        libraries can be built via:
+
+        # COMPAT32=yes ./VirtualGL.SlackBuild
+
 9. Run the rc.bumblebee script:
     # chmod +x /etc/rc.d/rc.bumblebeed
     # /etc/rc.d/rc.bumblebeed start
 
-   If you'd like to have bumblebee autostart with the system, you'll need
-   to add the following lines to: /etc/rc.d/rc.local:
+   If you'd like to have bumblebee autostart with the system, you will
+   need to add the following lines to: /etc/rc.d/rc.local:
 
    if [ -x /etc/rc.d/rc.bumblebeed ]; then
      /etc/rc.d/rc.bumblebeed start
@@ -76,39 +109,3 @@ Note:
 
    Now an application can run with optirun:
     $ optirun glxgears
-   OR:
-    $ primusrun glxgears
-
-
-Primus:
-  1. Rebuild and reinstall: mesa
-
-     Slackware's mesa does not come with libglapi which is needed by
-     primus during runtime.
-
-     If the system is x86_64 based, a compat32 package can be built via:
-
-      # ./mesa-compat32.SlackBuild
-
-  2. Build and install: primus
-
-     If the system is x86_64 based, 32-bit compatible binaries and
-     libraries can be installed via:
-
-      # COMPAT32=yes ./primus.SlackBuild
-
-
-VirtualGL:
-  1.  Build and install: libjpeg-turbo
-
-      If the system is x86_64 based, 32-bit compatible binaries and
-      libraries can be installed via:
-
-       # COMPAT32=yes ./libjpeg-turbo.SlackBuild
-
-  2.  Build and install: VirtualGL
-
-      If the system is x86_64 based, 32-bit compatible binaries and
-      libraries can be installed via:
-
-       # COMPAT32=yes ./VirtualGL.SlackBuild
