@@ -4,6 +4,11 @@ graphics chipsets.  A primary goal of this project is to not only
 enable use of the discrete GPU for rendering, but also to enable
 smart power management of the dGPU when it's not in use.
 
+Bumblebee requires either primus or VirtualGL at runtime. Primus is
+recommended as it is lightweight and provides far better performance.
+However, at the time of writings this, primus is still a work in
+progress, and some things may not work correctly.
+
 You will need a usergroup called "bumblebee" for the bumblebee daemon:
   # groupadd bumblebee
 
