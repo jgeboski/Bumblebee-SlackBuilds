@@ -42,6 +42,13 @@ for pkg in $PKGS; do
   for (( i=0; i < $len; i++ )); do
     src=$(basename ${DOWNLOAD[$i]})
 
+    echo $DOWNLOAD | grep -qi "github.com"
+
+    if [ "$?" = "0" ]; then
+      ext=$(echo $src | rev | cut -d. -f1-2 | rev)
+      src=$PRGNAM-$VERSION.$ext
+    fi
+
     if [ -e "$pkg/$src" ]; then
       if [ -f "$pkg/$src" ]; then
         checksum $pkg/$src ${MD5SUM[$i]}
