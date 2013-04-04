@@ -51,11 +51,11 @@ SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 SLACKBUILD NAME: nvidia-kernel
 SLACKBUILD LOCATION: ./nvidia-kernel
 SLACKBUILD FILES: nvidia-kernel.SlackBuild nvidia-kernel.info doinst.sh README slack-desc
-SLACKBUILD VERSION: 313.26
-SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/313.26/NVIDIA-Linux-x86-313.26.run
-SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/313.26/NVIDIA-Linux-x86_64-313.26.run
-SLACKBUILD MD5SUM: 3c2f5138d0fec58b27e26c5b37d845b8
-SLACKBUILD MD5SUM_x86_64: b14ffabaf1f363f239ec84c354d57a49
+SLACKBUILD VERSION: 313.30
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/313.30/NVIDIA-Linux-x86-313.30.run
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/313.30/NVIDIA-Linux-x86_64-313.30.run
+SLACKBUILD MD5SUM: 69c0f66c9246217a4fe4d28e95bb7bb6
+SLACKBUILD MD5SUM_x86_64: 808d28e550785f648b2b23171750b8ad
 SLACKBUILD SHORT DESCRIPTION:  nvidia-kernel (kernel interface for the NVIDIA driver)
 
 SLACKBUILD NAME: primus
