@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=nvidia-bumblebee
-VERSION=${VERSION:-313.30}
+VERSION=${VERSION:-319.12}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 
@@ -224,7 +224,7 @@ cd $TMP/${PKGNAM[1]}
   cd -
   
   CFLAGS="$SLKCFLAGS" make
-  make install bindir=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
+  make install BINDIR=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
   
   install -m 644 doc/nvidia-settings.desktop $PKG/usr/share/applications
   install -m 644 doc/nvidia-settings.png     $PKG/usr/share/pixmaps
@@ -238,7 +238,7 @@ cd $TMP/${PKGNAM[1]}
 # nvidia-xconfig
 cd $TMP/${PKGNAM[2]}
   CFLAGS="$SLKCFLAGS" make
-  make install bindir=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
+  make install BINDIR=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
   
   cp COPYING $PKG/usr/doc/$PRGNAM-$VERSION/COPYING.nvidia-xconfig
 
