@@ -1,6 +1,6 @@
-From e8133566d5c06466ccbe94a871001fd7bed0dee3 Mon Sep 17 00:00:00 2001
+From 6eb383ba423fa51764b073cad10a5ff45eb1fdc5 Mon Sep 17 00:00:00 2001
 From: jgeboski <jgeboski@gmail.com>
-Date: Thu, 21 Feb 2013 20:59:11 -0500
+Date: Wed, 24 Apr 2013 00:08:46 -0400
 Subject: [PATCH] optirun: default to primus then vgl
 
 ---
@@ -8,19 +8,19 @@ Subject: [PATCH] optirun: default to primus then vgl
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/optirun.c b/src/optirun.c
-index 42b8d07..91a4ec6 100644
+index 65c83d4..a4607ea 100644
 --- a/src/optirun.c
 +++ b/src/optirun.c
-@@ -233,8 +233,8 @@ struct optirun_bridge {
+@@ -298,8 +298,8 @@ struct optirun_bridge {
  };
  
  static struct optirun_bridge backends[] = {
--  {"virtualgl", "vglrun", run_virtualgl},
-   {"primus", "primusrun", run_primus},
-+  {"virtualgl", "vglrun", run_virtualgl},
+-  {"virtualgl", check_virtualgl, run_virtualgl},
+   {"primus", check_primus, run_primus},
++  {"virtualgl", check_virtualgl, run_virtualgl},
+   {"none", check_none, run_none}, // keep last
    {NULL, NULL, NULL}
  };
- 
 -- 
 1.7.12.1
 
