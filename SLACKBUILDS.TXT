@@ -11,10 +11,10 @@ SLACKBUILD SHORT DESCRIPTION:  bbswitch (ACPI kernel module for NVIDIA Optimus)
 SLACKBUILD NAME: bumblebee
 SLACKBUILD LOCATION: ./bumblebee
 SLACKBUILD FILES: bumblebee.SlackBuild bumblebee.info doinst.sh README slack-desc patches/optirun-default-to-primus-then-vgl.patch
-SLACKBUILD VERSION: 3.2
-SLACKBUILD DOWNLOAD: https://github.com/Bumblebee-Project/Bumblebee/archive/v3.2.tar.gz
+SLACKBUILD VERSION: 3.2.1
+SLACKBUILD DOWNLOAD: https://github.com/Bumblebee-Project/Bumblebee/archive/v3.2.1.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: e1b799a51d7fd178fb4bf9dd028bbcb4
+SLACKBUILD MD5SUM: 565343125f81a4046cafc0491111d270
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  bumblebee (NVIDIA Optimus support)
 
