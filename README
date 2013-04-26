@@ -17,11 +17,11 @@ HowTo:
 
 Note:
   Several of these SlackBuilds support a COMPAT32 option which
-  allows 32-bit binaries to be build and packaged.  This does
+  allows 32-bit binaries to be built and packaged.  This does
   require that the system is multilibbed, otherwise the
   SlackBuilds will fail.
 
-  For more information on multilibbing visit AlienBOB's wiki:
+  For more information on multilibbing, visit AlienBOB's wiki:
   http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
 
 
@@ -38,7 +38,7 @@ Note:
 
 3.  Build and install: libbsd
 
-4.  Build and install: bumblebeed
+4.  Build and install: bumblebee
 
 5.  Build and install: bbswitch (Optional)
 
