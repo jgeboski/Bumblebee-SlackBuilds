@@ -90,6 +90,8 @@ cd build
   make install DESTDIR=$PKG
 cd ..
 
+mv $PKG/usr/bin/glxinfo $PKG/usr/bin/vglinfo
+
 if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
   mkdir build-compat32
   cd build-compat32
@@ -133,41 +135,16 @@ if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
   cd ..
 fi
 
-mv $PKG/usr/bin/glxinfo $PKG/usr/bin/vglinfo
+sed -i \
+  -e "s;/etc/opt;/etc;g" \
+  -e "s;/opt/VirtualGL;/usr;g" \
+ $(find $PKG/usr/bin -type f)
 
-replace()
-{
-  for file in $(grep -Rl $1 $3) ; do
-    sed -i "s,$1,$2,g" $file
-  done
-}
-
-sed -i "s,/opt/VirtualGL,/usr,g" $PKG/usr/bin/vglconnect
-
-replace /etc/opt       /etc     $PKG/usr/bin
-replace /etc/opt       /etc     $PKG/usr/doc/$PRGNAM-$VERSION
-replace /opt/VirtualGL /usr     $PKG/usr/doc/$PRGNAM-$VERSION
-replace /glxinfo       /vglinfo $PKG/usr/doc/$PRGNAM-$VERSION
-
-replace \
-  "Use <code>glxinfo</code>" \
-  "Use <code>vglinfo</code>" \
- $PKG/usr/doc/$PRGNAM-$VERSION
-
-replace \
-  "output of <code>glxinfo</code>" \
-  "output of <code>vglinfo</code>" \
- $PKG/usr/doc/$PRGNAM-$VERSION
-
-replace \
-  "Use ''glxinfo''" \
-  "Use ''vglinfo''" \
- $PKG/usr/doc/$PRGNAM-$VERSION
-
-replace \
-  "output of ''glxinfo''" \
-  "output of ''vglinfo''" \
- $PKG/usr/doc/$PRGNAM-$VERSION
+sed -i \
+  -e "s;/etc/opt;/etc/;g" \
+  -e "s;/opt/VirtualGL;/usr;g" \
+  -e "s;glxinfo;vglinfo;g" \
+ $(find $PKG/usr/doc -type f)
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
