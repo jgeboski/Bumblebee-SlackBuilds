@@ -41,10 +41,10 @@ SLACKBUILD SHORT DESCRIPTION:  libvdpau (VDPAU wrapper library)
 SLACKBUILD NAME: libjpeg-turbo
 SLACKBUILD LOCATION: ./libjpeg-turbo
 SLACKBUILD FILES: libjpeg-turbo.SlackBuild libjpeg-turbo.info README slack-desc
-SLACKBUILD VERSION: 1.2.1
-SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.2.1.tar.gz
+SLACKBUILD VERSION: 1.3.0
+SLACKBUILD DOWNLOAD: http://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-1.3.0.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: f61e60ff01381ece4d2fe65eeb52669e
+SLACKBUILD MD5SUM: e1e65cc711a1ade1322c06ad4a647741
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  libjpeg-turbo (accelerated libjpeg)
 
