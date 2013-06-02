@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=nvidia-bumblebee
-VERSION=${VERSION:-319.17}
+VERSION=${VERSION:-319.23}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 
@@ -97,7 +97,7 @@ cd $TMP/${PKGNAM[0]}
     nvidia-bug-report.sh \
     nvidia-smi \
    $PKG/usr/bin
-  
+
   install -m 755 \
     libGL.la \
     libGL.so.$VERSION \
@@ -112,27 +112,27 @@ cd $TMP/${PKGNAM[0]}
     libnvidia-wfb.so.$VERSION \
     libvdpau.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
-  
+
   install -m 755 \
     libvdpau_nvidia.so.$VERSION \
     libvdpau_trace.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
-  
+
   install -m 755 \
     tls/libnvidia-tls.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/tls
-  
+
   install -m 755 \
     libglx.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-  
+
   install -m 755 \
     nvidia_drv.so \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/drivers
-  
+
   install -m 644 nvidia.icd      $PKG/etc/OpenCL/vendors
   install -m 644 nvidia-smi.1.gz $PKG/usr/man/man1/
-  
+
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
     ln -sf libGL.so.$VERSION         libGL.so.1
     ln -sf libGL.so.1                libGL.so
@@ -150,25 +150,25 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libvdpau.so.$VERSION      libvdpau.so.1
     ln -sf libvdpau.so.1             libvdpau.so
   cd -
-  
+
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
     ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
     ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
     ln -sf libvdpau_trace.so.$VERSION  libvdpau_trace.so.1
     ln -sf libvdpau_trace.so.1         libvdpau_trace.so
   cd -
-  
+
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
     ln -sf libglx.so.$VERSION libglx.so
   cd -
-  
+
   cp -a \
     LICENSE NVIDIA_Changelog README.txt html \
    $PKG/usr/doc/$PRGNAM-$VERSION
-  
+
   if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     mkdir -p $PKG/usr/lib/$PRGNAM/{tls,vdpau}
-    
+
     install -m 755 \
       32/libGL.la \
       32/libGL.so.$VERSION \
@@ -180,16 +180,16 @@ cd $TMP/${PKGNAM[0]}
       32/libnvidia-tls.so.$VERSION \
       32/libvdpau.so.$VERSION \
      $PKG/usr/lib/$PRGNAM
-    
+
     install -m 755 \
       32/libvdpau_nvidia.so.$VERSION \
       32/libvdpau_trace.so.$VERSION \
      $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
-    
+
     install -m 755 \
       32/tls/libnvidia-tls.so.$VERSION \
      $PKG/usr/lib/$PRGNAM/tls
-    
+
     cd $PKG/usr/lib/$PRGNAM
       ln -sf libGL.so.$VERSION        libGL.so.1
       ln -sf libGL.so.1               libGL.so
@@ -203,14 +203,14 @@ cd $TMP/${PKGNAM[0]}
       ln -sf libvdpau.so.$VERSION     libvdpau.so.1
       ln -sf libvdpau.so.1            libvdpau.so
     cd -
-    
+
     cd $PKG/usr/lib/$PRGNAM/vdpau
       ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
       ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
       ln -sf libvdpau_trace.so.$VERSION  libvdpau_trace.so.1
       ln -sf libvdpau_trace.so.1         libvdpau_trace.so
     cd -
-    
+
     sed -i \
       "s,__LIBGL_PATH__,/usr/lib/$PRGNAM," \
      $PKG/usr/lib/$PRGNAM/libGL.la
@@ -222,24 +222,24 @@ cd $TMP/${PKGNAM[1]}
     make clean
     CFLAGS="$SLKCFLAGS" make
   cd -
-  
+
   CFLAGS="$SLKCFLAGS" make
   make install BINDIR=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
-  
+
   install -m 644 doc/nvidia-settings.desktop $PKG/usr/share/applications
   install -m 644 doc/nvidia-settings.png     $PKG/usr/share/pixmaps
-  
+
   cp -a \
     doc/FRAMELOCK.txt doc/NV-CONTROL-API.txt \
    $PKG/usr/doc/$PRGNAM-$VERSION
-  
+
   cp COPYING $PKG/usr/doc/$PRGNAM-$VERSION/COPYING.nvidia-settings
 
 # nvidia-xconfig
 cd $TMP/${PKGNAM[2]}
   CFLAGS="$SLKCFLAGS" make
   make install BINDIR=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
-  
+
   cp COPYING $PKG/usr/doc/$PRGNAM-$VERSION/COPYING.nvidia-xconfig
 
 sed -i \
