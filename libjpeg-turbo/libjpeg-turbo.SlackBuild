@@ -84,31 +84,36 @@ sed -i \
 
 autoreconf -fi
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-./configure \
-  --prefix=$PREFIX \
-  --libdir=$PREFIX/lib${LIBDIRSUFFIX} \
-  --mandir=$PREFIX/man \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --build=$ARCH-slackware-linux
+mkdir build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  ../configure \
+    --prefix=$PREFIX \
+    --libdir=$PREFIX/lib${LIBDIRSUFFIX} \
+    --mandir=$PREFIX/man \
+    --docdir=/usr/doc/$PRGNAM-$VERSION \
+    --build=$ARCH-slackware-linux
 
-make
-make install DESTDIR=$PKG
+  make
+  make install DESTDIR=$PKG
+cd ..
 
 if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
-  CFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
-  CXXFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
-  LDFLAGS="-m32" \
-  ./configure \
-    --prefix=$PREFIX \
-    --bindir=$PREFIX/bin/32 \
-    --libdir=$PREFIX/lib \
-    --build=i486-slackware-linux
+  mkdir build-compat32
+  cd build-compat32
+    CFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
+    CXXFLAGS="-m32 -O2 -march=i486 -mtune=i686" \
+    LDFLAGS="-m32" \
+    ../configure \
+      --prefix=$PREFIX \
+      --bindir=$PREFIX/bin/32 \
+      --libdir=$PREFIX/lib \
+      --build=i486-slackware-linux
 
-  make clean
-  make
-  make install-libLTLIBRARIES install-binPROGRAMS DESTDIR=$PKG
+    make
+    make install-libLTLIBRARIES install-binPROGRAMS DESTDIR=$PKG
+  cd ..
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
