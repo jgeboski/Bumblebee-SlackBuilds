@@ -28,7 +28,7 @@
 # Build script for libbsd
 
 PRGNAM=libbsd
-VERSION=${VERSION:-0.5.1}
+VERSION=${VERSION:-0.5.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 
@@ -73,8 +73,6 @@ find . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
-
-patch -p1 < $CWD/patches/fix-segfault-without-initfini-array.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
