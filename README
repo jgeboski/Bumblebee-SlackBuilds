@@ -61,8 +61,10 @@ Note:
     Primus:
       1. Rebuild and reinstall: mesa
 
-         Slackware's mesa does not come with libglapi which is needed by
+         Slackware 14.0 mesa does not come with libglapi which is needed by
          primus during runtime.
+  
+         Slackware-current does now include the libglapi.
 
          If the system is x86_64 based, a 32-bit compatible package can
          be built via:
@@ -75,6 +77,9 @@ Note:
          libraries can be built via:
 
          # COMPAT32=yes ./primus.SlackBuild
+
+         primus speeds can be much improved by running:
+         vblank_mode=0 primusrun
 
     VirtualGL:
       1. Build and install: libjpeg-turbo
