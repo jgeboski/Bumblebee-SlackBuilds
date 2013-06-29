@@ -51,21 +51,21 @@ SLACKBUILD SHORT DESCRIPTION:  libjpeg-turbo (accelerated libjpeg)
 SLACKBUILD NAME: nvidia-bumblebee
 SLACKBUILD LOCATION: ./nvidia-bumblebee
 SLACKBUILD FILES: nvidia-bumblebee.SlackBuild nvidia-bumblebee.info README slack-desc
-SLACKBUILD VERSION: 319.23
-SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/319.23/NVIDIA-Linux-x86-319.23.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-319.23.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-319.23.tar.bz2
-SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/319.23/NVIDIA-Linux-x86_64-319.23.run
-SLACKBUILD MD5SUM: cbdca80e11b643aa46bded82abe43754 63e24af9ac3d7c9517da1c7ebcc6c4dd cf376db7314619f1f77e62ceabcb81f6
-SLACKBUILD MD5SUM_x86_64: d4a2f01cbc3217444ac57e7da7ffe63f
+SLACKBUILD VERSION: 319.32
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/319.32/NVIDIA-Linux-x86-319.32.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-319.32.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-319.32.tar.bz2
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/319.32/NVIDIA-Linux-x86_64-319.32.run
+SLACKBUILD MD5SUM: 978339ff37c3207f3a39d3952721dcdb e79e4cae77ceaa8da8dbcaf6b3c9eb39 ac5041ab0337c5ee509cc159cab55d5b
+SLACKBUILD MD5SUM_x86_64: 608767a3e1bee8a030f31cdc9251182e
 SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 
 SLACKBUILD NAME: nvidia-kernel
 SLACKBUILD LOCATION: ./nvidia-kernel
 SLACKBUILD FILES: nvidia-kernel.SlackBuild nvidia-kernel.info doinst.sh README slack-desc
-SLACKBUILD VERSION: 319.23
-SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/319.23/NVIDIA-Linux-x86-319.23.run
-SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/319.23/NVIDIA-Linux-x86_64-319.23.run
-SLACKBUILD MD5SUM: cbdca80e11b643aa46bded82abe43754
-SLACKBUILD MD5SUM_x86_64: d4a2f01cbc3217444ac57e7da7ffe63f
+SLACKBUILD VERSION: 319.32
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/319.32/NVIDIA-Linux-x86-319.32.run
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/319.32/NVIDIA-Linux-x86_64-319.32.run
+SLACKBUILD MD5SUM: 978339ff37c3207f3a39d3952721dcdb
+SLACKBUILD MD5SUM_x86_64: 608767a3e1bee8a030f31cdc9251182e
 SLACKBUILD SHORT DESCRIPTION:  nvidia-kernel (kernel interface for the NVIDIA driver)
 
 SLACKBUILD NAME: primus
