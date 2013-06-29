@@ -1,16 +1,16 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="319.23"
+VERSION="319.32"
 HOMEPAGE="http://www.nvidia.com/"
 DOWNLOAD=" \
-  ftp://download.nvidia.com/XFree86/Linux-x86/319.23/NVIDIA-Linux-x86-319.23.run \
-  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-319.23.tar.bz2 \
-  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-319.23.tar.bz2"
+  ftp://download.nvidia.com/XFree86/Linux-x86/319.32/NVIDIA-Linux-x86-319.32.run \
+  ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-319.32.tar.bz2 \
+  ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-319.32.tar.bz2"
 MD5SUM=" \
-  cbdca80e11b643aa46bded82abe43754 \
-  63e24af9ac3d7c9517da1c7ebcc6c4dd \
-  cf376db7314619f1f77e62ceabcb81f6"
-DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/319.23/NVIDIA-Linux-x86_64-319.23.run"
-MD5SUM_x86_64="d4a2f01cbc3217444ac57e7da7ffe63f"
+  978339ff37c3207f3a39d3952721dcdb \
+  e79e4cae77ceaa8da8dbcaf6b3c9eb39 \
+  ac5041ab0337c5ee509cc159cab55d5b"
+DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/319.32/NVIDIA-Linux-x86_64-319.32.run"
+MD5SUM_x86_64="608767a3e1bee8a030f31cdc9251182e"
 REQUIRES="bumblebee libvdpau nvidia-kernel"
 MAINTAINER="James Geboski"
 EMAIL="jgeboski@gmail.com"
