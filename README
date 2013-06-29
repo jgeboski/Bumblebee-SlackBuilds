@@ -102,7 +102,7 @@ Note:
       /etc/rc.d/rc.bumblebeed start
     fi
 
-    You can also go a step further by having bumblebeed start with your
+    You can also go a step further by having bumblebeed stop with your
     system by adding the following lines to: /etc/rc.d/rc.local_shutdown:
 
     if [ -x /etc/rc.d/rc.bumblebeed ]; then
