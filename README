@@ -18,10 +18,10 @@ HowTo:
 Note:
   Several of these SlackBuilds support a COMPAT32 option which
   allows 32-bit binaries to be built and packaged.  This does
-  require that the system is multilibbed, otherwise the
-  SlackBuilds will fail.
+  require that the system is multilib, otherwise the SlackBuilds 
+  will fail.
 
-  For more information on multilibbing, visit AlienBOB's wiki:
+  For more information on slackware multilib, visit AlienBOB's wiki:
   http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
 
 
@@ -42,59 +42,36 @@ Note:
 
 5.  Build and install: bbswitch (Optional)
 
-    This in an optional requirement.  If you do not need power management
-    or the ability to turn off the nVidia chip, you can skip this.
+    This in an optional requirement.  This is the kernel module that allows 
+    the Nvidia card to be turned off, potentially saving you power.  If you 
+    do not need power management or the ability to turn off the nVidia chip, 
+    you can skip this.  
 
-6.  Build and install: libvdpau (Optional, if using nouveau)
+6.  Build and install: libvdpau (Optional, not needed if using nouveau)
 
-7.  Build and install: nvidia-bumblebee (Optional, if using nouveau)
+7.  Build and install: nvidia-bumblebee (Optional, not needed if using nouveau)
 
     If the system is x86_64 based, 32-bit compatible binaries and
     libraries can be built via:
 
     # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
-8.  Build and install: nvidia-kernel (Optional, if using nouveau)
+8.  Build and install: nvidia-kernel (Optional, not needed if using nouveau)
+    
+    If the system is x86_64 based, 32-bit compatible binaries and
+    libraries can be built via:
 
-9.  Build and install: primus, VirtualGL, or both
+    # COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
-    Primus:
-      1. Rebuild and reinstall: mesa
+9.  Build and install primus
 
-         Slackware 14.0 mesa does not come with libglapi which is needed by
-         primus during runtime.
-  
-         Slackware-current does now include the libglapi.
+    If the system is x86_64 based, 32-bit compatible binaries and 
+    libraries can be built via:
 
-         If the system is x86_64 based, a 32-bit compatible package can
-         be built via:
+    # COMPAT32=yes ./primus.SlackBuild
 
-         # ./mesa-compat32.SlackBuild
-
-      2. Build and install: primus
-
-         If the system is x86_64 based, 32-bit compatible binaries and
-         libraries can be built via:
-
-         # COMPAT32=yes ./primus.SlackBuild
-
-         primus speeds can be much improved by running:
-         vblank_mode=0 primusrun
-
-    VirtualGL:
-      1. Build and install: libjpeg-turbo
-
-         If the system is x86_64 based, 32-bit compatible binaries and
-         libraries can be built via:
-
-         # COMPAT32=yes ./libjpeg-turbo.SlackBuild
-
-      2. Build and install: VirtualGL
-
-         If the system is x86_64 based, 32-bit compatible binaries and
-         libraries can be built via:
-
-         # COMPAT32=yes ./VirtualGL.SlackBuild
+    primus speeds can be much improved by running:
+      vblank_mode=0 primusrun
 
 10. Run the rc.bumblebee script:
      # chmod +x /etc/rc.d/rc.bumblebeed
@@ -114,5 +91,6 @@ Note:
       /etc/rc.d/rc.bumblebeed stop
     fi
 
-    Now an application can run with optirun:
-     $ optirun glxgears
+11. Now an application can run with optirun:
+    
+    $ vblank_mode=0 primusrun glxspheres

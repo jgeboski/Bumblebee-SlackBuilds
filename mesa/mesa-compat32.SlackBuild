@@ -1,9 +1,0 @@
-#!/bin/sh
-
-. /etc/profile.d/32dev.sh
-
-ARCH=i486 \
-. ./mesa.SlackBuild
-
-TAG="_compat32" \
-convertpkg-compat32 -i $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

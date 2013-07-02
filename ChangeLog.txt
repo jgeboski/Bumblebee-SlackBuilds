@@ -1,0 +1,18 @@
++--------------------------+
+Tue Jul 02 16:55:45 UTC 2013
+Progress by deletion.  Primus has effectively replaced VirtualGL
+and is a great improvement in speed and stability when used with
+bumblebee. Also, the mesa package in -current now has the library
+required for primus.
+libjpeg-turbo: removed.
+mesa: removed.
+VirtualGL: removed.
+
++--------------------------+
+Fri Jun 28 13:30:15 UTC 2013
+The Nvidia drivers are now upgraded to the latest 319.32 release.
+README: updated.
+SLACKBUILDS.TXT: updated.
+nvidia-bumblebee: upgraded.
+nvidia-kernel: upgraded.
+
