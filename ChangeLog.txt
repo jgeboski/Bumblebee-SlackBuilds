@@ -1,4 +1,10 @@
 +--------------------------+
+Tue Aug 06 12:49:16 UTC 2013
+nvidia drivers updated to support 3.10 kernel series
+nvidia-bumblebee: upgraded
+nvidia-kernel: upgraded
+
++--------------------------+
 Tue Jul 02 16:55:45 UTC 2013
 Progress by deletion.  Primus has effectively replaced VirtualGL
 and is a great improvement in speed and stability when used with
