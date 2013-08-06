@@ -93,4 +93,4 @@ Note:
 
 11. Now an application can run with optirun:
     
-    $ vblank_mode=0 primusrun glxspheres
+    $ vblank_mode=0 primusrun glxgears

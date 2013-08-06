@@ -31,10 +31,10 @@ SLACKBUILD SHORT DESCRIPTION:  libbsd (library of BSD functions)
 SLACKBUILD NAME: libvdpau
 SLACKBUILD LOCATION: ./libvdpau
 SLACKBUILD FILES: libvdpau.SlackBuild libvdpau.info README slack-desc
-SLACKBUILD VERSION: 0.6
-SLACKBUILD DOWNLOAD: http://people.freedesktop.org/~aplattner/vdpau/libvdpau-0.6.tar.gz
+SLACKBUILD VERSION: 0.7
+SLACKBUILD DOWNLOAD: http://people.freedesktop.org/~aplattner/vdpau/libvdpau-0.7.tar.gz
 SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: 78a3a992b8187182463d3998e5d17916
+SLACKBUILD MD5SUM: cb81b0c3b7d32b2b2a51894ef05b95ce
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  libvdpau (VDPAU wrapper library)
 
