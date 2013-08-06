@@ -23,19 +23,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Thanks to Robby Workman for suggestions to improve this script.
-#
-# ChangeLog
-# ------------------------------------------------------------------------------
-# 1.0	20-MAR-2011	New Maintainer: Edward W. Koenig <kingbeowulf@gmail.com>
-# 1.1	10-APR-2011	updated to new version, testing 13.37rc4.6692
-# 1.2   27-MAY-2011	new version, blacklist nouveau, fix ups, tested 13.37-stable
-# 1.5   01-JULY-2011	new version, kill SRCSUFFIX nonsense, use blacklist in /extra
-# 1.6   30-AUG-2011     version bump, typo clean ups
-# 1.6   29-JUN-2013     version bump
-#
 
 PRGNAM=nvidia-kernel
-VERSION=${VERSION:-319.32}
+VERSION=${VERSION:-325.15}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 
