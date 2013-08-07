@@ -25,7 +25,7 @@
 # Thanks to Robby Workman for suggestions to improve this script.
 
 PRGNAM=nvidia-kernel
-VERSION=${VERSION:-325.15}
+VERSION=${VERSION:-$(echo NVIDIA-Linux-*.run* | rev | cut -f 2- -d . | cut -f 1 -d - | rev)}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
 

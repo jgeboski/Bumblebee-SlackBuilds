@@ -1,3 +1,8 @@
+Wed Aug 7 00:36:48 UTC 2013
+All Slackbuild scripts now auto version set. This should help future updates.
+libvdpau: upgraded
+prmus: upgraded
+
 +--------------------------+
 Tue Aug 06 12:49:16 UTC 2013
 nvidia drivers updated to support 3.10 kernel series

@@ -23,10 +23,10 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=nvidia-bumblebee
-VERSION=${VERSION:-325.15}
+VERSION=${VERSION:-$(echo NVIDIA-Linux-*.run* | rev | cut -f 2- -d . | cut -f 1 -d - | rev)}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_bbsb}
-
+echo $VERSION
 COMPAT32=${COMPAT32:-no}
 
 if [ -z "$ARCH" ]; then
