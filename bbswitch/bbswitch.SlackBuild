@@ -90,4 +90,4 @@ cat $CWD/doinst.sh > $PKG/install/doinst.sh
 sed -i "s/@KERNEL@/$KERNEL/" $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-${VERSION}_$KERNEL-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-${VERSION}_$KERNEL-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}

@@ -85,4 +85,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 sed "s%@KERNEL@%$KERNEL%" $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$PKGVER-$TARGET-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$PKGVER-$TARGET-$BUILD$TAG.${PKGTYPE:-txz}
