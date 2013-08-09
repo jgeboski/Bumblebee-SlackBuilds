@@ -1,3 +1,8 @@
+Fri Aug 9 15:21:32 UTC 2013
+libbsd: upgraded
+SLACKBUILDS.TXT: removed
+
++--------------------------+
 Wed Aug 7 00:36:48 UTC 2013
 All Slackbuild scripts now auto version set. This should help future updates.
 libvdpau: upgraded
