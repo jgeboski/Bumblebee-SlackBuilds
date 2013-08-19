@@ -28,16 +28,6 @@ SLACKBUILD MD5SUM: f6c75f0a9818e323a589bcbd560a0eb4
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  libbsd (library of BSD functions)
 
-SLACKBUILD NAME: libvdpau
-SLACKBUILD LOCATION: ./libvdpau
-SLACKBUILD FILES: libvdpau.SlackBuild libvdpau.info README slack-desc
-SLACKBUILD VERSION: 0.6
-SLACKBUILD DOWNLOAD: http://people.freedesktop.org/~aplattner/vdpau/libvdpau-0.6.tar.gz
-SLACKBUILD DOWNLOAD_x86_64: 
-SLACKBUILD MD5SUM: 78a3a992b8187182463d3998e5d17916
-SLACKBUILD MD5SUM_x86_64: 
-SLACKBUILD SHORT DESCRIPTION:  libvdpau (VDPAU wrapper library)
-
 SLACKBUILD NAME: libjpeg-turbo
 SLACKBUILD LOCATION: ./libjpeg-turbo
 SLACKBUILD FILES: libjpeg-turbo.SlackBuild libjpeg-turbo.info README slack-desc
@@ -47,6 +37,16 @@ SLACKBUILD DOWNLOAD_x86_64:
 SLACKBUILD MD5SUM: e1e65cc711a1ade1322c06ad4a647741
 SLACKBUILD MD5SUM_x86_64: 
 SLACKBUILD SHORT DESCRIPTION:  libjpeg-turbo (accelerated libjpeg)
+
+SLACKBUILD NAME: libvdpau
+SLACKBUILD LOCATION: ./libvdpau
+SLACKBUILD FILES: libvdpau.SlackBuild libvdpau.info README slack-desc
+SLACKBUILD VERSION: 0.7
+SLACKBUILD DOWNLOAD: http://people.freedesktop.org/~aplattner/vdpau/libvdpau-0.7.tar.gz
+SLACKBUILD DOWNLOAD_x86_64: 
+SLACKBUILD MD5SUM: cb81b0c3b7d32b2b2a51894ef05b95ce
+SLACKBUILD MD5SUM_x86_64: 
+SLACKBUILD SHORT DESCRIPTION:  libvdpau (VDPAU wrapper library)
 
 SLACKBUILD NAME: nvidia-bumblebee
 SLACKBUILD LOCATION: ./nvidia-bumblebee
