@@ -105,7 +105,7 @@ Building
     upgradepkg xf86-video-nouveau-blacklist-noarch-1.txz
     cd ..
 ```
-- Note:
+  - Note:
   This will blacklist / remove the conflicting nouveau driver from 
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`  
@@ -171,7 +171,7 @@ Building
       /etc/rc.d/rc.bumblebeed stop  
     fi  
 ```
-12. Reboot
+12. Reboot:  
   Not really a step, but you need to get all the new goodness started somehow.
 13. Now an application can run with `primusrun`:  
 ```
