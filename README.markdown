@@ -45,12 +45,11 @@ Building
     su -
     groupadd bumblebee
 ```
-
-- Add users to the group:  
+  Add users to the group:  
 ```
     usermod -G bumblebee -a USERNAME
 ```
-- Note: you will need to re-login as the user for this to take effect.
+  Note: you will need to re-login as the user for this to take effect.
 
 3. Build and install `libbsd`:  
 ```
@@ -90,16 +89,16 @@ Building
 ```
     cd nvidia-kernel  
 ```
-  - For pure 32 or 64 bit systems, build via:
+  For pure 32 or 64 bit systems, build via:
 ```
     ./nvidia-kernel.Slackbuild  
 ```
-  -  If the system is x86_64 based, 32-bit compatible binaries and
-     libraries can be built via:  
+  If the system is x86_64 based, 32-bit compatible binaries and
+  libraries can be built via:  
 ```
     COMPAT32=yes ./nvidia-kernel.SlackBuild  
 ```
-  - Then install:  
+  Then install:  
 ```
     upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
     cd ..  
@@ -108,16 +107,16 @@ Building
 ```
     cd nvidia-bumblebee  
 ```
-  - For pure 32 or 64 bit systems, build via:  
+  For pure 32 or 64 bit systems, build via:  
 ```
     ./nvidia-bumblebee.Slackbuild  
 ```
-  - If the system is x86_64 based, 32-bit compatible binaries and libraries can 
+  If the system is x86_64 based, 32-bit compatible binaries and libraries can 
     be built via:  
 ```
     COMPAT32=yes ./nvidia-bumblebee.SlackBuild  
 ```
-  - Then install:  
+  Then install:  
 ```
     upgradepkg --install-new /tmp/nvidia-bumblebee-<ver-arch-build>_bbsb.txz  
     cd ..  
@@ -126,21 +125,21 @@ Building
 ```
     cd primus
 ```
-  -  For pure 32 or 64 bit systems, build via:  
+  For pure 32 or 64 bit systems, build via:  
 ```
     ./primus.Slackbuild  
 ```
-  -  If the system is x86_64 based, 32-bit compatible binaries and
-     libraries can be built via:  
+  If the system is x86_64 based, 32-bit compatible binaries and
+  libraries can be built via:  
 ```
     COMPAT32=yes ./primus.SlackBuild  
 ```
-  - Then install:  
+  Then install:  
 ```
     upgradepkg --install-new /tmp/primus-<ver-arch-build>_bbsb.txz  
     cd ..  
 ```
-  - primus speeds can be much improved by running:  
+  primus speeds can be much improved by running:  
 ```
       vblank_mode=0 primusrun  
 ```
