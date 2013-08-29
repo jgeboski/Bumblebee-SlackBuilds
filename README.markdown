@@ -72,7 +72,7 @@ Build and install `bbswitch` (Optional but recommended):
     upgradepkg --install-new /tmp/bbswitch-<ver-arch-build>_bbsb.txz  
     cd ..  
 
-- Note: 
+  - Note:
   This in an optional requirement.  This is the kernel module that allows 
   the Nvidia card to be turned off, potentially saving you power.  If you 
   do not need power management or the ability to turn off the nVidia chip, 
@@ -89,16 +89,16 @@ Build and install `nvidia-kernel` (Optional, not needed if using nouveau):
 
     cd nvidia-kernel  
 
-  For pure 32 or 64 bit systems, build via:
+  - For pure 32 or 64 bit systems, build via:
 
     ./nvidia-kernel.Slackbuild  
 
-  If the system is x86_64 based, 32-bit compatible binaries and
-  libraries can be built via:  
+  -  If the system is x86_64 based, 32-bit compatible binaries and
+     libraries can be built via:  
 
     COMPAT32=yes ./nvidia-kernel.SlackBuild  
 
-  Then install:  
+  - Then install:  
 
     upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
     cd ..  
@@ -107,16 +107,16 @@ Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):
 
     cd nvidia-bumblebee  
 
-  For pure 32 or 64 bit systems, build via:  
+  - For pure 32 or 64 bit systems, build via:  
 
     ./nvidia-bumblebee.Slackbuild  
 
-  If the system is x86_64 based, 32-bit compatible binaries and
-  libraries can be built via:  
+  - If the system is x86_64 based, 32-bit compatible binaries and libraries can 
+    be built via:  
 
     COMPAT32=yes ./nvidia-bumblebee.SlackBuild  
 
-  Then install:  
+  - Then install:  
 
     upgradepkg --install-new /tmp/nvidia-bumblebee-<ver-arch-build>_bbsb.txz  
     cd ..  
@@ -125,21 +125,21 @@ Build and install `primus`:
 
     cd primus
 
-  For pure 32 or 64 bit systems, build via:  
+  -  For pure 32 or 64 bit systems, build via:  
 
     ./primus.Slackbuild  
 
-  If the system is x86_64 based, 32-bit compatible binaries and
-  libraries can be built via:  
+  -  If the system is x86_64 based, 32-bit compatible binaries and
+     libraries can be built via:  
 
     COMPAT32=yes ./primus.SlackBuild  
 
-  Then install:  
+  - Then install:  
 
     upgradepkg --install-new /tmp/primus-<ver-arch-build>_bbsb.txz  
     cd ..  
 
-  primus speeds can be much improved by running:  
+  - primus speeds can be much improved by running:  
 
       vblank_mode=0 primusrun  
 
@@ -163,7 +163,7 @@ Run the `rc.bumblebee` script:
       /etc/rc.d/rc.bumblebeed stop  
     fi  
 
-- Now an application can run with `primusrun`:  
+Now an application can run with `primusrun`:  
 
     vblank_mode=0 primusrun glxgears  
 
