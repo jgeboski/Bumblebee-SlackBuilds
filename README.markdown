@@ -36,28 +36,28 @@ Note:
 Building
 --------
 
-Download the sources:  
-
+1. Download the sources:  
+```
     ./download.sh  
-
-Create group bumblebee:  
-
+```
+2. Create group bumblebee:  
+```
     su -  
     groupadd bumblebee  
-
+```
 Add users to the group:  
-
+```
     usermod -G bumblebee -a USERNAME  
-
+```
 - Note: you will need to re-login as the user for this to take effect.
 
-Build and install `libbsd`:  
-
+3. Build and install `libbsd`:  
+```
     cd libbsd  
     ./libbsd.Slackbuild  
     upgradepkg --install-new /tmp/libbsd-<ver-arch-build>_bbsb.txz  
     cd ..
-
+```
 Build and install `bumblebee`:  
 
     cd bumblebee  
