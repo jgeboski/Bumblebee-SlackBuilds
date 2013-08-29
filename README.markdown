@@ -103,12 +103,12 @@ Building
 ```
     cd nouveau-blacklist
     upgradepkg xf86-video-nouveau-blacklist-noarch-1.txz
+    cd ..
 ```
 - Note:
   This will blacklist / remove the conflicting nouveau driver from 
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`  
-```
 8. Build and install `libvdpau` (Optional, not needed if using nouveau):  
 ```
     cd libvdpau  
@@ -171,7 +171,9 @@ Building
       /etc/rc.d/rc.bumblebeed stop  
     fi  
 ```
-12. Now an application can run with `primusrun`:  
+12. Reboot
+  Not really a step, but you need to get all the new goodness started somehow.
+13. Now an application can run with `primusrun`:  
 ```
     vblank_mode=0 primusrun glxgears  
 ```
