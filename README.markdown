@@ -37,31 +37,35 @@ Building
 --------
 
 - Download the sources:
+
     ./download.sh
 
 - Create group bumblebee:
+
     su -
     groupadd bumblebee
 
     Add users to the group:
+
       usermod -G bumblebee -a USERNAME
 
     Note: you will need to re-login as the user for this to take effect.
 
-- Build and install libbsd:
+- Build and install `libbsd`:
+
     cd libbsd
     ./libbsd.Slackbuild
     upgradepkg --install-new /tmp/libbsd-<ver-arch-build>_bbsb.txz
     cd ..
 
-- Build and install bumblebee:
+- Build and install `bumblebee`:
 
     cd bumblebee
     ./bumblebee.Slackbuild
     upgradepkg --install-new /tmp/bumblebee-<ver-arch-build>_bbsb.txz
     cd ..
 
-- Build and install bbswitch (Optional but recommended):
+- Build and install `bbswitch` (Optional but recommended):
 
     cd bbswitch
     ./bbswitch.Slackbuild
@@ -107,9 +111,11 @@ Building
 
     If the system is x86_64 based, 32-bit compatible binaries and
     libraries can be built via:
+
     COMPAT32=yes ./nvidia-bumblebee.SlackBuild
 
     Then install:
+
     upgradepkg --install-new /tmp/nvidia-bumblebee-<ver-arch-build>_bbsb.txz
     cd ..
 
