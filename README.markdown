@@ -1,29 +1,27 @@
 Bumblebee Slackbuilds
-=================
+=====================
 
 This set of SlackBuilds should get Bumblebee up and running on a
 Slackware based NVIDIA Optimus setup.
 
-
 Slackware Docs:
--------------------
+---------------
   A wiki page on the Slackware docs has been put to gether by another
   slacker, TommyC. I recommend you follow the wiki page for a more
   in-depth guide.
 
   http://docs.slackware.com/howtos:hardware:nvidia_optimus
 
-
-HowTo:
--------------------
+Slackbuilds HowTo:
+------------------
   If you have never used a SlackBuild before, please refer to the HowTo
   on SlackBuilds.org: http://slackbuilds.org/howto/
 
   All the Slackbuild scripts were designed to be run as root, with root's
-  environment.
+  environment. ( i.e. su - )
 
-Note:
------
+Notes:
+------
   Several of these SlackBuilds support a COMPAT32 option which
   allows 32-bit binaries to be built and packaged.  This does
   require that the system is multilib, otherwise the SlackBuilds 
@@ -32,9 +30,15 @@ Note:
   For more information on slackware multilib, visit AlienBOB's wiki:
   http://alien.slackbook.org/dokuwiki/doku.php?id=slackware:multilib
 
+  As of this time, the nouveau drivers are still pretty poor substitutes
+  for the Nvidia binaries. Performance in 3D games will likely be worse
+  and less stable than the intel drivers and card provide.  However,
+  installing the bumblebee and bbswitch will allow the nvidia card to at
+  least be disabled when not in use, saving you power, even if you do not
+  use the closed source nvidia drivers.
 
-Building
---------
+Building and Installing
+-----------------------
 
 1. Download the sources:  
 ```
@@ -77,6 +81,7 @@ Building
   the Nvidia card to be turned off, potentially saving you power.  If you 
   do not need power management or the ability to turn off the nVidia chip, 
   you can skip this.
+  - Note: This will need rebuilt when you upgrade the kernel.  
 6. Build and install `primus`:  
 ```
     cd primus
@@ -95,7 +100,7 @@ Building
     upgradepkg --install-new /tmp/primus-<ver-arch-build>_bbsb.txz  
     cd ..  
 ```
-  Note: primus speeds can be much improved by running:  
+  - Note: primus speeds can be much improved by running:  
 ```
       vblank_mode=0 primusrun  
 ```
@@ -134,6 +139,7 @@ Building
     upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
     cd ..  
 ```
+  - Note: This will need rebuilt when you upgrade the kernel.  
 10. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-bumblebee  
@@ -143,7 +149,7 @@ Building
     ./nvidia-bumblebee.Slackbuild  
 ```
   If the system is x86_64 based, 32-bit compatible binaries and libraries can 
-    be built via:  
+  be built via:  
 ```
     COMPAT32=yes ./nvidia-bumblebee.SlackBuild  
 ```
