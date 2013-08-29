@@ -37,125 +37,134 @@ Building
 --------
 
 - Download the sources:
-
+`
     ./download.sh
-
+`
 - Create group bumblebee:
-
+`
     su -
     groupadd bumblebee
-
+`
     Add users to the group:
-
+`
       usermod -G bumblebee -a USERNAME
-
+`
     Note: you will need to re-login as the user for this to take effect.
 
 - Build and install `libbsd`:
-
+`
     cd libbsd
     ./libbsd.Slackbuild
     upgradepkg --install-new /tmp/libbsd-<ver-arch-build>_bbsb.txz
     cd ..
-
+`
 - Build and install `bumblebee`:
-
+`
     cd bumblebee
     ./bumblebee.Slackbuild
     upgradepkg --install-new /tmp/bumblebee-<ver-arch-build>_bbsb.txz
     cd ..
-
+`
 - Build and install `bbswitch` (Optional but recommended):
-
+`
     cd bbswitch
     ./bbswitch.Slackbuild
     upgradepkg --install-new /tmp/bbswitch-<ver-arch-build>_bbsb.txz
     cd ..
-
+`
     Note:
     This in an optional requirement.  This is the kernel module that allows 
     the Nvidia card to be turned off, potentially saving you power.  If you 
     do not need power management or the ability to turn off the nVidia chip, 
     you can skip this.
 
- - Build and install libvdpau (Optional, not needed if using nouveau):
-
+ - Build and install `libvdpau` (Optional, not needed if using nouveau):
+`
     cd libvdpau
     ./libvdpau.Slackbuild
     upgradepkg --install-new /tmp/libvdpau-<ver-arch-build>_bbsb.txz
     cd ..
-
-- Build and install nvidia-kernel (Optional, not needed if using nouveau):
-    
+`
+- Build and install `nvidia-kernel` (Optional, not needed if using nouveau):
+`
     cd nvidia-kernel
-    
+`
     For pure 32 or 64 bit systems, build via:
+`
     ./nvidia-kernel.Slackbuild
-
-
+`
     If the system is x86_64 based, 32-bit compatible binaries and
     libraries can be built via:
+`
     COMPAT32=yes ./nvidia-kernel.SlackBuild
-
+`
     Then install:
+`
     upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
     cd ..
-
-- Build and install nvidia-bumblebee (Optional, not needed if using nouveau):
-
+`
+- Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):
+`
     cd nvidia-bumblebee
-    
+`
     For pure 32 or 64 bit systems, build via:
+`
     ./nvidia-bumblebee.Slackbuild
-
-
+`
     If the system is x86_64 based, 32-bit compatible binaries and
     libraries can be built via:
-
+`
     COMPAT32=yes ./nvidia-bumblebee.SlackBuild
-
+`
     Then install:
-
+`
     upgradepkg --install-new /tmp/nvidia-bumblebee-<ver-arch-build>_bbsb.txz
     cd ..
+`
 
-- Build and install primus:
-
+- Build and install `primus`:
+`
     cd primus
-    
+`
     For pure 32 or 64 bit systems, build via:
+`
     ./primus.Slackbuild
-
-
+`
     If the system is x86_64 based, 32-bit compatible binaries and
     libraries can be built via:
+`
     COMPAT32=yes ./primus.SlackBuild
-
+`
     Then install:
+`
     upgradepkg --install-new /tmp/primus-<ver-arch-build>_bbsb.txz
     cd ..
-
+`
     primus speeds can be much improved by running:
+`
       vblank_mode=0 primusrun
+`
 
-- Run the rc.bumblebee script:
+- Run the `rc.bumblebee` script:
+`
      chmod +x /etc/rc.d/rc.bumblebeed
      /etc/rc.d/rc.bumblebeed start
-
+`
     If you'd like to have bumblebee autostart with the system, you will
-    need to add the following lines to: /etc/rc.d/rc.local:
-
+    need to add the following lines to: `/etc/rc.d/rc.local`:
+`
     if [ -x /etc/rc.d/rc.bumblebeed ]; then
       /etc/rc.d/rc.bumblebeed start
     fi
-
+`
     You can also go a step further by having bumblebeed stop with your
-    system by adding the following lines to: /etc/rc.d/rc.local_shutdown:
-
+    system by adding the following lines to: `/etc/rc.d/rc.local_shutdown`:
+`
     if [ -x /etc/rc.d/rc.bumblebeed ]; then
       /etc/rc.d/rc.bumblebeed stop
     fi
-
-- Now an application can run with primusrun:
-    
-    $ vblank_mode=0 primusrun glxgears
+`
+- Now an application can run with `primusrun`:
+`
+    vblank_mode=0 primusrun glxgears
+`
