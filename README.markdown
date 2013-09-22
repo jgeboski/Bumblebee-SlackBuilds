@@ -100,9 +100,9 @@ Building and Installing
     upgradepkg --install-new /tmp/primus-<ver-arch-build>_bbsb.txz  
     cd ..  
 ```
-  - Note: primus speeds can be much improved by running:  
+  - Note: due to the sync between framerate and refresh rate, you may not see any difference between primusrun and the intel card in glxgears, although you will see drastic differences playing high end games.  In the past the vblank_mode set to 0 improved framerates and helped with screen tearing, now tho this should only be used for benchmarks or tests:  
 ```
-      vblank_mode=0 primusrun  
+      vblank_mode=0 primusrun
 ```
 7. Blacklist nouveau (or skip steps 8, 9, 10):  
 ```
@@ -181,5 +181,5 @@ Building and Installing
   Not really a step, but you need to get all the new goodness started somehow.
 13. Now an application can run with `primusrun`:  
 ```
-    vblank_mode=0 primusrun glxgears  
+    primusrun glxgears  
 ```
