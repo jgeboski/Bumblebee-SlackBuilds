@@ -4,14 +4,6 @@ Bumblebee Slackbuilds
 This set of SlackBuilds should get Bumblebee up and running on a
 Slackware based NVIDIA Optimus setup.
 
-Slackware Docs:
----------------
-  A wiki page on the Slackware docs has been put to gether by another
-  slacker, TommyC. I recommend you follow the wiki page for a more
-  in-depth guide.
-
-  http://docs.slackware.com/howtos:hardware:nvidia_optimus
-
 Slackbuilds HowTo:
 ------------------
   If you have never used a SlackBuild before, please refer to the HowTo
