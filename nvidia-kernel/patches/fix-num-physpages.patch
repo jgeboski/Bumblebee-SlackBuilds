@@ -1,0 +1,15 @@
+diff -ur a/kernel/nv-linux.h b/kernel/nv-linux.h
+--- a/kernel/nv-linux.h	2013-10-17 12:09:39.000000000 -0400
++++ b/kernel/nv-linux.h	2013-10-23 11:19:37.602442448 -0400
+@@ -956,7 +956,11 @@
+ #endif
+ 
+ #if !defined(NV_VMWARE)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 11, 0)
+ #define NV_NUM_PHYSPAGES                num_physpages
++#else
++#define NV_NUM_PHYSPAGES                get_num_physpages()
++#endif
+ #define NV_GET_CURRENT_PROCESS()        current->tgid
+ #define NV_IN_ATOMIC()                  in_atomic()
+ #define NV_LOCAL_BH_DISABLE()           local_bh_disable()
