@@ -51,11 +51,11 @@ SLACKBUILD SHORT DESCRIPTION:  libvdpau (VDPAU wrapper library)
 SLACKBUILD NAME: nvidia-bumblebee
 SLACKBUILD LOCATION: ./nvidia-bumblebee
 SLACKBUILD FILES: nvidia-bumblebee.SlackBuild nvidia-bumblebee.info README slack-desc
-SLACKBUILD VERSION: 331.13
-SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/331.13/NVIDIA-Linux-x86-331.13.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-331.13.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-331.13.tar.bz2
-SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/331.13/NVIDIA-Linux-x86_64-331.13.run
-SLACKBUILD MD5SUM: c79ff1493d60a15cbd06976f7a1db751 fcf4ca544a883737e3ba7eab919df788 241e94fdc4a5d450a43f5038886835ce
-SLACKBUILD MD5SUM_x86_64: 532f5898c1fd3aba93db2d1c96c33360
+SLACKBUILD VERSION: 331.17
+SLACKBUILD DOWNLOAD: ftp://download.nvidia.com/XFree86/Linux-x86/331.17/NVIDIA-Linux-x86-331.17.run ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-331.17.tar.bz2 ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-331.17.tar.bz2
+SLACKBUILD DOWNLOAD_x86_64: ftp://download.nvidia.com/XFree86/Linux-x86_64/331.17/NVIDIA-Linux-x86_64-331.17.run
+SLACKBUILD MD5SUM: 4d4ac6de414df7572abfebe81f7ea229 90dd9907efbf28ff055b6b1c0b965758 adba752fe26bee3c84fd072fffd3a3e3
+SLACKBUILD MD5SUM_x86_64: 87b74b5c4df0d5336d17bb925043416a
 SLACKBUILD SHORT DESCRIPTION:  nvidia-bumblebee (NVIDIA drivers for Bumblebee)
 
 SLACKBUILD NAME: nvidia-kernel
