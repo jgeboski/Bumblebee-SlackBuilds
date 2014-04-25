@@ -1,11 +1,9 @@
 #Bumblebee Slackbuilds
-=====================
 
 This set of SlackBuilds should get Bumblebee up and running on a
 Slackware based NVIDIA Optimus setup.
 
 ##Slackbuilds HowTo:
-------------------
   If you have never used a SlackBuild before, please refer to the HowTo
   on SlackBuilds.org: http://slackbuilds.org/howto/
 
@@ -13,7 +11,6 @@ Slackware based NVIDIA Optimus setup.
   environment. ( i.e. su - )
 
 ##Notes:
-------
   Several of these SlackBuilds support a COMPAT32 option which
   allows 32-bit binaries to be built and packaged.  This does
   require that the system is multilib, otherwise the SlackBuilds 
@@ -30,7 +27,6 @@ Slackware based NVIDIA Optimus setup.
   use the closed source nvidia drivers.
 
 ##Building and Installing
------------------------
 
 ###1. Download the sources:  
 ```
