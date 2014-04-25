@@ -36,6 +36,7 @@ Building and Installing
 ```
     ./download.sh  
 ```
+
 2. Create group bumblebee:  
 ```
     su -
