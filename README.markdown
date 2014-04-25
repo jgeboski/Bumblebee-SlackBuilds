@@ -1,10 +1,10 @@
-Bumblebee Slackbuilds
+#Bumblebee Slackbuilds
 =====================
 
 This set of SlackBuilds should get Bumblebee up and running on a
 Slackware based NVIDIA Optimus setup.
 
-Slackbuilds HowTo:
+##Slackbuilds HowTo:
 ------------------
   If you have never used a SlackBuild before, please refer to the HowTo
   on SlackBuilds.org: http://slackbuilds.org/howto/
@@ -12,7 +12,7 @@ Slackbuilds HowTo:
   All the Slackbuild scripts were designed to be run as root, with root's
   environment. ( i.e. su - )
 
-Notes:
+##Notes:
 ------
   Several of these SlackBuilds support a COMPAT32 option which
   allows 32-bit binaries to be built and packaged.  This does
@@ -29,15 +29,15 @@ Notes:
   least be disabled when not in use, saving you power, even if you do not
   use the closed source nvidia drivers.
 
-Building and Installing
+##Building and Installing
 -----------------------
 
-##1. Download the sources:  
+###1. Download the sources:  
 ```
     ./download.sh  
 ```
 
-##2. Create group bumblebee:  
+###2. Create group bumblebee:  
 ```
     su -
     groupadd bumblebee
@@ -48,21 +48,23 @@ Building and Installing
 ```
   Note: you will need to re-login as the user for this to take effect.
 
-3. Build and install `libbsd`:  
+###3. Build and install `libbsd`:  
 ```
     cd libbsd  
     ./libbsd.Slackbuild  
     upgradepkg --install-new /tmp/libbsd-<ver-arch-build>_bbsb.txz  
     cd ..
 ```
-4. Build and install `bumblebee`:  
+
+###4. Build and install `bumblebee`:  
 ```
     cd bumblebee  
     ./bumblebee.Slackbuild  
     upgradepkg --install-new /tmp/bumblebee-<ver-arch-build>_bbsb.txz  
     cd ..  
 ```
-5. Build and install `bbswitch` (Optional but recommended):  
+
+###5. Build and install `bbswitch` (Optional but recommended):  
 ```
     cd bbswitch  
     ./bbswitch.Slackbuild  
@@ -75,7 +77,8 @@ Building and Installing
   do not need power management or the ability to turn off the nVidia chip, 
   you can skip this.
   - Note: This will need rebuilt when you upgrade the kernel.  
-6. Build and install `primus`:  
+
+###6. Build and install `primus`:  
 ```
     cd primus
 ```
@@ -97,7 +100,8 @@ Building and Installing
 ```
       vblank_mode=0 primusrun
 ```
-7. Blacklist nouveau (or skip steps 8, 9, 10):  
+
+###7. Blacklist nouveau (or skip steps 8, 9, 10):  
 ```
     cd nouveau-blacklist
     upgradepkg xf86-video-nouveau-blacklist-noarch-1.txz
@@ -107,14 +111,16 @@ Building and Installing
   This will blacklist / remove the conflicting nouveau driver from 
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`  
-8. Build and install `libvdpau` (Optional, not needed if using nouveau):  
+
+###8. Build and install `libvdpau` (Optional, not needed if using nouveau):  
 ```
     cd libvdpau  
     ./libvdpau.Slackbuild  
     upgradepkg --install-new /tmp/libvdpau-<ver-arch-build>_bbsb.txz  
     cd ..  
 ```
-9. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
+
+###9. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-kernel  
 ```
@@ -133,7 +139,8 @@ Building and Installing
     cd ..  
 ```
   - Note: This will need rebuilt when you upgrade the kernel.  
-10. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
+
+###10. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-bumblebee  
 ```
@@ -151,7 +158,8 @@ Building and Installing
     upgradepkg --install-new /tmp/nvidia-bumblebee-<ver-arch-build>_bbsb.txz  
     cd ..  
 ```
-11. Run the `rc.bumblebee` script:  
+
+###11. Run the `rc.bumblebee` script:  
 ```
      chmod +x /etc/rc.d/rc.bumblebeed  
      /etc/rc.d/rc.bumblebeed start  
@@ -170,9 +178,11 @@ Building and Installing
       /etc/rc.d/rc.bumblebeed stop  
     fi  
 ```
-12. Reboot:  
+
+###12. Reboot:  
   Not really a step, but you need to get all the new goodness started somehow.
-13. Now an application can run with `primusrun`:  
+
+###13. Now an application can run with `primusrun`:  
 ```
     primusrun glxgears  
 ```
