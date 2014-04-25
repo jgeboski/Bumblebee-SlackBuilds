@@ -32,12 +32,12 @@ Notes:
 Building and Installing
 -----------------------
 
-1. Download the sources:  
+##1. Download the sources:  
 ```
     ./download.sh  
 ```
 
-2. Create group bumblebee:  
+##2. Create group bumblebee:  
 ```
     su -
     groupadd bumblebee
