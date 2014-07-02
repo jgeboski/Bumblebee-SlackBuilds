@@ -111,12 +111,10 @@ cd $TMP/${PKGNAM[0]}
     libnvidia-ml.so.$VERSION \
     libnvidia-tls.so.$VERSION \
     libnvidia-wfb.so.$VERSION \
-    libvdpau.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
   install -m 755 \
     libvdpau_nvidia.so.$VERSION \
-    libvdpau_trace.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
 
   install -m 755 \
@@ -148,15 +146,11 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libnvidia-cfg.so.1        libnvidia-cfg.so
     ln -sf libnvidia-ml.so.$VERSION  libnvidia-ml.so.1
     ln -sf libnvidia-ml.so.1         libnvidia-ml.so
-    ln -sf libvdpau.so.$VERSION      libvdpau.so.1
-    ln -sf libvdpau.so.1             libvdpau.so
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
     ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
     ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
-    ln -sf libvdpau_trace.so.$VERSION  libvdpau_trace.so.1
-    ln -sf libvdpau_trace.so.1         libvdpau_trace.so
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
@@ -179,13 +173,11 @@ cd $TMP/${PKGNAM[0]}
       32/libnvidia-glcore.so.$VERSION \
       32/libnvidia-ml.so.$VERSION \
       32/libnvidia-tls.so.$VERSION \
-      32/libvdpau.so.$VERSION \
      $PKG/usr/lib/$PRGNAM
 
     install -m 755 \
       32/libvdpau_nvidia.so.$VERSION \
-      32/libvdpau_trace.so.$VERSION \
-     $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
+     $PKG/usr/lib/$PRGNAM/vdpau
 
     install -m 755 \
       32/tls/libnvidia-tls.so.$VERSION \
@@ -201,15 +193,11 @@ cd $TMP/${PKGNAM[0]}
       ln -sf libcuda.so.1             libcuda.so
       ln -sf libnvidia-ml.so.$VERSION libnvidia-ml.so.1
       ln -sf libnvidia-ml.so.1        libnvidia-ml.so
-      ln -sf libvdpau.so.$VERSION     libvdpau.so.1
-      ln -sf libvdpau.so.1            libvdpau.so
     cd -
 
     cd $PKG/usr/lib/$PRGNAM/vdpau
       ln -sf libvdpau_nvidia.so.$VERSION libvdpau_nvidia.so.1
       ln -sf libvdpau_nvidia.so.1        libvdpau_nvidia.so
-      ln -sf libvdpau_trace.so.$VERSION  libvdpau_trace.so.1
-      ln -sf libvdpau_trace.so.1         libvdpau_trace.so
     cd -
 
     sed -i \
