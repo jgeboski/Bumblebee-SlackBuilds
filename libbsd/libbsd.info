@@ -1,7 +1,7 @@
 PRGNAM="libbsd"
 VERSION="0.7.0"
 HOMEPAGE="http://libbsd.freedesktop.org/wiki/"
-DOWNLOAD="http://libbsd.freedesktop.org/releases/libbsd-0.7.0.tar.xz"
+DOWNLOAD="http://libbsd.freedesktop.org/releases/libbsd-$VERSION.tar.xz"
 MD5SUM="fcceb4e66fd448ca4ed42ba22a8babb0"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
