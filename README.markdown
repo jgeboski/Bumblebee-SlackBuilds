@@ -26,7 +26,31 @@ Slackware based NVIDIA Optimus setup.
   least be disabled when not in use, saving you power, even if you do not
   use the closed source nvidia drivers.
 
+
 ##Building and Installing
+
+### The automatic way:
+
+Note that this script runs as root, and will exit if you already have the repo downloaded.
+ - USE AT YOUR OWN RISK!
+
+If you modify the builds in any way this script IS NOT FOR YOU.
+
+Simply run this as root:
+
+    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | sh
+
+This script will (in addition to installing everything in order):
+
+ - Detect Multilib
+ - Create the necessary /etc/rc.d/rc.local* entries
+ - Create the bumblebee group and add all normal users to it
+
+P.S. This script uses upgradepkg --reinstall --install-new, so you can use it after kernel upgrades.  
+;^)
+
+
+### The manual way:
 
 ###1. Download the sources:  
 ```
@@ -72,7 +96,7 @@ Slackware based NVIDIA Optimus setup.
   the Nvidia card to be turned off, potentially saving you power.  If you 
   do not need power management or the ability to turn off the nVidia chip, 
   you can skip this.
-  - Note: This will need rebuilt when you upgrade the kernel.  
+  - Note: This will need to be rebuilt when you upgrade the kernel.  
 
 ###6. Build and install `primus`:  
 ```
@@ -134,7 +158,7 @@ Slackware based NVIDIA Optimus setup.
     upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
     cd ..  
 ```
-  - Note: This will need rebuilt when you upgrade the kernel.  
+  - Note: This will need to be rebuilt when you upgrade the kernel.  
 
 ###10. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
 ```
