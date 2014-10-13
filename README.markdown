@@ -29,28 +29,35 @@ Slackware based NVIDIA Optimus setup.
 
 ##Building and Installing
 
-### The automatic way:
+### The AUTOMATIC way:
+---
 
 Note that this script runs as root, and will exit if you already have the repo downloaded.
  - USE AT YOUR OWN RISK!
 
 If you modify the builds in any way this script IS NOT FOR YOU.
 
-Simply run this as root:
-
-    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | sh
-
-This script will (in addition to installing everything in order):
+This script will (in addition to downloading & installing everything in order):
 
  - Detect Multilib
  - Create the necessary /etc/rc.d/rc.local* entries
  - Create the bumblebee group and add all normal users to it
+ - Add a reinstall script inside of ~/Bumblebee-SlackBuilds/, to run it, do:
+
+    sh ~/Bumblebee-SlackBuilds/crazybee-reinstall.sh
+
+This script bypasses the repo detection. For updates, delete or rename the ~/Bumblebee-SlackBuilds/ folder and run the standard crazybee script below.
+
+Simply run this as root:
+
+    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | sh
 
 P.S. This script uses upgradepkg --reinstall --install-new, so you can use it after kernel upgrades.  
 ;^)
 
 
-### The manual way:
+### The MANUAL way:
+---
 
 ###1. Download the sources:  
 ```
