@@ -42,7 +42,9 @@ This script will (in addition to downloading & installing everything in order):
  - Detect Multilib
  - Create the necessary /etc/rc.d/rc.local* entries
  - Create the bumblebee group and add all normal users to it
- - Add a reinstall script inside of ~/Bumblebee-SlackBuilds/, to run it, do:
+ - Add a reinstall script inside of ~/Bumblebee-SlackBuilds/
+
+To run it, do:
 
     sh ~/Bumblebee-SlackBuilds/crazybee-reinstall.sh
 
