@@ -141,15 +141,7 @@ P.S. This script uses upgradepkg --reinstall --install-new, so you can use it af
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`  
 
-###8. Build and install `libvdpau` (Optional, not needed if using nouveau):  
-```
-    cd libvdpau  
-    ./libvdpau.Slackbuild  
-    upgradepkg --install-new /tmp/libvdpau-<ver-arch-build>_bbsb.txz  
-    cd ..  
-```
-
-###9. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
+###8. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-kernel  
 ```
@@ -169,7 +161,7 @@ P.S. This script uses upgradepkg --reinstall --install-new, so you can use it af
 ```
   - Note: This will need to be rebuilt when you upgrade the kernel.  
 
-###10. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
+###9. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-bumblebee  
 ```
@@ -188,7 +180,7 @@ P.S. This script uses upgradepkg --reinstall --install-new, so you can use it af
     cd ..  
 ```
 
-###11. Run the `rc.bumblebee` script:  
+###10. Run the `rc.bumblebee` script:  
 ```
      chmod +x /etc/rc.d/rc.bumblebeed  
      /etc/rc.d/rc.bumblebeed start  
@@ -208,10 +200,10 @@ P.S. This script uses upgradepkg --reinstall --install-new, so you can use it af
     fi  
 ```
 
-###12. Reboot:  
+###11. Reboot:  
   Not really a step, but you need to get all the new goodness started somehow.
 
-###13. Now an application can run with `primusrun`:  
+###12. Now an application can run with `primusrun`:  
 ```
     primusrun glxgears  
 ```
