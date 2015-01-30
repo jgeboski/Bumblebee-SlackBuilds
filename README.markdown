@@ -52,8 +52,7 @@ Current:
 
 Stable:
 
-    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | \
-      STABLE=yes sh
+    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | STABLE=yes sh
 
 P.S. This script uses upgradepkg --reinstall --install-new, so you can use it after kernel upgrades.  
 ;^)
