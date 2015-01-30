@@ -46,13 +46,27 @@ This script will (in addition to downloading & installing everything in order):
 
 To run it, do:
 
+Current:
+
     sh ~/Bumblebee-SlackBuilds/crazybee-reinstall.sh
+
+Stable:
+
+    STABLE=yes sh ~/Bumblebee-SlackBuilds/crazybee-reinstall.sh
 
 This script bypasses the repo detection. For updates, delete or rename the ~/Bumblebee-SlackBuilds/ folder and run the standard crazybee script below.
 
 Simply run this as root:
 
+Current:
+
     curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | sh
+
+Stable:
+
+    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | \
+      STABLE=yes sh
+
 
 P.S. This script uses upgradepkg --reinstall --install-new, so you can use it after kernel upgrades.  
 ;^)
