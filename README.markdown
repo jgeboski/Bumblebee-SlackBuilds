@@ -42,20 +42,30 @@ This script will (in addition to downloading & installing everything in order):
  - Detect Multilib
  - Create the necessary /etc/rc.d/rc.local* entries
  - Create the bumblebee group and add all normal users to it
- - Add a reinstall script inside of ~/Bumblebee-SlackBuilds/
-
-To run it, do:
-
-    sh ~/Bumblebee-SlackBuilds/crazybee-reinstall.sh
-
-This script bypasses the repo detection. For updates, delete or rename the ~/Bumblebee-SlackBuilds/ folder and run the standard crazybee script below.
+ - Add a copy of crazybee inside of ~/Bumblebee-SlackBuilds/ for reinstalls
 
 Simply run this as root:
 
+Current:
+
     curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | sh
+
+Stable:
+
+    curl https://raw.githubusercontent.com/ryanpcmcquen/linuxTweaks/master/slackware/crazybee.sh | STABLE=yes sh
 
 P.S. This script uses upgradepkg --reinstall --install-new, so you can use it after kernel upgrades.  
 ;^)
+
+For reinstalls, run:
+
+Current:
+
+    sh ~/Bumblebee-SlackBuilds/crazybee.sh
+
+Stable:
+
+    STABLE=yes sh ~/Bumblebee-SlackBuilds/crazybee.sh
 
 
 ### The MANUAL way:
