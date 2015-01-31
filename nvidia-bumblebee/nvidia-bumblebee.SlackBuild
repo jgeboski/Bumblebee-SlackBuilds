@@ -111,6 +111,8 @@ cd $TMP/${PKGNAM[0]}
     libnvidia-ml.so.$VERSION \
     libnvidia-tls.so.$VERSION \
     libnvidia-wfb.so.$VERSION \
+    libnvidia-gtk2.so.$VERSION \
+    libnvidia-gtk3.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
   install -m 755 \
@@ -213,7 +215,7 @@ cd $TMP/${PKGNAM[1]}
   cd -
 
   CFLAGS="$SLKCFLAGS" make
-  make install BINDIR=$PKG/usr/bin/ mandir=$PKG/usr/man/man1
+  make install BINDIR=$PKG/usr/bin/ mandir=$PKG/usr/man/man1 LIBDIR=$PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/
 
   install -m 644 doc/nvidia-settings.desktop $PKG/usr/share/applications
   install -m 644 doc/nvidia-settings.png     $PKG/usr/share/pixmaps
