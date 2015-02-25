@@ -154,18 +154,7 @@ Stable:
 ###8. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-kernel  
-```
-  For pure 32 or 64 bit systems, build via:
-```
     ./nvidia-kernel.Slackbuild  
-```
-  If the system is x86_64 based, 32-bit compatible binaries and
-  libraries can be built via:  
-```
-    COMPAT32=yes ./nvidia-kernel.SlackBuild  
-```
-  Then install:  
-```
     upgradepkg --install-new /tmp/nvidia-kernel-<ver-arch-build>_bbsb.txz
     cd ..  
 ```
