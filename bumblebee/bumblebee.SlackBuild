@@ -81,6 +81,7 @@ fi
 
 # Default to primus over VirtualGL
 patch -p1 < $CWD/patches/optirun-default-to-primus-then-vgl.patch
+patch -p1 < $CWD/patches/updated-lib32-to-lib64-for-primus-path.patch
 
 autoreconf -fi
 
