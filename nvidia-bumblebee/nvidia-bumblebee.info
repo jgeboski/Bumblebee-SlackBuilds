@@ -1,16 +1,16 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="346.72"
+VERSION="352.21"
 HOMEPAGE="http://www.nvidia.com/"
 DOWNLOAD=" \
   ftp://download.nvidia.com/XFree86/Linux-x86/$VERSION/NVIDIA-Linux-x86-$VERSION.run \
   ftp://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-$VERSION.tar.bz2 \
   ftp://download.nvidia.com/XFree86/nvidia-xconfig/nvidia-xconfig-$VERSION.tar.bz2"
 MD5SUM=" \
-  e295577d8effdc9873624912762e57ee \
-  f3f53f6412219a23cb8aa10c06ff974a \
-  8492a0ee6e4fb076942ce049682b89f2"
+  c91760a04f658845722380f6c7fd4709 \
+  4719fe9ebd4c296e529b8f3e1c5705ae \
+  63eb40b9c26a66381a1a7f5e68b06aa2"
 DOWNLOAD_x86_64="ftp://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.run"
-MD5SUM_x86_64="4542dbad456bde9461143bdcf26965e4"
+MD5SUM_x86_64="60bcf9f25c0736b17a48bf1e060cb271"
 REQUIRES="bumblebee libvdpau nvidia-kernel"
 MAINTAINER="Nick Blizzard"
 EMAIL="nickblizzard1776@gmail.com"
