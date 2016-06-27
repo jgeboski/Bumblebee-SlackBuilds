@@ -27,7 +27,7 @@
 
 PRGNAM=nvidia-kernel
 VERSION=${VERSION:-$(echo NVIDIA-Linux-*.run* | rev | cut -f 2- -d . | cut -f 1 -d - | rev)}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_bbsb}
 
 KERNEL=${KERNEL:-$(uname -r)}
@@ -76,7 +76,7 @@ cd kernel || exit 1
 make SYSSRC=$KERNELPATH module || exit 1
 
 mkdir -p $PKG/lib/modules/$KERNEL/kernel/drivers/video
-install -m 0664 nvidia.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
+install -m 0664 *.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$PKGVER
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$PKGVER/$PRGNAM.SlackBuild
