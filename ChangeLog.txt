@@ -1,3 +1,8 @@
+Sat Mar 25 22:58:12 UTC 2017
+nvidia-bumblebee: upgraded.
+nvidia-kernel: upgraded.
+
++--------------------------+
 Fri Aug 9 15:21:32 UTC 2013
 libbsd: upgraded
 SLACKBUILDS.TXT: removed
