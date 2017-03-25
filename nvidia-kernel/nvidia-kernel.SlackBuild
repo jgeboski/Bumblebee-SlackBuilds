@@ -37,13 +37,13 @@ PKGVER=${VERSION}_$(echo $KERNEL | tr - _)
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
-    i?86) ARCH=i486 ;;
+    i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
        *) ARCH=$( uname -m ) ;;
   esac
 fi
 
-if [ "$ARCH" = "i486" ]; then
+if [ "$ARCH" = "i586" ]; then
   TARGET="x86"
   SRCSUFFIX=""
 elif [ "$ARCH" = "i686" ]; then
@@ -76,7 +76,7 @@ cd kernel || exit 1
 make SYSSRC=$KERNELPATH module || exit 1
 
 mkdir -p $PKG/lib/modules/$KERNEL/kernel/drivers/video
-install -m 0664 nvidia.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
+install -m 0664 *.ko $PKG/lib/modules/$KERNEL/kernel/drivers/video/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$PKGVER
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$PKGVER/$PRGNAM.SlackBuild
