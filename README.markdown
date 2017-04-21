@@ -209,7 +209,6 @@ Stable:
 
 
 ## CUDA:
----
 
 This package is completely compatible with the Nvidia CUDA drivers (provided
 you use the nvidia proprietary drivers). 
@@ -267,7 +266,6 @@ modules need to be properly loaded when you run a CUDA program.
 
 
 ## Nvidia Proprietary Driver:
----
 `nvidia-bumblebee` is the package that installs the nvidia proprietary 
 driver. However, only libraries and tools needed for the core purposes above 
 are installed. This might be a source of issues if you are looking to enable
