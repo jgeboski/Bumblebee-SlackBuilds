@@ -208,13 +208,15 @@ Stable:
 ```
 
 
-### CUDA:
+## CUDA:
 ---
 
 This package is completely compatible with the Nvidia CUDA drivers (provided
 you use the nvidia proprietary drivers). 
 
-### 1. Load the NVIDIA Unified Memory kernel module 
+Note that this is not part of the automatic installation script!
+
+### 1. Load the NVIDIA Unified Memory kernel module `nvidia_uvm`
 
 This module is required by CUDA to run. If you'd like to have `nvidia_uvm` 
 be automatically loaded with your system, you will need to add the
@@ -241,7 +243,7 @@ conflicts with nvidia-bumblebee and will cause problems in your X-server.
 
 ### 3. Configure environment variables
 ```
-PATH=$PATH:/usr/share/cuda/bin
+    PATH=$PATH:/usr/share/cuda/bin
 ```
 
 You also need to allow cuda to find the nvidia libraries. Either add 
@@ -254,10 +256,10 @@ your `$LD_LIBRARY_PATH`. For 32-bit compatible systems also add
 
 ### 4. Verify installation
 ```
-cd /usr/doc/cudatoolkit-*/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
-make
-cd ../../bin/x86*/linux/release
-./deviceQuery
+    cd /usr/doc/cudatoolkit-*/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
+    make
+    cd ../../bin/x86*/linux/release
+    ./deviceQuery
 ```
 If the the very end of the output is `Result = PASS`, then the installation
 was successful. Note that the Nvidia GPU has to be ON and all the kernel
@@ -296,8 +298,8 @@ driver that currently are not included in `nvidia-bumblebee`:
 ```
 And a list of the tools:
 ```
-nvidia-persistenced
-nvidia-debugdump
+    nvidia-persistenced
+    nvidia-debugdump
 ```
 For details on the above read the `README.txt` that becomes available after
 extracting the driver.
