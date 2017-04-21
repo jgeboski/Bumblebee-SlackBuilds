@@ -1,16 +1,16 @@
-#Bumblebee Slackbuilds
+# Bumblebee Slackbuilds
 
 This set of SlackBuilds should get Bumblebee up and running on a
 Slackware based NVIDIA Optimus setup.
 
-##Slackbuilds HowTo:
+## Slackbuilds HowTo:
   If you have never used a SlackBuild before, please refer to the HowTo
   on SlackBuilds.org: http://slackbuilds.org/howto/
 
   All the Slackbuild scripts were designed to be run as root, with root's
   environment. ( i.e. su - )
 
-##Notes:
+## Notes:
   Several of these SlackBuilds support a COMPAT32 option which
   allows 32-bit binaries to be built and packaged.  This does
   require that the system is multilib, otherwise the SlackBuilds 
@@ -27,7 +27,7 @@ Slackware based NVIDIA Optimus setup.
   use the closed source nvidia drivers.
 
 
-##Building and Installing
+## Building and Installing
 
 ### The AUTOMATIC way:
 ---
@@ -71,12 +71,12 @@ Stable:
 ### The MANUAL way:
 ---
 
-###1. Download the sources:  
+### 1. Download the sources:  
 ```
     ./download.sh  
 ```
 
-###2. Create group bumblebee:  
+### 2. Create group bumblebee:  
 ```
     su -
     groupadd bumblebee
@@ -87,7 +87,7 @@ Stable:
 ```
   Note: you will need to re-login as the user for this to take effect.
 
-###3. Build and install `libbsd`:  
+### 3. Build and install `libbsd`:  
 ```
     cd libbsd  
     ./libbsd.Slackbuild  
@@ -95,7 +95,7 @@ Stable:
     cd ..
 ```
 
-###4. Build and install `bumblebee`:  
+### 4. Build and install `bumblebee`:  
 ```
     cd bumblebee  
     ./bumblebee.Slackbuild  
@@ -103,7 +103,7 @@ Stable:
     cd ..  
 ```
 
-###5. Build and install `bbswitch` (Optional but recommended):  
+### 5. Build and install `bbswitch` (Optional but recommended):  
 ```
     cd bbswitch  
     ./bbswitch.Slackbuild  
@@ -117,7 +117,7 @@ Stable:
   you can skip this.
   - Note: This will need to be rebuilt when you upgrade the kernel.  
 
-###6. Build and install `primus`:  
+### 6. Build and install `primus`:  
 ```
     cd primus
 ```
@@ -140,7 +140,7 @@ Stable:
       vblank_mode=0 primusrun
 ```
 
-###7. Blacklist nouveau (or skip steps 8, 9, 10):  
+### 7. Blacklist nouveau (or skip steps 8, 9, 10):  
 ```
     cd nouveau-blacklist
     upgradepkg xf86-video-nouveau-blacklist-noarch-1.txz
@@ -151,7 +151,7 @@ Stable:
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`  
 
-###8. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
+### 8. Build and install `nvidia-kernel` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-kernel  
     ./nvidia-kernel.Slackbuild  
@@ -160,7 +160,7 @@ Stable:
 ```
   - Note: This will need to be rebuilt when you upgrade the kernel.  
 
-###9. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
+### 9. Build and install `nvidia-bumblebee` (Optional, not needed if using nouveau):  
 ```
     cd nvidia-bumblebee  
 ```
@@ -179,7 +179,7 @@ Stable:
     cd ..  
 ```
 
-###10. Run the `rc.bumblebee` script:  
+### 10. Run the `rc.bumblebee` script:  
 ```
      chmod +x /etc/rc.d/rc.bumblebeed  
      /etc/rc.d/rc.bumblebeed start  
@@ -199,10 +199,106 @@ Stable:
     fi  
 ```
 
-###11. Reboot:  
+### 11. Reboot:  
   Not really a step, but you need to get all the new goodness started somehow.
 
-###12. Now an application can run with `primusrun`:  
+### 12. Now an application can run with `primusrun`:  
 ```
     primusrun glxgears  
 ```
+
+
+### CUDA:
+---
+
+This package is completely compatible with the Nvidia CUDA drivers (provided
+you use the nvidia proprietary drivers). 
+
+### 1. Load the NVIDIA Unified Memory kernel module 
+
+This module is required by CUDA to run. If you'd like to have `nvidia_uvm` 
+be automatically loaded with your system, you will need to add the
+following line to `/etc/rc.d/rc.local`:  
+```
+    /usr/bin/nvidia-modprobe -c 0 -u
+```
+- Note that the `nvidia-modprobe` script executed with this arguments will load
+the module and create device communication files `/dev/nvidia-uvm` and 
+`/dev/nvidia-uvm-tools`. These files will not be automatically created
+if you load the module manually via the `modprobe` command.
+
+### 2. Install CUDA Toolkit
+Install the `cudatoolkit` package available on SlackBuilds.org: 
+https://slackbuilds.org/repository/14.2/development/cudatoolkit/. Make sure to 
+select the correct Slackware version. 
+
+- Note that the version of the nvidia driver must be the same as the 
+`cudatoolkit` version or newer
+
+- Note that the `cudatoolkit` package has another dependency `nvidia-driver` 
+also available on SlackBuilds.org. You MUST NOT install this dependency as it 
+conflicts with nvidia-bumblebee and will cause problems in your X-server.
+
+### 3. Configure environment variables
+```
+PATH=$PATH:/usr/share/cuda/bin
+```
+
+You also need to allow cuda to find the nvidia libraries. Either add 
+`/usr/lib64/nvidia-bumblebee` to your `/etc/ld.so.conf` or add it to
+your `$LD_LIBRARY_PATH`. For 32-bit compatible systems also add
+`/usr/lib/nvidia-bumblebee`. Then update the linker
+```
+    ldconfig -v
+```
+
+### 4. Verify installation
+```
+cd /usr/doc/cudatoolkit-*/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
+make
+cd ../../bin/x86*/linux/release
+./deviceQuery
+```
+If the the very end of the output is `Result = PASS`, then the installation
+was successful. Note that the Nvidia GPU has to be ON and all the kernel
+modules need to be properly loaded when you run a CUDA program.
+
+
+## Nvidia Proprietary Driver:
+---
+`nvidia-bumblebee` is the package that installs the nvidia proprietary 
+driver. However, only libraries and tools needed for the core purposes above 
+are installed. This might be a source of issues if you are looking to enable
+additional functionalities. Here is a list of the libraries from the binary
+driver that currently are not included in `nvidia-bumblebee`:
+```
+    libEGL.so.1
+    libEGL.so.$VERSION
+    libEGL_nvidia.so.$VERSION
+    libGL.so.1.0.0
+    libGLESv1_CM.so.1
+    libGLESv1_CM_nvidia.so.$VERSION
+    libGLESv2.so.2
+    libGLESv2_nvidia.so.$VERSION
+    libGLESv1_CM.so.1
+    libGLESv1_CM_nvidia.so.$VERSION
+    libGLESv2.so.2
+    libGLESv2_nvidia.so.$VERSION
+    libGLX.so.0
+    libGLX_nvidia.so.$VERSION
+    libGLdispatch.so.0
+    libOpenGL.so.0
+    libnvidia-eglcore.so.$VERSION
+    libnvidia-ifr.so.$VERSION
+    libnvidia-encode.so.$VERSION
+    libnvidia-egl-wayland.so.$VERSION
+    libnvidia-fbc.so.$VERSION
+```
+And a list of the tools:
+```
+nvidia-persistenced
+nvidia-debugdump
+```
+For details on the above read the `README.txt` that becomes available after
+extracting the driver.
+
