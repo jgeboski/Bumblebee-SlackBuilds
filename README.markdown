@@ -244,6 +244,8 @@ conflicts with nvidia-bumblebee and will cause problems in your X-server.
 ```
     PATH=$PATH:/usr/share/cuda/bin
 ```
+- Note that the above should be executed from a user shell, not root.
+If you want, to make it permanent, paste the above in `~/.bashrc`
 
 You also need to allow cuda to find the nvidia libraries. Either add 
 `/usr/lib64/nvidia-bumblebee` to your `/etc/ld.so.conf` or add it to
@@ -299,6 +301,6 @@ And a list of the tools:
     nvidia-persistenced
     nvidia-debugdump
 ```
-For details on the above read the `README.txt` that becomes available after
-extracting the driver.
+For details on the exact functionality of theese libraries and tools, consult
+the `README.txt` that becomes available after extracting the driver.
 
