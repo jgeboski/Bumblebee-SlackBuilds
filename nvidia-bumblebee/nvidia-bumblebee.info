@@ -10,8 +10,8 @@ MD5SUM=" \
   f83ef4cc2fae60525ea36c73c706fd00 \
   4bc79fdc003a3f6f48c2d7bec15c5822 \
   ea1f2011362d82524ccaf6b4b4e0278f \
-  5fe772b3f142978ef1dd06f83bff1a4"
-DOWNLOAD_x86_64="http://download.nvidia.com/XFree86/Linux_x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.run"
+  85fe772b3f142978ef1dd06f83bff1a4"
+DOWNLOAD_x86_64="http://download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.run"
 MD5SUM_x86_64="3eb14909ea865690ef563f9c831fc941"
 REQUIRES="bumblebee libvdpau nvidia-kernel"
 MAINTAINER="Nick Blizzard"
