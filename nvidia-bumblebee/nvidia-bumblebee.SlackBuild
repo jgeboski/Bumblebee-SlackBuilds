@@ -132,7 +132,7 @@ cd $TMP/${PKGNAM[0]}
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/tls
 
   install -m 755 \
-    libglx.so.$VERSION \
+    libGLX_nvidia.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
 
   install -m 755 \
@@ -174,7 +174,7 @@ cd $TMP/${PKGNAM[0]}
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-    ln -sf libglx.so.$VERSION libglx.so
+    ln -sf libGLX_nvidia.so.$VERSION libglx.so
   cd -
 
   cp -a \
