@@ -103,9 +103,13 @@ cd $TMP/${PKGNAM[0]}
     nvidia-smi \
    $PKG/usr/bin
 
+   # libGL.so.$VERSION \
   install -m 755 \
     libGL.la \
-    libGL.so.$VERSION \
+    libGL.so.1.7.0 \
+    libGLdispatch.so.0 \
+    libGLX.so.0 \
+    libOpenGL.so.0 \
     libOpenCL.so.1.0.0 \
     libcuda.so.$VERSION \
     libnvcuvid.so.$VERSION \
@@ -121,6 +125,8 @@ cd $TMP/${PKGNAM[0]}
     libnvidia-glsi.so.$VERSION \
     libnvidia-opencl.so.$VERSION \
     libnvidia-ptxjitcompiler.so.$VERSION \
+    libGLX_nvidia.so.$VERSION \
+    libEGL_nvidia.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
   install -m 755 \
@@ -132,8 +138,16 @@ cd $TMP/${PKGNAM[0]}
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/tls
 
   install -m 755 \
+     libglxserver_nvidia.so.$VERSION \
+     libGLX_nvidia.so.$VERSION \
+   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules
+
+  install -m 755 \
+    libglxserver_nvidia.so.$VERSION \
     libGLX_nvidia.so.$VERSION \
+    libGLX.so.0 \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
+
 
   install -m 755 \
     nvidia_drv.so \
@@ -145,8 +159,18 @@ cd $TMP/${PKGNAM[0]}
 
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
-    ln -sf libGL.so.$VERSION                        libGL.so.1
+    ln -sf libnvidia-gtk3.so.$VERSION               libnvidia-gtk3.so
+    ln -sf libnvidia-gtk2.so.$VERSION               libnvidia-gtk2.so
+    ln -sf libnvidia-glcore.so.$VERSION             libnvidia-glcore.so
+    ln -sf libGL.so.1.7.0                           libGL.so.1  ####BATMAN
     ln -sf libGL.so.1                               libGL.so
+    ln -sf libOpenGL.so.0                           libOpenGL.so
+    ln -sf libGLdispatch.so.0                       libGLdispatch.so
+    ln -sf libGLX.so.0                              libGLX.so
+    ln -sf libGLX_nvidia.so.$VERSION                libGLX_nvidia.so.1
+    ln -sf libGLX_nvidia.so.1                       libGLX_nvidia.so.0
+    ln -sf libEGL_nvidia.so.$VERSION                libEGL_nvidia.so.1
+    ln -sf libEGL_nvidia.so.1                       libEGL_nvidia.so.0
     ln -sf libOpenCL.so.1.0.0                       libOpenCL.so.1.0
     ln -sf libOpenCL.so.1.0                         libOpenCL.so.1
     ln -sf libOpenCL.so.1                           libOpenCL.so
@@ -174,7 +198,14 @@ cd $TMP/${PKGNAM[0]}
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-    ln -sf libGLX_nvidia.so.$VERSION libglx.so
+    # This shit!
+    ln -sf libGLX.so.0 libglx.so.1
+    #
+    # ln -sf libGLX_nvidia.so.$VERSION libglx.so.1
+    ln -sf libglx.so.1 libglx.so
+    ln -sf libglxserver_nvidia.so.$VERSION libglxserver_nvidia.so.1
+    ln -sf libglxserver_nvidia.so.1 libglxserver_nvidia.so
+
   cd -
 
   cp -a \
@@ -184,18 +215,25 @@ cd $TMP/${PKGNAM[0]}
   if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     mkdir -p $PKG/usr/lib/$PRGNAM/{tls,vdpau}
 
+
+    # 32/libGL.so.$VERSION \
     install -m 755 \
+      32/libGL.so.1.7.0 \
+      32/libGLdispatch.so.0 \
+      32/libGLX.so.0 \
+      32/libnvidia-tls.so.$VERSION \
+      32/libnvidia-glsi.so.$VERSION \
+      32/libGLX_nvidia.so.$VERSION \
+      32/libEGL_nvidia.so.$VERSION \
       32/libGL.la \
-      32/libGL.so.$VERSION \
+      32/libOpenGL.so.0 \
       32/libOpenCL.so.1.0.0 \
       32/libcuda.so.$VERSION \
       32/libnvcuvid.so.$VERSION \
       32/libnvidia-compiler.so.$VERSION \
       32/libnvidia-glcore.so.$VERSION \
       32/libnvidia-ml.so.$VERSION \
-      32/libnvidia-tls.so.$VERSION \
       32/libnvidia-fatbinaryloader.so.$VERSION \
-      32/libnvidia-glsi.so.$VERSION \
       32/libnvidia-opencl.so.$VERSION \
       32/libnvidia-ptxjitcompiler.so.$VERSION \
      $PKG/usr/lib/$PRGNAM
@@ -209,25 +247,35 @@ cd $TMP/${PKGNAM[0]}
      $PKG/usr/lib/$PRGNAM/tls
 
     cd $PKG/usr/lib/$PRGNAM
-      ln -sf libGL.so.$VERSION                        libGL.so.1
-      ln -sf libGL.so.1                               libGL.so
-      ln -sf libOpenCL.so.1.0.0                       libOpenCL.so.1.0
-      ln -sf libOpenCL.so.1.0                         libOpenCL.so.1
-      ln -sf libOpenCL.so.1                           libOpenCL.so
-      ln -sf libcuda.so.$VERSION                      libcuda.so.1
-      ln -sf libcuda.so.1                             libcuda.so
-      ln -sf libnvcuvid.so.$VERSION                   libnvcuvid.so.1
-      ln -sf libnvcuvid.so.1                          libnvcuvid.so
-      ln -sf libnvidia-ml.so.$VERSION                 libnvidia-ml.so.1
-      ln -sf libnvidia-ml.so.1                        libnvidia-ml.so
-      ln -sf libnvidia-fatbinaryloader.so.$VERSION    libnvidia-fatbinaryloader.so.1
-      ln -sf libnvidia-fatbinaryloader.so.1           libnvidia-fatbinaryloader.so
-      ln -sf libnvidia-glsi.so.$VERSION               libnvidia-glsi.so.1
-      ln -sf libnvidia-glsi.so.1                      libnvidia-glsi.so
-      ln -sf libnvidia-opencl.so.$VERSION             libnvidia-opencl.so.1
-      ln -sf libnvidia-opencl.so.1                    libnvidia-opencl.so
-      ln -sf libnvidia-ptxjitcompiler.so.$VERSION     libnvidia-ptxjitcompiler.so.1
-      ln -sf libnvidia-ptxjitcompiler.so.1            libnvidia-ptxjitcompiler.so
+    ln -sf libnvidia-glcore.so.$VERSION             libnvidia-glcore.so
+    ln -sf libGL.so.1.7.0                           libGL.so.1  ##BATMAN
+    ln -sf libGL.so.1                               libGL.so
+    ln -sf libOpenGL.so.0                           libOpenGL.so
+    ln -sf libGLdispatch.so.0                       libGLdispatch.so
+    ln -sf libGLX.so.0                              libglx.so
+    ln -sf libGLX_nvidia.so.$VERSION                libGLX_nvidia.so.1
+    ln -sf libGLX_nvidia.so.1                       libGLX_nvidia.so.0
+    ln -sf libEGL_nvidia.so.$VERSION                libEGL_nvidia.so.1
+    ln -sf libEGL_nvidia.so.1                       libEGL_nvidia.so.0
+    ln -sf libOpenCL.so.1.0.0                       libOpenCL.so.1.0
+    ln -sf libOpenCL.so.1.0                         libOpenCL.so.1
+    ln -sf libOpenCL.so.1                           libOpenCL.so
+    ln -sf libcuda.so.$VERSION                      libcuda.so.1
+    ln -sf libcuda.so.1                             libcuda.so
+    ln -sf libnvcuvid.so.$VERSION                   libnvcuvid.so.1
+    ln -sf libnvcuvid.so.1                          libnvcuvid.so
+    ln -sf libnvidia-cfg.so.$VERSION                libnvidia-cfg.so.1
+    ln -sf libnvidia-cfg.so.1                       libnvidia-cfg.so
+    ln -sf libnvidia-ml.so.$VERSION                 libnvidia-ml.so.1
+    ln -sf libnvidia-ml.so.1                        libnvidia-ml.so
+    ln -sf libnvidia-fatbinaryloader.so.$VERSION    libnvidia-fatbinaryloader.so.1
+    ln -sf libnvidia-fatbinaryloader.so.1           libnvidia-fatbinaryloader.so
+    ln -sf libnvidia-glsi.so.$VERSION               libnvidia-glsi.so.1
+    ln -sf libnvidia-glsi.so.1                      libnvidia-glsi.so
+    ln -sf libnvidia-opencl.so.$VERSION             libnvidia-opencl.so.1
+    ln -sf libnvidia-opencl.so.1                    libnvidia-opencl.so
+    ln -sf libnvidia-ptxjitcompiler.so.$VERSION     libnvidia-ptxjitcompiler.so.1
+    ln -sf libnvidia-ptxjitcompiler.so.1            libnvidia-ptxjitcompiler.so
     cd -
 
     cd $PKG/usr/lib/$PRGNAM/vdpau

@@ -276,8 +276,8 @@ driver that currently are not included in `nvidia-bumblebee`:
 ```
     libEGL.so.1
     libEGL.so.$VERSION
-    libEGL_nvidia.so.$VERSION
-    libGL.so.1.0.0
+    libEGL_nvidia.so.$VERSION **Added**
+    libGL.so.1.0.0 **Added**
     libGLESv1_CM.so.1
     libGLESv1_CM_nvidia.so.$VERSION
     libGLESv2.so.2
@@ -286,10 +286,10 @@ driver that currently are not included in `nvidia-bumblebee`:
     libGLESv1_CM_nvidia.so.$VERSION
     libGLESv2.so.2
     libGLESv2_nvidia.so.$VERSION
-    libGLX.so.0
-    libGLX_nvidia.so.$VERSION
-    libGLdispatch.so.0
-    libOpenGL.so.0
+    libGLX.so.0 **Added**
+    libGLX_nvidia.so.$VERSION *Added**
+    libGLdispatch.so.0 **Added**
+    libOpenGL.so.0 **Added**
     libnvidia-eglcore.so.$VERSION
     libnvidia-ifr.so.$VERSION
     libnvidia-encode.so.$VERSION
