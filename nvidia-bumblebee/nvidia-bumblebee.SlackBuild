@@ -162,7 +162,7 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libnvidia-gtk3.so.$VERSION               libnvidia-gtk3.so
     ln -sf libnvidia-gtk2.so.$VERSION               libnvidia-gtk2.so
     ln -sf libnvidia-glcore.so.$VERSION             libnvidia-glcore.so
-    ln -sf libGL.so.1.7.0                           libGL.so.1  ####BATMAN
+    ln -sf libGL.so.1.7.0                           libGL.so.1  
     ln -sf libGL.so.1                               libGL.so
     ln -sf libOpenGL.so.0                           libOpenGL.so
     ln -sf libGLdispatch.so.0                       libGLdispatch.so
@@ -248,7 +248,7 @@ cd $TMP/${PKGNAM[0]}
 
     cd $PKG/usr/lib/$PRGNAM
     ln -sf libnvidia-glcore.so.$VERSION             libnvidia-glcore.so
-    ln -sf libGL.so.1.7.0                           libGL.so.1  ##BATMAN
+    ln -sf libGL.so.1.7.0                           libGL.so.1  
     ln -sf libGL.so.1                               libGL.so
     ln -sf libOpenGL.so.0                           libOpenGL.so
     ln -sf libGLdispatch.so.0                       libGLdispatch.so
