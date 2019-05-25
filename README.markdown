@@ -277,7 +277,8 @@ driver that currently are not included in `nvidia-bumblebee`:
     libEGL.so.1
     libEGL.so.$VERSION
     libEGL_nvidia.so.$VERSION **Added**
-    libGL.so.1.0.0 **Added**
+    libGL.so.1.7.0 **Added** **Removed for libglvnd**
+    libGL.so.$VERSION **Added**
     libGLESv1_CM.so.1
     libGLESv1_CM_nvidia.so.$VERSION
     libGLESv2.so.2
@@ -305,6 +306,8 @@ For details on the exact functionality of theese libraries and tools, consult
 the `README.txt` that becomes available after extracting the driver.
 
 ## Known issues
+
+#### Resolved
 
 Running `optirun glxgears` or `primusrun glxgears` gives a blank screen and the
 following output.
