@@ -13,7 +13,7 @@ Slackware based NVIDIA Optimus setup.
 ## Notes:
   Several of these SlackBuilds support a COMPAT32 option which
   allows 32-bit binaries to be built and packaged.  This does
-  require that the system is multilib, otherwise the SlackBuilds 
+  require that the system is multilib, otherwise the SlackBuilds
   will fail.
 
   For more information on slackware multilib, visit AlienBOB's wiki:
@@ -111,9 +111,9 @@ Stable:
     cd ..  
 ```
   - Note:
-  This in an optional requirement.  This is the kernel module that allows 
-  the Nvidia card to be turned off, potentially saving you power.  If you 
-  do not need power management or the ability to turn off the nVidia chip, 
+  This in an optional requirement.  This is the kernel module that allows
+  the Nvidia card to be turned off, potentially saving you power.  If you
+  do not need power management or the ability to turn off the nVidia chip,
   you can skip this.
   - Note: This will need to be rebuilt when you upgrade the kernel.  
 
@@ -147,7 +147,7 @@ Stable:
     cd ..
 ```
   - Note:
-  This will blacklist / remove the conflicting nouveau driver from 
+  This will blacklist / remove the conflicting nouveau driver from
   slackware, it will however come back unless you add `xf86-video-nouveau`
   to `/etc/slackpkg/blacklist`  
 
@@ -168,7 +168,7 @@ Stable:
 ```
     ./nvidia-bumblebee.Slackbuild  
 ```
-  If the system is x86_64 based, 32-bit compatible binaries and libraries can 
+  If the system is x86_64 based, 32-bit compatible binaries and libraries can
   be built via:  
 ```
     COMPAT32=yes ./nvidia-bumblebee.SlackBuild  
@@ -211,33 +211,33 @@ Stable:
 ## CUDA:
 
 This package is completely compatible with the Nvidia CUDA drivers (provided
-you use the nvidia proprietary drivers). 
+you use the nvidia proprietary drivers).
 
 Note that this is not part of the automatic installation script!
 
 ### 1. Load the NVIDIA Unified Memory kernel module `nvidia_uvm`
 
-This module is required by CUDA to run. If you'd like to have `nvidia_uvm` 
+This module is required by CUDA to run. If you'd like to have `nvidia_uvm`
 be automatically loaded with your system, you will need to add the
 following line to `/etc/rc.d/rc.local`:  
 ```
     /usr/bin/nvidia-modprobe -c 0 -u
 ```
 - Note that the `nvidia-modprobe` script executed with this arguments will load
-the module and create device communication files `/dev/nvidia-uvm` and 
+the module and create device communication files `/dev/nvidia-uvm` and
 `/dev/nvidia-uvm-tools`. These files will not be automatically created
 if you load the module manually via the `modprobe` command.
 
 ### 2. Install CUDA Toolkit
-Install the `cudatoolkit` package available on SlackBuilds.org: 
-https://slackbuilds.org/repository/14.2/development/cudatoolkit/. Make sure to 
-select the correct Slackware version. 
+Install the `cudatoolkit` package available on SlackBuilds.org:
+https://slackbuilds.org/repository/14.2/development/cudatoolkit/. Make sure to
+select the correct Slackware version.
 
-- Note that the version of the nvidia driver must be the same as the 
+- Note that the version of the nvidia driver must be the same as the
 `cudatoolkit` version or newer
 
-- Note that the `cudatoolkit` package has another dependency `nvidia-driver` 
-also available on SlackBuilds.org. You MUST NOT install this dependency as it 
+- Note that the `cudatoolkit` package has another dependency `nvidia-driver`
+also available on SlackBuilds.org. You MUST NOT install this dependency as it
 conflicts with nvidia-bumblebee and will cause problems in your X-server.
 
 ### 3. Configure environment variables
@@ -247,7 +247,7 @@ conflicts with nvidia-bumblebee and will cause problems in your X-server.
 - Note that the above should be executed from a user shell, not root.
 If you want, to make it permanent, paste the above in `~/.bashrc`
 
-You also need to allow cuda to find the nvidia libraries. Either add 
+You also need to allow cuda to find the nvidia libraries. Either add
 `/usr/lib64/nvidia-bumblebee` to your `/etc/ld.so.conf` or add it to
 your `$LD_LIBRARY_PATH`. For 32-bit compatible systems also add
 `/usr/lib/nvidia-bumblebee`. Then update the linker
@@ -268,8 +268,8 @@ modules need to be properly loaded when you run a CUDA program.
 
 
 ## Nvidia Proprietary Driver:
-`nvidia-bumblebee` is the package that installs the nvidia proprietary 
-driver. However, only libraries and tools needed for the core purposes above 
+`nvidia-bumblebee` is the package that installs the nvidia proprietary
+driver. However, only libraries and tools needed for the core purposes above
 are installed. This might be a source of issues if you are looking to enable
 additional functionalities. Here is a list of the libraries from the binary
 driver that currently are not included in `nvidia-bumblebee`:
@@ -286,10 +286,10 @@ driver that currently are not included in `nvidia-bumblebee`:
     libGLESv1_CM_nvidia.so.$VERSION
     libGLESv2.so.2
     libGLESv2_nvidia.so.$VERSION
-    libGLX.so.0 **Added**
+    libGLX.so.0 **Added** **Removed for libglvnd**
     libGLX_nvidia.so.$VERSION *Added**
-    libGLdispatch.so.0 **Added**
-    libOpenGL.so.0 **Added**
+    libGLdispatch.so.0 **Added** **Removed for libglvnd**
+    libOpenGL.so.0 **Added** **Removed for libglvnd**
     libnvidia-eglcore.so.$VERSION
     libnvidia-ifr.so.$VERSION
     libnvidia-encode.so.$VERSION
@@ -304,3 +304,18 @@ And a list of the tools:
 For details on the exact functionality of theese libraries and tools, consult
 the `README.txt` that becomes available after extracting the driver.
 
+## Known issues
+
+Running `optirun glxgears` or `primusrun glxgears` gives a blank screen and the
+following output.
+
+```
+primus: warning: dropping a frame to avoid deadlock
+XIO:  fatal IO error 11 (Resource temporarily unavailable) on X server ":0"
+      after 35 requests (35 known processed) with 0 events remaining.
+primus: warning: dropping a frame to avoid deadlock
+primus: warning: timeout waiting for display worker
+```
+
+This can be circumvented by `__GLVND_DISALLOW_PATCHING=1 optirun glxgears` or
+`__GLVND_DISALLOW_PATCHING=1 primusrun glxgears`.

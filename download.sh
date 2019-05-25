@@ -22,10 +22,10 @@ for pkg in $PKGS; do
   if [ "$ARCH" = "x86_64" ]; then
     case $pkg in
       nvidia-bumblebee)
-        DOWNLOAD=$(echo $DOWNLOAD | cut -d ' ' -f2-)
+        DOWNLOAD=$(echo $DOWNLOAD | cut -d ' ' -f1-)
         DOWNLOAD="$DOWNLOAD $DOWNLOAD_x86_64"
 
-        MD5SUM=$(echo $MD5SUM | cut -d ' ' -f2-)
+        MD5SUM=$(echo $MD5SUM | cut -d ' ' -f1-)
         MD5SUM="$MD5SUM $MD5SUM_x86_64"
         ;;
       *)
