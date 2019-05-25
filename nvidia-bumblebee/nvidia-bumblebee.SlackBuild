@@ -103,7 +103,6 @@ cd $TMP/${PKGNAM[0]}
     nvidia-smi \
    $PKG/usr/bin
 
-   
 #   libGL.so.$VERSION \
 #   libGLX_nvidia.so.$VERSION \
 #   libEGL_nvidia.so.$VERSION \
@@ -132,6 +131,8 @@ cd $TMP/${PKGNAM[0]}
     libnvidia-glsi.so.$VERSION \
     libnvidia-opencl.so.$VERSION \
     libnvidia-ptxjitcompiler.so.$VERSION \
+    libGLX_nvidia.so.$VERSION \
+    libEGL_nvidia.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
   install -m 755 \
@@ -221,6 +222,7 @@ cd $TMP/${PKGNAM[0]}
 
   if [ "$COMPAT32" = "yes" -a "$ARCH" = "x86_64" ]; then
     mkdir -p $PKG/usr/lib/$PRGNAM/{tls,vdpau}
+
 
     #      32/libGL.so.1.7.0 \
     #      32/libGLX_nvidia.so.$VERSION \
