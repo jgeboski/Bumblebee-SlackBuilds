@@ -131,8 +131,6 @@ cd $TMP/${PKGNAM[0]}
     libnvidia-glsi.so.$VERSION \
     libnvidia-opencl.so.$VERSION \
     libnvidia-ptxjitcompiler.so.$VERSION \
-    libGLX_nvidia.so.$VERSION \
-    libEGL_nvidia.so.$VERSION \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
   install -m 755 \
