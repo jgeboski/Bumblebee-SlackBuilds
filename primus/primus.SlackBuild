@@ -78,11 +78,12 @@ mkdir -p \
   $PKG/usr/bin \
   $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 
+  # PRIMUS_libGLa=/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/libGL.so.1 \
 CXXFLAGS="$SLKCFLAGS" \
 make \
   LIBDIR=lib \
   PRIMUS_LOAD_GLOBAL=/usr/lib${LIBDIRSUFFIX}/libglapi.so.0 \
-  PRIMUS_libGLa=/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/libGL.so.1 \
+  PRIMUS_libGLa=/usr/lib${LIBDIRSUFFIX}/nvidia-bumblebee/libGLX_nvidia.so.0 \
   PRIMUS_libGLd=/usr/lib${LIBDIRSUFFIX}/libGL.so.1
 
 install -m 755 primusrun      $PKG/usr/bin
