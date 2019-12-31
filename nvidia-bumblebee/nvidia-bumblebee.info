@@ -1,5 +1,5 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="430.40"
+VERSION="440.44"
 HOMEPAGE="https://www.nvidia.com/"
 DOWNLOAD=" \
   https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-$VERSION.tar.bz2 \
