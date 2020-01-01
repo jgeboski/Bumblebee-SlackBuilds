@@ -2,7 +2,12 @@ When using a GLVND-only Nvidia driver (435+) with Primus, PRIMUS_libGLa needs to
 
 Suggested-by: Felix Dörre debian@felixdoerre.de
 
-=> Changer dans le script /usr/bin/primusrun ou a la compilation de /usr/lib64/primus/libGL.so
-ou Faire le lien libGL.so.1 -> libGLX_nvidia.so.440.44 dans /usr/lib64/nvidia-bumblebee
+=> Change in the script /usr/bin/primusrun or when compiling /usr/lib64/primus/libGL.so
+or do the link libGL.so.1 -> libGLX_nvidia.so.440.44 inside /usr/lib64/nvidia-bumblebee
 
-Les 2 sont appliques dans Crazybee
+Those changes are done automatically by this update.
+
+Tested with my Dell M4800 laptop with dual graphic card NVIDIA.
+GLX works correctly.
+Tested with :
+> primusrun glxgears

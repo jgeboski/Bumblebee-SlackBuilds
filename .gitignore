@@ -3,3 +3,6 @@
 *.tar.?z*
 *.run
 *~
+.??*~
+git_in
+version
