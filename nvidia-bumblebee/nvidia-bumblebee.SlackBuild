@@ -119,6 +119,7 @@ cd $TMP/${PKGNAM[0]}
     libOpenCL.so.1.0.0 \
     libcuda.so.$VERSION \
     libnvcuvid.so.$VERSION \
+    libnvidia-glvkspirv.so.$VERSION \
     libnvidia-cfg.so.$VERSION \
     libnvidia-compiler.so.$VERSION \
     libnvidia-glcore.so.$VERSION \
@@ -188,6 +189,8 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libnvcuvid.so.1                          libnvcuvid.so
     ln -sf libnvidia-cfg.so.$VERSION                libnvidia-cfg.so.1
     ln -sf libnvidia-cfg.so.1                       libnvidia-cfg.so
+    ln -sf libnvidia-glvkspirv.so.$VERSION          libnvidia-glvkspirv.so.1
+    ln -sf libnvidia-glvkspirv.so.1                 libnvidia-glvkspirv.so
     ln -sf libnvidia-ml.so.$VERSION                 libnvidia-ml.so.1
     ln -sf libnvidia-ml.so.1                        libnvidia-ml.so
     ln -sf libnvidia-fatbinaryloader.so.$VERSION    libnvidia-fatbinaryloader.so.1
@@ -240,6 +243,7 @@ cd $TMP/${PKGNAM[0]}
       32/libOpenCL.so.1.0.0 \
       32/libcuda.so.$VERSION \
       32/libnvcuvid.so.$VERSION \
+      32/libnvidia-glvkspirv.so.$VERSION \
       32/libnvidia-compiler.so.$VERSION \
       32/libnvidia-glcore.so.$VERSION \
       32/libnvidia-ml.so.$VERSION \
@@ -279,6 +283,8 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libcuda.so.1                             libcuda.so
     ln -sf libnvcuvid.so.$VERSION                   libnvcuvid.so.1
     ln -sf libnvcuvid.so.1                          libnvcuvid.so
+    ln -sf libnvidia-glvkspirv.so.$VERSION          libnvidia-glvkspirv.so.1
+    ln -sf libnvidia-glvkspirv.so.1                 libnvidia-glvkspirv.so
     ln -sf libnvidia-cfg.so.$VERSION                libnvidia-cfg.so.1
     ln -sf libnvidia-cfg.so.1                       libnvidia-cfg.so
     ln -sf libnvidia-ml.so.$VERSION                 libnvidia-ml.so.1

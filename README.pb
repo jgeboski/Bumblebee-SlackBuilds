@@ -5,7 +5,7 @@ Suggested-by: Felix Dörre debian@felixdoerre.de
 => Change in the script /usr/bin/primusrun or when compiling /usr/lib64/primus/libGL.so
 or do the link libGL.so.1 -> libGLX_nvidia.so.440.44 inside /usr/lib64/nvidia-bumblebee
 
-Twice are done in this fork.
+Those changes are done automatically by this update.
 
 Tested with my Dell M4800 laptop with dual graphic card NVIDIA.
 GLX works correctly.
