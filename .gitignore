@@ -6,3 +6,5 @@
 .??*~
 git_in
 version
+primus_vk/vk_dispatch_table_helper.h
+*.zip
