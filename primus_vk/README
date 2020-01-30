@@ -1,0 +1,14 @@
+# Primus-vk
+
+This Vulkan layer can be used to do GPU offloading.
+Typically you want to display an image rendered on a more powerful GPU on a display managed by an internal GPU.
+
+It is basically the same as Primus for OpenGL (https://github.com/amonakov/primus).
+However it does not wrap the Vulkan API from the application but is directly integrated
+into Vulkan as a layer (which seems to be the intendend way to implement such logic).
+
+## Usage
+
+Run crazybee.sh to redo the Slackware Bumblebee packages.
+
+You need to recompile nvidia-bumblebee which add libnvidia-glvkspirv.so library which is needed by primus_vk
