@@ -1,0 +1,54 @@
+#! /bin/sh
+
+# Auteur : Pierre Brochard (pierre.brochard.1982@m4x.org)
+# Date : 13/9/2011
+
+# Met a jour dans git.
+# git remote -v
+# git remote set-url origin  https://github.com/WhiteWolf1776/Bumblebee-SlackBuilds.git
+# git remote set-url origin  https://github.com/BrunoLafleur/Bumblebee-SlackBuilds.git
+# git push
+# git pull
+
+SAVEPROD=..
+REMPNAME=`basename $0`
+
+if [ "$0" != "./$REMPNAME" ] ;then
+	echo "Commande a lancer dans le repertoire contenant ce script"
+	echo "en tapant : ./$REMPNAME"
+	exit 1
+fi
+
+MYPWD=`pwd -P`
+
+if [ $? -eq 1 ] ;then
+    MYPWD=`pwd`
+    CDPAR=
+else
+    CDPAR='-P'
+fi
+
+FVERSION=version
+VERSION=`basename $MYPWD`
+XARCHIVE=$SAVEPROD/${VERSION}.git
+XTAG="`cat $FVERSION|fgrep $VERSION|sed 's/^.* //'`"
+
+echo "Mise a jour git et creation archive git."
+echo "----------------------------------------"
+
+find . '(' -name '*%' -o -name '*~' -o -name '#*#' -o -name '.??*%' \
+    -o -name '.??*~' -o -name '.#*#' -o -name 'core' -o -name 'gmon.out' ')' \
+    -user $USER -type f -exec \rm -f '{}' \;
+git add .
+git add -u
+git commit -F $FVERSION
+git tag -f "$XTAG" HEAD
+git bundle create $XARCHIVE HEAD
+
+echo "Creation archive tgz."
+echo "---------------------"
+
+cd $CDPAR $SAVEPROD
+tar cfz ${VERSION}.tgz $VERSION
+
+echo "Fait."

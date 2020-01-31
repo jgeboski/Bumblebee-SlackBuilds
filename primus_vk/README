@@ -7,8 +7,20 @@ It is basically the same as Primus for OpenGL (https://github.com/amonakov/primu
 However it does not wrap the Vulkan API from the application but is directly integrated
 into Vulkan as a layer (which seems to be the intendend way to implement such logic).
 
-## Usage
+## Install
 
 Run crazybee.sh to redo the Slackware Bumblebee packages.
 
-You need to recompile nvidia-bumblebee which add libnvidia-glvkspirv.so library which is needed by primus_vk
+Or :
+  -Compile primus_vk :
+  > COMPT32=yes ./primus_vk.SlackBuild
+  > upgradepkg --install-new /tmp/primus_vk-*
+
+  -You need to recompile nvidia-bumblebee which add libnvidia-glvkspirv.so library which is needed by primus_vk :
+  > cd ../nvidia-bumblebee/
+  > COMPT32=yes ./nvidia-bumblebee.SlackBuild
+  > upgradepkg --install-new --reinstall /tmp/nvidia-bumblebee-*
+
+## Usage
+
+> pvkrun command args
