@@ -6,12 +6,12 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
       |-----handy-ruler------------------------------------------------------|
-primus: primus_vk (Vulkan offloading)
-primus:
-primus: This Vulkan layer can be used to do GPU offloading.
-primus: Typically you want to display an image rendered on a more powerful
-primus: GPU on a display managed by an internal GPU.
-primus:
-primus: Homepage: https://github.com/amonakov/primus/
-primus:
-primus:
+primus_vk: primus_vk (Vulkan offloading)
+primus_vk:
+primus_vk: This Vulkan layer can be used to do GPU offloading.
+primus_vk: Typically you want to display an image rendered on a more powerful
+primus_vk: GPU on a display managed by an internal GPU.
+primus_vk:
+primus_vk: Homepage: https://github.com/felixdoerre/primus_vk/
+primus_vk:
+primus_vk:
