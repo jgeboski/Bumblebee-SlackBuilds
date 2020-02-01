@@ -86,6 +86,7 @@ install_latest_pkg bumblebee
 install_latest_pkg bbswitch
 
 install_latest_pkg_compat primus
+install_latest_pkg_compat primus_vk
 
 cd ../nouveau-blacklist/
 upgradepkg --reinstall xf86-video-nouveau-blacklist-noarch-1.txz
