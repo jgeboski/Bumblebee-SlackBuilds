@@ -3,7 +3,7 @@ When using a GLVND-only Nvidia driver (435+) with Primus, PRIMUS_libGLa needs to
 Suggested-by: Felix Dörre debian@felixdoerre.de
 
 => Change in the script /usr/bin/primusrun or when compiling /usr/lib64/primus/libGL.so
-or do the link libGL.so.1 -> libGLX_nvidia.so.440.44 inside /usr/lib64/nvidia-bumblebee
+or do the link libGL.so.1 -> libGLX_nvidia.so.440.64 inside /usr/lib64/nvidia-bumblebee
 
 Those changes are done automatically by this update.
 

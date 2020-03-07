@@ -1,3 +1,7 @@
+Sat Mar  7 09:41:40 CET 2020
+Upgraded to nvidia driver 440.64
+
++--------------------------+
 Sat Jan 13 22:52:12 UTC 2018
 nvidia-bumblebee: upgraded.
 nvidia-kernel: upgraded.
