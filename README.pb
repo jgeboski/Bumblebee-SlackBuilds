@@ -8,6 +8,9 @@ or do the link libGL.so.1 -> libGLX_nvidia.so.440.64 inside /usr/lib64/nvidia-bu
 Those changes are done automatically by this update.
 
 Tested with my Dell M4800 laptop with dual graphic card NVIDIA.
-GLX works correctly.
-Tested with :
+GLX works correctly, tested with :
+> primusrun glxinfo
 > primusrun glxgears
+
+Vulkan works, tested with :
+> pvkrun vkcube
