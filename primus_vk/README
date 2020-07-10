@@ -13,12 +13,12 @@ Run crazybee.sh to redo the Slackware Bumblebee packages.
 
 Or :
   -Compile primus_vk :
-  > COMPT32=yes ./primus_vk.SlackBuild
+  > COMPAT32=yes ./primus_vk.SlackBuild
   > upgradepkg --install-new /tmp/primus_vk-*
 
   -You need to recompile nvidia-bumblebee which add libnvidia-glvkspirv.so library which is needed by primus_vk :
   > cd ../nvidia-bumblebee/
-  > COMPT32=yes ./nvidia-bumblebee.SlackBuild
+  > COMPAT32=yes ./nvidia-bumblebee.SlackBuild
   > upgradepkg --install-new --reinstall /tmp/nvidia-bumblebee-*
 
 ## Usage
