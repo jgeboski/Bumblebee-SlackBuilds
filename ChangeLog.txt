@@ -1,3 +1,11 @@
+Sun Jul 12 15:53:32 CET 2020
+Upgraded to nvidia driver 450.57
+
++--------------------------+
+Thu Jun 25 12:31:32 CET 2020
+Upgraded to nvidia driver 440.100
+
++--------------------------+
 Sun Apr 12 11:41:40 CET 2020
 Upgraded to nvidia driver 440.82
 
@@ -25,7 +33,7 @@ SLACKBUILDS.TXT: removed
 Wed Aug 7 00:36:48 UTC 2013
 All Slackbuild scripts now auto version set. This should help future updates.
 libvdpau: upgraded
-prmus: upgraded
+primus: upgraded
 
 +--------------------------+
 Tue Aug 06 12:49:16 UTC 2013
