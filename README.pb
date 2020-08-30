@@ -1,4 +1,5 @@
-When using a GLVND-only Nvidia driver (435+) with Primus, PRIMUS_libGLa needs to point to libGLX_nvidia.so.0 to work. Add an option to override the default hard-coded libGL.so.1, set its default to the old value and document its purpose in the configuration file.
+When using a GLVND-only Nvidia driver (435+) with Primus, PRIMUS_libGLa needs to point to libGLX_nvidia.so.0 to work.
+Add an option to override the default hard-coded libGL.so.1, set its default to the old value and document its purpose in the configuration file.
 
 Suggested-by: Felix Dörre debian@felixdoerre.de
 
