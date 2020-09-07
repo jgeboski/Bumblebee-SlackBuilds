@@ -147,9 +147,7 @@ cd $TMP/${PKGNAM[0]}
 # libGLX_nvidia.so.$VERSION \
   install -m 755 \
     libglxserver_nvidia.so.$VERSION \
-    libGLX.so.0 \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-
 
   install -m 755 \
     nvidia_drv.so \
@@ -158,7 +156,6 @@ cd $TMP/${PKGNAM[0]}
   install -m 644 nvidia.icd                     $PKG/etc/OpenCL/vendors
   install -m 644 nvidia-smi.1.gz                $PKG/usr/man/man1/
   install -m 644 nvidia-cuda-mps-control.1.gz   $PKG/usr/man/man1/
-
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
     ln -sf libnvidia-gtk3.so.$VERSION               libnvidia-gtk3.so
@@ -207,14 +204,11 @@ cd $TMP/${PKGNAM[0]}
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-    # This shit!
-    ln -sf libGLX.so.0 libglx.so.1
-    #
-    # ln -sf libGLX_nvidia.so.$VERSION libglx.so.1
+    ln -sf libglxserver_nvidia.so.$VERSION libGLX.so
+    ln -sf libglxserver_nvidia.so.$VERSION libglx.so.1
     ln -sf libglx.so.1 libglx.so
     ln -sf libglxserver_nvidia.so.$VERSION libglxserver_nvidia.so.1
     ln -sf libglxserver_nvidia.so.1 libglxserver_nvidia.so
-
   cd -
 
   cp -a \
