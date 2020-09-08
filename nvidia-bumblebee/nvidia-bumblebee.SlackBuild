@@ -147,9 +147,7 @@ cd $TMP/${PKGNAM[0]}
 # libGLX_nvidia.so.$VERSION \
   install -m 755 \
     libglxserver_nvidia.so.$VERSION \
-    libGLX.so.0 \
    $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-
 
   install -m 755 \
     nvidia_drv.so \
@@ -159,7 +157,6 @@ cd $TMP/${PKGNAM[0]}
   install -m 644 nvidia-smi.1.gz                $PKG/usr/man/man1/
   install -m 644 nvidia-cuda-mps-control.1.gz   $PKG/usr/man/man1/
 
-
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
     ln -sf libnvidia-gtk3.so.$VERSION               libnvidia-gtk3.so
     ln -sf libnvidia-gtk2.so.$VERSION               libnvidia-gtk2.so
@@ -168,7 +165,7 @@ cd $TMP/${PKGNAM[0]}
     # ln -sf libGL.so.$VERSION                        libGL.so.1
     # Pour primus ou changer dans le script primusrun
     # ln -sf libGL.so.1.7.0                           libGL.so.1
-    ln -s libGLX_nvidia.so.$VERSION                   libGL.so.1
+    ln -sf libGLX_nvidia.so.$VERSION                   libGL.so.1
     ln -sf libGL.so.1                               libGL.so.1.0.0
     ln -sf libGL.so.1                               libGL.so
     # ln -sf libOpenGL.so.0                           libOpenGL.so
@@ -197,6 +194,8 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libnvidia-opencl.so.1                    libnvidia-opencl.so
     ln -sf libnvidia-ptxjitcompiler.so.$VERSION     libnvidia-ptxjitcompiler.so.1
     ln -sf libnvidia-ptxjitcompiler.so.1            libnvidia-ptxjitcompiler.so
+    ln -sf libnvidia-tls.so.$VERSION     libnvidia-tls.so.1
+    ln -sf libnvidia-tls.so.1            libnvidia-tls.so
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/vdpau
@@ -205,14 +204,11 @@ cd $TMP/${PKGNAM[0]}
   cd -
 
   cd $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/xorg/modules/extensions
-    # This shit!
-    ln -sf libGLX.so.0 libglx.so.1
-    #
-    # ln -sf libGLX_nvidia.so.$VERSION libglx.so.1
+    ln -sf libglxserver_nvidia.so.$VERSION libGLX.so
+    ln -sf libglxserver_nvidia.so.$VERSION libglx.so.1
     ln -sf libglx.so.1 libglx.so
     ln -sf libglxserver_nvidia.so.$VERSION libglxserver_nvidia.so.1
     ln -sf libglxserver_nvidia.so.1 libglxserver_nvidia.so
-
   cd -
 
   cp -a \
@@ -279,8 +275,6 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libnvcuvid.so.1                          libnvcuvid.so
     ln -sf libnvidia-glvkspirv.so.$VERSION          libnvidia-glvkspirv.so.1
     ln -sf libnvidia-glvkspirv.so.1                 libnvidia-glvkspirv.so
-    ln -sf libnvidia-cfg.so.$VERSION                libnvidia-cfg.so.1
-    ln -sf libnvidia-cfg.so.1                       libnvidia-cfg.so
     ln -sf libnvidia-ml.so.$VERSION                 libnvidia-ml.so.1
     ln -sf libnvidia-ml.so.1                        libnvidia-ml.so
     ln -sf libnvidia-glsi.so.$VERSION               libnvidia-glsi.so.1
@@ -289,6 +283,8 @@ cd $TMP/${PKGNAM[0]}
     ln -sf libnvidia-opencl.so.1                    libnvidia-opencl.so
     ln -sf libnvidia-ptxjitcompiler.so.$VERSION     libnvidia-ptxjitcompiler.so.1
     ln -sf libnvidia-ptxjitcompiler.so.1            libnvidia-ptxjitcompiler.so
+    ln -sf libnvidia-tls.so.$VERSION     libnvidia-tls.so.1
+    ln -sf libnvidia-tls.so.1            libnvidia-tls.so
     cd -
 
     cd $PKG/usr/lib/$PRGNAM/vdpau
