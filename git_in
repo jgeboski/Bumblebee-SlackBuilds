@@ -5,8 +5,8 @@
 
 # Met a jour dans git.
 # git remote -v
-# git remote set-url origin  https://github.com/WhiteWolf1776/Bumblebee-SlackBuilds.git
-# git remote set-url origin  https://github.com/BrunoLafleur/Bumblebee-SlackBuilds.git
+# git remote set-url origin https://github.com/WhiteWolf1776/Bumblebee-SlackBuilds.git
+# git remote set-url origin https://github.com/BrunoLafleur/Bumblebee-SlackBuilds.git
 # git push
 # git pull
 
@@ -14,9 +14,9 @@ SAVEPROD=..
 REMPNAME=`basename $0`
 
 if [ "$0" != "./$REMPNAME" ] ;then
-	echo "Commande a lancer dans le repertoire contenant ce script"
-	echo "en tapant : ./$REMPNAME"
-	exit 1
+    echo "Commande a lancer dans le repertoire contenant ce script"
+    echo "en tapant : ./$REMPNAME"
+    exit 1
 fi
 
 MYPWD=`pwd -P`
