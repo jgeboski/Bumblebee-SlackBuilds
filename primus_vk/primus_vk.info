@@ -1,5 +1,5 @@
 PRGNAM="primus_vk"
-VERSION="1.5"
+VERSION="master"
 HOMEPAGE="https://github.com/felixdoerre/primus_vk/"
 DOWNLOAD="https://github.com/felixdoerre/primus_vk/archive/v${VERSION}.tar.gz"
 MD5SUM="f66d025c464025d7d80fb5c2204a32b9"
