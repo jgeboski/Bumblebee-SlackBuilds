@@ -1,5 +1,5 @@
 PRGNAM="nvidia-bumblebee"
-VERSION="450.80.02"
+VERSION="455.45.01"
 HOMEPAGE="https://www.nvidia.com/"
 DOWNLOAD=" \
   https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-$VERSION.tar.bz2 \
