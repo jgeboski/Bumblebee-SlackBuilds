@@ -1,0 +1,84 @@
+diff -ru5 Bumblebee-3.2.1old/src/bbconfig.h Bumblebee-3.2.1/src/bbconfig.h
+--- Bumblebee-3.2.1old/src/bbconfig.h	2013-04-26 17:44:14.000000000 +0200
++++ Bumblebee-3.2.1/src/bbconfig.h	2021-01-21 19:32:14.000000000 +0100
+@@ -100,11 +100,11 @@
+     PM_AUTO, /* at detection time, this value will be changed */
+     PM_BBSWITCH,
+     PM_VGASWITCHEROO,
+     PM_METHODS_COUNT /* not a method but a marker for the end */
+ };
+-const char *bb_pm_method_string[PM_METHODS_COUNT];
++extern const char *bb_pm_method_string[PM_METHODS_COUNT];
+ 
+ /* String buffer size */
+ #define BUFFER_SIZE 1024
+ 
+ /* Structure containing the status of the application */
+diff -ru5 Bumblebee-3.2.1old/src/bbsecondary.c Bumblebee-3.2.1/src/bbsecondary.c
+--- Bumblebee-3.2.1old/src/bbsecondary.c	2013-04-26 17:44:14.000000000 +0200
++++ Bumblebee-3.2.1/src/bbsecondary.c	2021-01-21 19:41:20.000000000 +0100
+@@ -35,10 +35,12 @@
+ #include "bblogger.h"
+ #include "bbconfig.h"
+ #include "pci.h"
+ #include "module.h"
+ 
++struct pci_bus_id *pci_bus_id_discrete = NULL;
++
+ /**
+  * Substitutes DRIVER in the passed path
+  * @param x_conf_file A path to be processed
+  * @param driver The replacement for each occurence of DRIVER
+  * @return A path to xorg.conf with DRIVER substituted for the driver
+diff -ru5 Bumblebee-3.2.1old/src/bbsecondary.h Bumblebee-3.2.1/src/bbsecondary.h
+--- Bumblebee-3.2.1old/src/bbsecondary.h	2013-04-26 17:44:14.000000000 +0200
++++ Bumblebee-3.2.1/src/bbsecondary.h	2021-01-21 19:40:41.000000000 +0100
+@@ -27,11 +27,11 @@
+  *         /etc/X11/X -> /usr/bin/Xorg
+  */
+ #define XORG_BINARY "Xorg"
+ 
+ /* PCI Bus ID of the discrete video card */
+-struct pci_bus_id *pci_bus_id_discrete;
++extern struct pci_bus_id *pci_bus_id_discrete;
+ 
+ /// Start the X server by fork-exec, turn card on if needed.
+ bool start_secondary(bool);
+ 
+ /// Kill the second X server if any, turn card off if requested.
+diff -ru5 Bumblebee-3.2.1old/src/switch/switching.c Bumblebee-3.2.1/src/switch/switching.c
+--- Bumblebee-3.2.1old/src/switch/switching.c	2013-04-26 17:44:14.000000000 +0200
++++ Bumblebee-3.2.1/src/switch/switching.c	2021-01-21 19:38:37.000000000 +0100
+@@ -21,10 +21,12 @@
+ #include <stddef.h>
+ #include <string.h>
+ #include "../bblogger.h"
+ #include "switching.h"
+ 
++struct switching_method *switcher = NULL;
++
+ /* increase SWITCHERS_COUNT in switching.h when more methods are added */
+ struct switching_method switching_methods[SWITCHERS_COUNT] = {
+   {"bbswitch", 1, bbswitch_status, bbswitch_is_available,
+           bbswitch_on, bbswitch_off},
+   {"switcheroo", 0, switcheroo_status, switcheroo_is_available,
+diff -ru5 Bumblebee-3.2.1old/src/switch/switching.h Bumblebee-3.2.1/src/switch/switching.h
+--- Bumblebee-3.2.1old/src/switch/switching.h	2013-04-26 17:44:14.000000000 +0200
++++ Bumblebee-3.2.1/src/switch/switching.h	2021-01-21 19:44:53.000000000 +0100
+@@ -58,14 +58,14 @@
+ void switcheroo_on(void);
+ void switcheroo_off(void);
+ 
+ /* number of switchers as defined in switching.c */
+ #define SWITCHERS_COUNT 2
+-struct switching_method switching_methods[SWITCHERS_COUNT];
++extern struct switching_method switching_methods[SWITCHERS_COUNT];
+ 
+ /* A switching method that can be used or NULL if none */
+-struct switching_method *switcher;
++extern struct switching_method *switcher;
+ 
+ struct switching_method *switcher_detect(const char *name, struct switch_info);
+ enum switch_state switch_status(void);
+ enum switch_state switch_on(void);
+ enum switch_state switch_off(void);

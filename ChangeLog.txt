@@ -1,3 +1,8 @@
+Thu Jan 21 15:53:32 CET 2021
+bbswitch patch for kernel 5.6+
+bumblebee patch for gcc10
+
++--------------------------+
 Sun Oct 11 15:53:32 CET 2020
 Upgraded to nvidia driver 450.80.02
 
