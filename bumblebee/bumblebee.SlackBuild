@@ -25,7 +25,7 @@
 
 PRGNAM=bumblebee
 VERSION=${VERSION:-$(echo ${PRGNAM}-*.tar.?z* | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_bbsb}
 
 if [ -z "$ARCH" ]; then
@@ -83,6 +83,9 @@ fi
 patch -p1 < $CWD/patches/optirun-default-to-primus-then-vgl.patch
 patch -p1 < $CWD/patches/updated-lib32-to-lib64-for-primus-path.patch
 patch -p1 < $CWD/patches/bumblebee-gcc10.patch
+
+# Patch to compile in GCC 10
+patch -p1 < $CWD/patches/bumblebee-ggc10.patch
 
 autoreconf -fi
 
