@@ -84,7 +84,7 @@ patch -p1 < $CWD/patches/optirun-default-to-primus-then-vgl.patch
 patch -p1 < $CWD/patches/updated-lib32-to-lib64-for-primus-path.patch
 
 # Patch to compile in GCC 10
-patch -p1 < $CWD/patches/bumblebee-ggc10.patch
+patch -p1 < $CWD/patches/bumblebee-gcc10.patch
 
 autoreconf -fi
 
