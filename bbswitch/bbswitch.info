@@ -1,7 +1,7 @@
 PRGNAM="bbswitch"
 VERSION="0.8"
 HOMEPAGE="https://github.com/Bumblebee-Project/bbswitch/"
-DOWNLOAD="https://github.com/Bumblebee-Project/bbswitch/archive/v0.8.tar.gz"
+DOWNLOAD="https://github.com/Bumblebee-Project/bbswitch/archive/v$VERSION.tar.gz"
 MD5SUM="5b116b31ace3604ddf9d1fc1f4bc5807"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
