@@ -56,7 +56,7 @@ else
 fi
 
 # Get vk_layer_dispatch_table.h for your installed Vulkan.
-SDKVER=$(ls -dt /usr/doc/vulkan-*|head -1|cut -d '-' -f2-)
+SDKVER=$(ls -dt /usr/doc/vulkan-*|head -1|cut -d '-' -f2-|cut -d '.' -f1-3)
 SDKURL='https://github.com/KhronosGroup/Vulkan-Loader/raw'
 wget -N -nv "$SDKURL/$SDKVER/loader/generated/vk_layer_dispatch_table.h"
 
