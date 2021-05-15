@@ -1,4 +1,8 @@
 +--------------------------+
+Sat May 15 15:53:32 CET 2021
+Upgraded to nvidia driver 460.80
+
++--------------------------+
 Ven Mar 26 15:53:32 CET 2021
 primus_vk upload vk_layer_dispatch_table.h patched
 
