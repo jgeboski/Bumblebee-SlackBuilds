@@ -1,4 +1,8 @@
 +--------------------------+
+Mon Nov 01 15:53:32 CET 2021
+Upgraded to nvidia driver 470.82.00
+
++--------------------------+
 Thu Aug 19 15:53:32 CET 2021
 Upgraded to nvidia driver 470.63.01
 
